@@ -95,7 +95,7 @@ import { TokenIntercepterService } from './Intercepters/token-intercepter.servic
     FormsModule,
   ],
   providers: [
-      
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntercepterService,
