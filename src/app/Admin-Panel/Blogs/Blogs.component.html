@@ -1,0 +1,36 @@
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button class="btn btn-primary" (click)="openDialog()">Add Data</button>
+
+    <mat-toolbar-row class="blogs" >
+              <mat-menu #menu='matMenu'>
+                <button mat-button [matMenuTriggerFor]="menu" class="btn btn-submit"> preference </button>
+                <button mat-menu-item  *ngFor="let i of subpreference " >{{i.topic}}</button>
+                <!-- *ngIf="i.blogId == preference" -->
+                </mat-menu>
+
+        <!-- <button class="btn btn-success" routerLink="/Politics">Politics</button>
+        <button class="btn btn-success" routerLink="/Technologys">Technology</button> -->
+      </mat-toolbar-row>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- <ng-container *ngFor="let i of subpreference">
+  <mat-option *ngIf= "i.blogId == preference"  [value]="i.topic">
+    {{i.topic}}
+  </mat-option>
+</ng-container> -->
+
+
+
+<!-- <h1>Hello</h1> -->
+
+<!-- *ngIf="i.blogId == preference" -->
+
+
+
+
+
+
+

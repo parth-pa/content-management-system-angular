@@ -1,0 +1,31 @@
+.card{
+  width: 1000px;
+  height: 550px;
+  /* margin-top: 3%; */
+  /* box-shadow: 3px; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  /* border-radius: 10px; */
+  background-color: white;
+  }
+
+  form{
+  padding: 2%;
+  /* margin: 3%; */
+  }
+
+  button{
+
+    margin: 1%;
+  }
+
+  label , option{
+
+  color: black;
+
+  }
+
+  mat-toolbar{
+
+    background-color:whitesmoke;
+  }
+

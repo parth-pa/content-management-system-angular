@@ -1,0 +1,30 @@
+.btn-color{
+  background-color: #0e1c36;
+  color: #fff;
+
+}
+
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}
+
+.eroor{
+  height: 20px;
+  margin-top: 2px;
+  outline: 2px solid red;
+  color: rgb(201, 113, 113);
+  text-align: center;
+  background-color:rgb(201, 113, 113) ;
+}
