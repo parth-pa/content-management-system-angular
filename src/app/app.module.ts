@@ -1,3 +1,4 @@
+import { KeyclockRegisterComponent } from './keyclock-register/keyclock-register.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms'
@@ -55,6 +56,7 @@ import { TokenIntercepterService } from './Intercepters/token-intercepter.servic
     HeaderComponent,
     FooterComponent,
     KeyCloakLoginComponent,
+    KeyclockRegisterComponent,
     AdminComponent,
     BodyComponent,
     SportsComponent,

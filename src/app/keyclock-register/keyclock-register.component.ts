@@ -9,7 +9,6 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
   styleUrls: ['./keyclock-register.component.css'],
 })
 export class KeyclockRegisterComponent {
-
   data: any = [];
   department: any = [];
   selectedDepartment: any = [];
@@ -71,7 +70,7 @@ export class KeyclockRegisterComponent {
             this.form.value.prefrence?.toString()
           );
 
-          this._router.navigate(['login']);
+          this._router.navigate(['keycloakLogin']);
         },
         (error) => {
           this.isError = true;
@@ -83,8 +82,6 @@ export class KeyclockRegisterComponent {
       this.isValid = false;
     }
   }
-
-  
 
   changeDepartment(e: any) {
     this.selectedDepartment = e.target.value;

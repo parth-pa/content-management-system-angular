@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card my-5">
-        <form class="card-body cardbody-color">
+        <form class="card-body cardbody-color" [formGroup]="form">
           <div class="text-center">
             <img
               src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png"
@@ -91,7 +91,7 @@
             </div>
             <div id="emailHelp" class="form-text text-center mb-5 text-dark">
               Already Registered?
-              <a href="#" class="text-dark fw-bold" routerLink="/login">
+              <a href="#" class="text-dark fw-bold" routerLink="/keycloakLogin">
                 Go to login</a
               >
             </div>
