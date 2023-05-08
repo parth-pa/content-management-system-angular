@@ -11,7 +11,7 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 })
 export class AdminComponent implements OnInit {
   @Input()
-  menuType!: string;
+  userType!: string;
   @Input()
   isLogin!: boolean;
   opened = false;
@@ -38,8 +38,8 @@ export class AdminComponent implements OnInit {
 
   logOut() {
     this._apiService.remove();
-    this._router.navigate(['keycloakLogin']);
+    this._router.navigate(['keycloakLogin'],{ replaceUrl: true });
     this.opened = false;
-    this.menuType = 'defult';
+    this.userType = 'defult';
   }
 }

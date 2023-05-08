@@ -9,7 +9,7 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 })
 export class AppComponent implements OnInit {
   title = 'CMS';
-  menuType: string = 'defult';
+  userType: string = 'defult';
   isLogin: boolean = false;
 
   constructor(
@@ -28,14 +28,12 @@ export class AppComponent implements OnInit {
         this._apiservice.getToken() &&
         this._apiservice.getUserRole() == 'admin'
       ) {
-        this.menuType = 'login';
-        this.menuType = 'user';
-
         this.isLogin = true;
+        this.userType = 'user';
       } else if (this._apiservice.getToken()) {
-        this.menuType = 'user';
+        this.userType = 'user';
       } else {
-        this.menuType = 'defult';
+        this.userType = 'defult';
         this.isLogin = false;
       }
     });

@@ -41,7 +41,7 @@ export class KeyCloakLoginComponent implements OnInit {
         (response) => {
           this.isSucessfull = true;
           this.storeLoginInfo(response);
-          this._router.navigate(['user']);
+          this._router.navigate(['user'], { replaceUrl: true });
           this.isValid = true;
         },
         (error) => {

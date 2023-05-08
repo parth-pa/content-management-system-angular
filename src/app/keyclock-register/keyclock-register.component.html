@@ -1,103 +1,47 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <div class="card my-5">
-        <form class="card-body cardbody-color" [formGroup]="form">
-          <div class="text-center">
-            <img
-              src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png"
-              class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
-              width="200px"
-              alt="profile"
-            />
-          </div>
-          <div *ngIf="!isSuccessfull">
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="username"
-                placeholder="Username"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="email"
-                class="form-control"
-                formControlName="email"
-                placeholder="email"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="firstname"
-                placeholder="Firstname"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="lastname"
-                placeholder="Lastname"
-              />
-            </div>
-
-            <select
-              class="form-select mb -3"
-              aria-label="Default select example"
-              (change)="($event)"
-              formControlName="prefrence"
-            >
-              <option selected>Select Prefrence</option>
-              <option
-                style="font-weight: 400"
-                *ngFor="let item of prefrence"
-                [value]="item.id"
-              >
-                {{ item.postTitle }}
-              </option>
-            </select>
-            <br />
-
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="password"
-                placeholder="password"
-              />
-            </div>
-
-            <div class="alert alert-danger mb-3" *ngIf="isError">
-              {{ errorText }}
-            </div>
-
-            <div class="alert alert-danger" *ngIf="!isValid">
-              Please enter valid data.
-            </div>
-
-            <div class="text-center">
-              <button
-                style="background-color: #0e1c36; color: white"
-                type="submit"
-                class="btn btn-color px-5 mb-5 w-100"
-                (click)="onSubmit()"
-              >
-                Save
-              </button>
-            </div>
-            <div id="emailHelp" class="form-text text-center mb-5 text-dark">
-              Already Registered?
-              <a href="#" class="text-dark fw-bold" routerLink="/keycloakLogin">
-                Go to login</a
-              >
-            </div>
-          </div>
-        </form>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>REGISTER</h3>
+        </div>
       </div>
+      <form class="login-form" [formGroup]="form">
+        <input type="text" formControlName="username" placeholder="Username" />
+        <input type="email" formControlName="email" placeholder="email" />
+        <input
+          type="text"
+          formControlName="firstname"
+          placeholder="Firstname"
+        />
+        <!-- <input type="text" formControlName="lastname" placeholder="Lastname" /> -->
+        <select
+          aria-label="Default select example"
+          (change)="($event)"
+          formControlName="prefrence"
+        >
+          <option selected>Select Prefrence</option>
+          <option
+            style="font-weight: 400"
+            *ngFor="let item of prefrence"
+            [value]="item.id"
+          >
+            {{ item.postTitle }}
+          </option>
+        </select>
+        <input type="text" formControlName="password" placeholder="password" />
+        <div class="alert alert-danger mb-3" *ngIf="isError">
+          {{ errorText }}
+        </div>
+
+        <div class="alert alert-danger" *ngIf="!isValid">
+          Please enter valid data.
+        </div>
+        <button (click)="onSubmit()">SAVE</button>
+        <p class="message">
+          Already registered? <a routerLink="/keycloakLogin">Go to Login</a>
+        </p>
+      </form>
     </div>
   </div>
-</div>
+</body>

@@ -32,7 +32,6 @@ export class KeyclockRegisterComponent {
     username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     firstname: ['', [Validators.required]],
-    lastname: ['', [Validators.required]],
     prefrence: ['Select Prefrence', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength]],
   });
@@ -46,7 +45,7 @@ export class KeyclockRegisterComponent {
       username: this.form.value.username?.toString(),
       email: this.form.value.email?.toString(),
       firstName: this.form.value.firstname?.toString(),
-      lastName: this.form.value.lastname?.toString(),
+      lastName: '',
       enabled: true,
       attributes: {
         prefrence_id: [this.form.value.prefrence?.toString()],

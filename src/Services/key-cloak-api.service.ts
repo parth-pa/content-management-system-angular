@@ -45,7 +45,7 @@ export class KeyCloakApiService {
 
   onReaload() {
     if (this.getToken()) {
-      this._router.navigate(['user']);
+      this._router.navigate(['user'],{ replaceUrl: true });
     }
   }
 
