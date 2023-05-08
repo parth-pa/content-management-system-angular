@@ -2,6 +2,7 @@ import { Route, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { preferenceModel } from 'src/app/model/prefrenceModel';
 
 @Injectable({
   providedIn: 'root',
@@ -45,7 +46,7 @@ export class KeyCloakApiService {
 
   onReaload() {
     if (this.getToken()) {
-      this._router.navigate(['user'],{ replaceUrl: true });
+      this._router.navigate(['user'], { replaceUrl: true });
     }
   }
 
@@ -58,6 +59,11 @@ export class KeyCloakApiService {
 
   public keyCloakUserLogin(data: any): Observable<any> {
     return this._http.post<any>('https://localhost:7082/userLogin', data);
+  }
+  public getPreference(): Observable<preferenceModel[]> {
+    return this._http.get<preferenceModel[]>(
+      'https://localhost:7082/api/User/preference'
+    );
   }
 
   public wetherData() {

@@ -23,10 +23,10 @@
           <option selected>Select Prefrence</option>
           <option
             style="font-weight: 400"
-            *ngFor="let item of prefrence"
+            *ngFor="let item of preferences"
             [value]="item.id"
           >
-            {{ item.postTitle }}
+            {{ item.name }}
           </option>
         </select>
         <input type="text" formControlName="password" placeholder="password" />

@@ -1,3 +1,4 @@
+import { preferenceModel } from './../model/prefrenceModel';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,12 +14,8 @@ export class KeyclockRegisterComponent {
   department: any = [];
   selectedDepartment: any = [];
   errorText: any;
+  preferences: preferenceModel[] = [];
 
-  prefrence: Array<any> = [
-    { id: 1, postTitle: 'Sports' },
-    { id: 2, postTitle: 'Politices' },
-    { id: 3, postTitle: 'technology' },
-  ];
   isSuccessfull: boolean = false;
   isValid: boolean = true;
   isError: boolean = false;
@@ -37,7 +34,7 @@ export class KeyclockRegisterComponent {
   });
 
   ngOnInit(): void {
-    // this.getDataFromApi();
+    this.getPreference();
   }
 
   onSubmit() {
@@ -85,5 +82,11 @@ export class KeyclockRegisterComponent {
   changeDepartment(e: any) {
     this.selectedDepartment = e.target.value;
     console.log(this.selectedDepartment);
+  }
+
+  getPreference() {
+    this._apiservice.getPreference().subscribe((response) => {
+      this.preferences = response;
+    });
   }
 }
