@@ -10,10 +10,9 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  @Input()
-  userType!: string;
-  @Input()
-  isLogin!: boolean;
+  userType?: string;
+
+  isLogin?: boolean;
   opened = false;
 
   constructor(
@@ -22,7 +21,8 @@ export class AdminComponent implements OnInit {
     private _apiService: KeyCloakApiService
   ) {}
   ngOnInit() {
-    console.log(this.isLogin);
+    this.isLogin = this._apiService.isLogin;
+    this.userType = this._apiService.userType;
   }
 
   PreList: preferenceList[] = [
@@ -38,8 +38,8 @@ export class AdminComponent implements OnInit {
 
   logOut() {
     this._apiService.remove();
-    this._router.navigate(['keycloakLogin'],{ replaceUrl: true });
+    this._router.navigate(['keycloakLogin'], { replaceUrl: true });
     this.opened = false;
-    this.userType = 'defult';
+    this._apiService.userType = 'defult';
   }
 }

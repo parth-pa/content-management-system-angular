@@ -1,67 +1,51 @@
-.mat-sidenav-container{
+/* .mat-sidenav-container{
 
 height: calc(205vh - 115vh);
 
+} */
+
+mat-sidenav {
+  width: 200px;
+  background-color: whitesmoke;
 }
 
-mat-sidenav{
-
-width: 200px;
-background-color:whitesmoke;
-
+mat-sidenav-content {
+  background-color: white;
 }
 
-mat-sidenav-content{
-
-background-color:white;
-
-}
-
-mat-toolbar{
-
+mat-toolbar {
   background-color: orange;
 }
 
-button{
-
-background-color: orange;
-color: black;
-
-}
-
-h2{
-
+button {
+  background-color: orange;
   color: black;
 }
 
-hr{
+h2 {
+  color: black;
+}
 
+hr {
   border-color: brown;
   /* color: black;
   background-color: black; */
 }
 
-mat-menu{
-
+mat-menu {
   background-color: coral;
   color: aliceblue;
 }
 
-a{
-
+a {
   text-decoration: none;
-  color:darkslategrey
-
+  color: darkslategrey;
 }
 
-a:hover{
-
-  color:black
-
+a:hover {
+  color: black;
 }
 
-a:active{
-
+a:active {
   color: rgb(162, 129, 129);
-
 }

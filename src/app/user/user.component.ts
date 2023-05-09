@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 
@@ -13,7 +12,6 @@ export class UserComponent implements OnInit {
   constructor(private _apiservice: KeyCloakApiService) {}
 
   ngOnInit(): void {
-
     this._apiservice.wetherData().subscribe((response) => {
       console.warn(response);
       this.data = response;

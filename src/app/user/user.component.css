@@ -1,6 +1,12 @@
 .main {
   background-color: green;
-  padding: auto;
-  margin: 40px;
-  padding: 20px;
+  padding: 8px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.main1 {
+  margin: 10px;
+  padding: 4px;
+  background-color: aqua;
 }

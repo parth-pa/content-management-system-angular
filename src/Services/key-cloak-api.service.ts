@@ -14,6 +14,9 @@ export class KeyCloakApiService {
   TOKEN: string = 'token';
   PREF: string = 'prefrence';
 
+  isLogin?: boolean;
+  userType?: string;
+
   public savePreference(pref: any) {
     localStorage.setItem(this.PREF, pref);
   }
@@ -49,6 +52,23 @@ export class KeyCloakApiService {
       this._router.navigate(['user'], { replaceUrl: true });
     }
   }
+
+  manageLogin() {
+    this.onReaload();
+
+    this._router.events.subscribe((val: any) => {
+      if (this.getToken() && this.getUserRole() == 'admin') {
+        this.isLogin = true;
+        this.userType = 'user';
+      } else if (this.getToken()) {
+        this.userType = 'user';
+      } else {
+        this.userType = 'defult';
+        this.isLogin = false;
+      }
+    });
+  }
+
 
   public keycloakRegister(registerData: any): Observable<[]> {
     return this._http.post<[]>(
