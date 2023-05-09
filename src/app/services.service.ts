@@ -6,18 +6,12 @@ import { dataList, dataList2 } from './model/model';
 @Injectable({providedIn: 'root'})
 
 
-export class ServicesService implements OnInit{
+export class ServicesService {
 
   constructor(private obj:HttpClient) { }
 
-  public mydata:string = "Ankur Gamit";
 
-  ngOnInit(): void {
-
-
-  }
-
-
+baseURL : string ='https://localhost:7106/api/Cms'
 
 
   getCmsData(data:any){
@@ -48,20 +42,14 @@ export class ServicesService implements OnInit{
     return this.obj.put("https://localhost:7106/api/Cms",data);
   }
 
-  getCmsData2(){
-
-    // console.warn("Hello");
-   return this.obj.get<dataList2[]>("https://localhost:7106/api/Cms");
-
-  }
 
 
 
-  uploadjpg(data:any){
+  // uploadjpg(data:any){
 
-    console.warn(data)
-    return this.obj.post('https://localhost:7106/api/Cms/UploadImages',data);
-  }
+  //   console.warn(data)
+  //   return this.obj.post('https://localhost:7106/api/Cms/UploadImages',data);
+  // }
 
 
 

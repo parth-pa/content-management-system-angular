@@ -1,0 +1,66 @@
+
+
+
+    <div class="card">
+      <form [formGroup]="blogForm" (ngSubmit)="onclick()">
+        <label>Heading</label>
+        <input class="form-control"  formControlName="title" type="text" [(ngModel)]="updateData.title" ><br>
+        <!-- <label>Details</label> -->
+        <!-- <ckeditor
+         [editor]="Editor"
+         data="Details"
+         [(ngModel)]="head.description"
+         formControlName="description"
+         ></ckeditor> -->
+         <kendo-editor k-encoding="false"
+          [(ngModel)]="updateData.description"
+          data="Details"
+          formControlName="description"
+          >
+          </kendo-editor>
+
+        <!-- <label>Details</label> -->
+        <!-- <textarea class="form-control"formControlName="description" name="" id="" cols="10" rows="4" [(ngModel)]="head.description"></textarea> -->
+        <label>File</label>
+        <input class="form-control" formControlName="image" type="File"  (change)="onchange($event)" >
+        <!-- [(ngModel)]="head.image" -->
+        <br>
+
+    <!-- *********************** Blog dropdown *************************** -->
+    <div class="dropdown">
+      <Label>Select Blogs : </Label>
+      <select [(ngModel)]="selectedOption " style="color:black" name="blog" id="blog" formControlName="prefId">
+        <option value="1" >Sport</option>
+        <option value="2" >Politics</option>
+        <option value="3" >Technology</option>
+      </select>
+    </div><br>
+
+    <!-- ************************** Topic Dropdown ********************************** -->
+    <div class="dropdown" >
+      <Label>Select Topic : </Label>
+      <select [(ngModel)]="updateData.subPreferenceId" style="color:black" name="blog" id="blog" formControlName="subPreferenceId">
+        <option value="{{i.preferenceId}}" *ngFor="let i of topic">
+
+          <p  *ngIf="i.blogId == selectedOption">{{i.topic}}</p>
+        </option>
+      </select>
+    </div><br>
+
+     <!-- ******************* Submit and Update ****************************** -->
+    <button type="submit" class="btn btn-success" mat-dialog-close (click)="sendCmsData()">Add</button>
+    <button  type="submit" class="btn btn-primary" mat-dialog-close (click)="updateCmsData()" >Update</button>
+
+  </form>
+
+</div>
+
+<!-- <div class="component-container">
+    <kendo-dropdownlist [data]="topic"></kendo-dropdownlist>
+</div> -->
+
+
+
+
+
+
