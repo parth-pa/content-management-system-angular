@@ -53,7 +53,7 @@ import { UserHeaderComponent } from './user-panel/user-header/user-header.compon
     BlogsComponent,
     UserComponent,
     UserBodyComponent,
-        UserCrouselComponent,
+    UserCrouselComponent,
         UserHeaderComponent,
  ],
   imports: [
