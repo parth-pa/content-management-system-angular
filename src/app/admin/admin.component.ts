@@ -1,33 +1,39 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
+import { Router } from '@angular/router';
 import { preferenceList } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
+import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
+  userType?: string;
 
-opened = false;
+  isLogin?: boolean;
+  opened = false;
 
-constructor(public datashare:DataShareService){}
+  constructor(
+    public datashare: DataShareService,
+    private _router: Router,
+    private _apiService: KeyCloakApiService
+  ) {}
 
-PreList :preferenceList[] = [
+  PreList: preferenceList[] = [
+    { preferenceId: 1, preferenceName: 'Sports' },
+    { preferenceId: 2, preferenceName: 'Politics' },
+    { preferenceId: 3, preferenceName: 'Technologies' },
+  ];
 
-  {preferenceId:1 , preferenceName:'Sports' },
-  {preferenceId:2 , preferenceName:'Politics' },
-  {preferenceId:3 , preferenceName:'Technologies' }
-];
+  preferenceChange(preferenceValue?: number) {
+    this.datashare.preference = preferenceValue;
+  }
 
-
-preferenceChange(preferenceValue?:number){
-
-  this.datashare.preference = preferenceValue;
-
-}
-
-
-
+  logOut() {
+    this._apiService.remove();
+    this._router.navigate(['keycloakLogin'], { replaceUrl: true });
+    this.opened = false;
+    this._apiService.userType = 'defult';
+  }
 }

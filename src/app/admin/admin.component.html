@@ -1,35 +1,51 @@
-
 <mat-toolbar>
   <mat-toolbar-row>
-
-    <button class="btn btn-submit" (click)="opened =!opened" style="color: black;background-color: cornsilk;">Menu</button>
+    <button
+      class="btn btn-submit"
+      (click)="opened = !opened"
+      style="color: black; background-color: cornsilk"
+      *ngIf="isLogin"
+    >
+      Menu
+    </button>
+    <button
+      class="btn btn-submit"
+      (click)="logOut()"
+      style="color: black; background-color: cornsilk; margin-left: 20px"
+      *ngIf="userType === 'user'"
+    >
+      Logout
+    </button>
   </mat-toolbar-row>
-
 </mat-toolbar>
-
 
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
     <mat-list>
-      <mat-list-item><button class="btn btn-submit" style="width: 90%;" routerLink="/">Home</button></mat-list-item>
+      <mat-list-item
+        ><button class="btn btn-submit" style="width: 90%" routerLink="/">
+          Home
+        </button></mat-list-item
+      >
 
-      <h2> Blogs</h2>
-      <hr>
+      <h2>Blogs</h2>
+      <hr />
 
-          <!-- -- side Nav bar -- -->
-      <div *ngFor=" let i of PreList">
-
-        <mat-list-item> <a mat-button style="width: 90%;" routerLink="/{{i.preferenceName}}" (click)="preferenceChange(i.preferenceId)">{{i.preferenceName}}</a> </mat-list-item>
-
+      <!-- -- side Nav bar -- -->
+      <div *ngFor="let i of PreList">
+        <mat-list-item>
+          <a
+            mat-button
+            style="width: 90%"
+            routerLink="/{{ i.preferenceName }}"
+            (click)="preferenceChange(i.preferenceId)"
+            >{{ i.preferenceName }}</a
+          >
+        </mat-list-item>
       </div>
-
-
     </mat-list>
-
   </mat-sidenav>
   <mat-sidenav-content>
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
