@@ -1,93 +1,58 @@
-<app-Blog ></app-Blog>
+<app-Blog></app-Blog>
 <!-- <mat-toolbar>
   <mat-toolbar-row>
     <button class="btn btn-primary" (click)="openDialog()">Add Data</button>
   </mat-toolbar-row>
 </mat-toolbar> -->
 
-<!-- <table class="table">
-  <thead style="color: black;">
-    <th>Id</th>
-    <th>Thumb nail</th>
-    <th>Title</th>
-    <th>description</th>
-    <th>SubId</th>
-  <th>subPreferenceId</th>
-
-  </thead>
-  <tbody style="color: black;">
-
-    <tr *ngFor="let i of sportsList" > -->
-
-      <!-- <td>{{i.id}}</td>
-      <td><img src={{i.image}} alt="image"></td>
-      <td>{{i.heading}}</td>
-      <td>{{i.detail}}</td> -->
-      <!-- <h1>{{sportsList}}</h1> -->
-
-      <!-- <td>{{i.id}}</td>
-      <td><img src="{{i.image}}" alt=""></td>
-      <td>{{i.title}}</td>
-      <td>{{i.description}}</td>
-      <td>{{i.prefId}}</td>
-      <td>{{i.subPreferenceId}}</td>
-
-
-      <td><button class= " btn btn-danger" style="margin:5px" (click)="deleteData(i.prefId,i.id)"> Delete  </button></td>
-      <td><button #update class= " btn btn-warning"  style="margin:5px" (click)="openDialog(i)">Upadate</button></td>
-    </tr>
-
-  </tbody><br>
-
-</table> -->
-<h1 style="color: black;">Sport</h1>
+<h1 style="color: black">Sport</h1>
 <kendo-grid
-[data]="sportsList"
-[kendoGridBinding]="sportsList"
-[sortable]="true"
-[groupable]="true"
-(remove)="removeHandler($event)"
-(edit)="editHandler($event)"
-
-      style="color: black;">
-        <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
-        <kendo-grid-column field="image" title="image">
-          <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-            <img [src]="dataItem.image" alt="img">
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column field="title" title="title"> </kendo-grid-column>
-        <kendo-grid-column field="description" title="description"> </kendo-grid-column>
-        <kendo-grid-column field="description" title="description">
+  [data]="sportsList"
+  [kendoGridBinding]="sportsList"
+  [sortable]="true"
+  [groupable]="true"
+  (remove)="removeHandler($event)"
+  (edit)="editHandler($event)"
+  style="color: black"
+>
+  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+  <kendo-grid-column field="image" title="image">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <img [src]="dataItem.image" alt="img" />
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
+  <kendo-grid-column field="description" title="description">
+  </kendo-grid-column>
+  <!-- <kendo-grid-column field="description" title="description">
           <ng-template kendoGridCellTemplate let-dataItem>
             {{!dataItem.description!}}
           </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column field="prefId" title="prefId"> </kendo-grid-column>
-        <kendo-grid-column field="subPreferenceId" title="subPreferenceId"> </kendo-grid-column>
+        </kendo-grid-column> -->
+  <kendo-grid-column field="prefId" title="prefId"> </kendo-grid-column>
+  <kendo-grid-column field="subPreferenceId" title="subPreferenceId">
+  </kendo-grid-column>
 
-        <kendo-grid-column field="delete"  title="delete">
-          <ng-template kendoGridCellTemplate let-dataItem>
-            <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">Remove</button>
-            <!-- <button class= " btn btn-danger" style="margin:5px" (click)="deleteData(1,1)"> Delete </button> -->
-          </ng-template>
-          </kendo-grid-column>
+  <kendo-grid-column field="delete" title="delete">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">
+        Remove
+      </button>
+      <!-- <button class= " btn btn-danger" style="margin:5px" (click)="deleteData(1,1)"> Delete </button> -->
+    </ng-template>
+  </kendo-grid-column>
 
-        <kendo-grid-column field="Update"  title="Update">
-          <ng-template kendoGridCellTemplate let-dataItem >
-            <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">Edit</button>
-            <!-- <button #update class= " btn btn-warning"  style="margin:5px" (click)="openDialog(1)">Upadate</button> -->
-          </ng-template>
-          </kendo-grid-column>
-  </kendo-grid>
+  <kendo-grid-column field="Update" title="Update">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">
+        Edit
+      </button>
+      <!-- <button #update class= " btn btn-warning"  style="margin:5px" (click)="openDialog(1)">Upadate</button> -->
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
 
 <!-- <input type="file" (change)="onchange($event)">
 <input type="button" value="upload" (click)="onupload()"> -->
 
 <!-- <app-add-blog-data [fromParent] = 'parentmessage'></app-add-blog-data> -->
-
-
-
-
-
-

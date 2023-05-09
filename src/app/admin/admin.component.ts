@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { preferenceList } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
@@ -8,7 +8,7 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   userType?: string;
 
   isLogin?: boolean;
@@ -19,6 +19,10 @@ export class AdminComponent {
     private _router: Router,
     private _apiService: KeyCloakApiService
   ) {}
+  ngOnInit(): void {
+    this.isLogin = this._apiService.isLogin;
+    this.userType = this._apiService.userType;
+  }
 
   PreList: preferenceList[] = [
     { preferenceId: 1, preferenceName: 'Sports' },

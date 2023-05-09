@@ -26,8 +26,8 @@ h2 {
 
 hr {
   border-color: brown;
-  /* color: black;
-  background-color: black; */
+  color: black;
+  background-color: black;
 }
 
 mat-menu {

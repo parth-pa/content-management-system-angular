@@ -10,9 +10,6 @@ import { SportsComponent } from './sports/sports.component';
 import { BlogsComponent } from './Blogs/Blogs.component';
 import { KeyclockRegisterComponent } from './keyclock-register/keyclock-register.component';
 
-
-
-
 const routes: Routes = [
   { path: '', redirectTo: 'keycloakLogin', pathMatch: 'full' },
 
@@ -20,26 +17,21 @@ const routes: Routes = [
   { path: 'Blogs', component: BlogsComponent },
   { path: 'Sports', component: SportsComponent },
 
-
   { path: 'Politics', component: PoliticsComponent },
 
-  { path: 'Technologys', component: TechnologyComponent },
+  { path: 'Technologies', component: TechnologyComponent },
 
-{path:'Admin',component:AdminComponent},
-{path:'Blogs', component:BlogsComponent},
-{path:'Sports', component:SportsComponent},
-{path:'Politics', component:PoliticsComponent},
-{path:'Technologys', component:TechnologyComponent},
+  { path: 'Admin', component: AdminComponent },
+  { path: 'Blogs', component: BlogsComponent },
+  { path: 'Sports', component: SportsComponent },
+  { path: 'Politics', component: PoliticsComponent },
 
+  // login route
+  { path: 'keycloakRegister', component: KeyclockRegisterComponent },
+  { path: 'keycloakLogin', component: KeyCloakLoginComponent },
 
-// login route
-{ path: 'keycloakRegister', component: KeyclockRegisterComponent },
-{ path: 'keycloakLogin', component: KeyCloakLoginComponent },
-
-// user route
-{ path: 'user', component: UserComponent },
-
-
+  // user route
+  { path: 'user', component: UserComponent },
 ];
 
 @NgModule({
