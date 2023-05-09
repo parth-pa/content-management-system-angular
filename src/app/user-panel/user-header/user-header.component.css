@@ -1,0 +1,33 @@
+
+nav{
+
+  background-color:orange;
+  width: 100%;
+  position: fixed;
+  margin-right: 2%;
+  z-index: 1030;
+}
+
+.nav-link{
+
+  color: white;
+
+}
+
+.card{
+height: 150px;
+color: beige;
+}
+
+mat-menu{
+
+  background-color: coral;
+  color: aliceblue;
+}
+
+.rounded{
+  width: 40px;
+  height: 40px;
+  border-radius:50%;
+  margin: 5px;
+}

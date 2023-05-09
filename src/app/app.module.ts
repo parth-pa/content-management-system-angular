@@ -38,6 +38,9 @@ import { EditorModule } from '@progress/kendo-angular-editor';
 import { KeyCloakLoginComponent } from './keycloak-login/login.component';
 import { UserComponent } from './user/user.component';
 import { TokenIntercepterService } from './Intercepters/token-intercepter.service';
+import { UserBodyComponent } from './user-panel/user-body/user-body.component';
+import { UserCrouselComponent } from './user-panel/user-crousel/user-crousel.component';
+import { UserHeaderComponent } from './user-panel/user-header/user-header.component';
 
 
 
@@ -72,6 +75,9 @@ import { TokenIntercepterService } from './Intercepters/token-intercepter.servic
     IndiaComponent,
     WorldComponent,
     UserComponent,
+    UserBodyComponent,
+        UserCrouselComponent,
+        UserHeaderComponent,
  ],
   imports: [
     BrowserModule,

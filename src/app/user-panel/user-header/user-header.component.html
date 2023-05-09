@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default" >
+  <div class="container-fluid">
+
+     <ul class="nav navbar-nav navbar-left">
+       <li><a  class="nav-link navbar-brand" style="color:black;" href="https://www.amnex.com/" >Amnex</a></li>
+       <li><a class="nav-link "
+        (click)="logOut()"
+        style="color: black; color: floralwhite; "
+        *ngIf="userType === 'user'">Logout</a></li>
+     </ul>
+
+     <ul class="nav navbar-nav navbar-right" style="margin-right: 5%;">
+      <li><div class="dropdown" style="margin-top: 9%; ">
+        <Label >Filter by Name : </Label>
+        <select style="color: black;" (change)="onChangeSubPrefrence($event)" >
+          <option [value]="0">View all</option>
+          <option *ngFor="let item of subPrefDeatils" [value]="item.id">
+            {{ item.name }}
+          </option>
+        </select>
+      </div></li>
+       <!-- <li><a  class="nav-link"  style="color:floralwhite;" >Name </a> </li>
+       <li><a  class="nav-link" style="color:floralwhite;" routerLink="Login">Login</a></li>
+       <li><a  class="nav-link" style="color:floralwhite;" routerLink="Admin">Admin</a></li>
+       <img src="https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4=" class="rounded" > -->
+     </ul>
+
+ </div>
+
+</nav>

@@ -18,6 +18,7 @@ import { MobileComponent } from './Admin-Panel/technology/subTopic/mobile/mobile
 import { LaptopComponent } from './Admin-Panel/technology/subTopic/laptop/laptop.component';
 import { InnovativeComponent } from './Admin-Panel/technology/subTopic/innovative/innovative.component';
 import { KeyclockRegisterComponent } from './keyclock-register/keyclock-register.component';
+import { UserBodyComponent } from './user-panel/user-body/user-body.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'keycloakLogin', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'Mobile', component: MobileComponent },
   { path: 'Laptop', component: LaptopComponent },
   { path: 'Innovative', component: InnovativeComponent },
+  {path:'userBody',component:UserBodyComponent},
 
   // login route
   { path: 'keycloakRegister', component: KeyclockRegisterComponent },

@@ -40,6 +40,6 @@ export class AdminComponent implements OnInit {
     this._apiService.remove();
     this._router.navigate(['keycloakLogin']);
     this.opened = false;
-    this.menuType = 'defult';
+
   }
 }

@@ -1,8 +1,28 @@
-.card{
+.d-lg-block{
 
-  margin-top: 500px;
-background-color: grey;
-height: 200px;
-
+  list-style: circle;
+}
+.text-center{
+display: bottom;
+}
+.me-4{
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+img{
+  height: 120px;
+  width: 120px;
+  position: relative;
+  border-radius: 20%;
 }
 
+footer{
+  position: initial;
+  bottom: 3%;
+  /* margin-top: 3%; */
+  padding: 1%;
+  background-color: rgb(223, 244, 255);
+  height: 270px;
+  font-size: larger;
+  /* margin-right: auto; */
+}

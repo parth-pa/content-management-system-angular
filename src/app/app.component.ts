@@ -17,28 +17,9 @@ export class AppComponent implements OnInit {
     private _router: Router
   ) {}
   ngOnInit() {
-    this.manageLogin();
+    this._apiservice.manageLogin()
   }
 
-  manageLogin() {
-    // this._apiservice.onReaload();
 
-    this._router.events.subscribe((val: any) => {
-      if (
-        this._apiservice.getToken() &&
-        this._apiservice.getUserRole() == 'admin'
-      ) {
-        this.menuType = 'login';
-        this.menuType = 'user';
-
-        this.isLogin = true;
-      } else if (this._apiservice.getToken()) {
-        this.menuType = 'user';
-      } else {
-        this.menuType = 'defult';
-        this.isLogin = false;
-      }
-    });
-  }
 
 }
