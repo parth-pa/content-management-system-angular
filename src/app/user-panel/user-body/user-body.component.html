@@ -1,0 +1,39 @@
+<app-user-header (senddata)="headerdata($event)"></app-user-header>
+
+<app-user-crousel></app-user-crousel>
+
+<body class="welcome">
+  <span id="splash-overlay" class="splash"></span>
+  <span id="welcome" class="z-depth-4"></span>
+
+<div class="main">
+  <div *ngFor="let i of getdetails;  let item = index; let o = odd; let e = even" [ngClass]="{container:e,container1:o}" >
+
+      <div class="container">
+        <hr style="border-color: rgb(148, 212, 215)" />
+          <div>
+            <img class="image" [src]="i.image"/>
+
+        </div>
+          <div class="text">
+            <p class="header">
+              <!-- hsafka yash path ankur -->
+              {{ i.title }}
+            </p>
+            <p class="description">
+              {{ i.description }}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt deserunt
+              porro esse voluptatem repellat maxime officia adipisci deleniti, illum
+              est corrupti alias, sequi dicta consequuntur? Temporibus quo ipsa
+              deserunt quas!
+            </p>
+
+         </div>
+      </div>
+
+    </div>
+
+  </div>
+
+    <!-- <a class="gototop" href="#"><button class="fas fa-arrow-up">go to top</button></a> -->
+</body>

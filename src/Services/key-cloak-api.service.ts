@@ -17,6 +17,9 @@ export class KeyCloakApiService {
   isLogin?: boolean;
   userType?: string;
 
+
+
+
   public savePreference(pref: any) {
     localStorage.setItem(this.PREF, pref);
   }
@@ -88,5 +91,27 @@ export class KeyCloakApiService {
 
   public wetherData() {
     return this._http.get('https://localhost:7082/WeatherForecast');
+  }
+
+
+  manageLogin() {
+    this.onReaload();
+
+    this._router.events.subscribe((val: any) => {
+      if (
+        this.getToken() &&
+        this.getUserRole() == 'admin'
+      ) {
+        this.userType = 'login';
+        this.userType = 'user';
+
+        this.isLogin = true;
+      } else if (this.getToken()) {
+        this.userType = 'user';
+      } else {
+        this.userType = 'defult';
+        this.isLogin = false;
+      }
+    });
   }
 }
