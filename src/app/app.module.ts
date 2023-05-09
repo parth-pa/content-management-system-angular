@@ -17,7 +17,7 @@ import { PoliticsComponent } from './politics/politics.component';
 import { TechnologyComponent } from './technology/technology.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { GridModule } from '@progress/kendo-angular-grid';
+import { FooterComponent, GridModule } from '@progress/kendo-angular-grid';
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DropDownListModule } from "@progress/kendo-angular-dropdowns";
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular'
@@ -26,6 +26,10 @@ import { TokenIntercepterService } from './Intercepters/token-intercepter.servic
 import { BlogsComponent } from './Blogs/Blogs.component';
 import { KeyCloakLoginComponent } from './keycloak-login/login.component';
 import { UserComponent } from './user/user.component';
+import { UserBodyComponent } from './user-panel/user-body/user-body.component';
+import { UserCrouselComponent } from './user-panel/user-crousel/user-crousel.component';
+import { UserHeaderComponent } from './user-panel/user-header/user-header.component';
+
 
 
 
@@ -47,10 +51,11 @@ import { UserComponent } from './user/user.component';
     PoliticsComponent,
     TechnologyComponent,
     BlogsComponent,
-
-
-
-  ],
+    UserComponent,
+    UserBodyComponent,
+        UserCrouselComponent,
+        UserHeaderComponent,
+ ],
   imports: [
     BrowserModule,
     AppRoutingModule,

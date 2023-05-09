@@ -9,6 +9,7 @@ import { PoliticsComponent } from './politics/politics.component';
 import { SportsComponent } from './sports/sports.component';
 import { BlogsComponent } from './Blogs/Blogs.component';
 import { KeyclockRegisterComponent } from './keyclock-register/keyclock-register.component';
+import { UserBodyComponent } from './user-panel/user-body/user-body.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'keycloakLogin', pathMatch: 'full' },
@@ -21,10 +22,7 @@ const routes: Routes = [
 
   { path: 'Technologies', component: TechnologyComponent },
 
-  { path: 'Admin', component: AdminComponent },
-  { path: 'Blogs', component: BlogsComponent },
-  { path: 'Sports', component: SportsComponent },
-  { path: 'Politics', component: PoliticsComponent },
+  {path:'userBody',component:UserBodyComponent},
 
   // login route
   { path: 'keycloakRegister', component: KeyclockRegisterComponent },

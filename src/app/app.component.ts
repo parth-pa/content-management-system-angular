@@ -12,6 +12,9 @@ export class AppComponent implements OnInit {
 
   constructor(private _apiservice: KeyCloakApiService) {}
   ngOnInit() {
-    this._apiservice.manageLogin();
+    this._apiservice.manageLogin()
   }
+
+
+
 }

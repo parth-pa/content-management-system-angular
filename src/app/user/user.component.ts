@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
+import { UserServicesService } from 'src/Services/user-services.service';
 
 @Component({
   selector: 'app-user',
@@ -9,12 +10,7 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 export class UserComponent implements OnInit {
   data: any = [];
 
-  constructor(private _apiservice: KeyCloakApiService) {}
+  constructor(private _apiservice: UserServicesService) {}
 
-  ngOnInit(): void {
-    this._apiservice.wetherData().subscribe((response) => {
-      console.warn(response);
-      this.data = response;
-    });
-  }
+  ngOnInit(): void {}
 }

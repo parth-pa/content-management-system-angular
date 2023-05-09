@@ -37,3 +37,22 @@ export class preferenceList{
 
 }
 
+
+
+// userbodyapi
+
+export class Getdata{
+  id?:number
+  title?:string
+  description?:string
+  image?:string
+  prefname?: string
+}
+
+
+export class subdata {
+  id?: number
+  name?: string
+  pref_id?: number
+}
+
