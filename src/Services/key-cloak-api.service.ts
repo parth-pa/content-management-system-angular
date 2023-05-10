@@ -56,21 +56,6 @@ export class KeyCloakApiService {
     }
   }
 
-  manageLogin() {
-    this.onReaload();
-
-    this._router.events.subscribe((val: any) => {
-      if (this.getToken() && this.getUserRole() == 'admin') {
-        this.isLogin = true;
-        this.userType = 'user';
-      } else if (this.getToken()) {
-        this.userType = 'user';
-      } else {
-        this.userType = 'defult';
-        this.isLogin = false;
-      }
-    });
-  }
 
 
   public keycloakRegister(registerData: any): Observable<[]> {

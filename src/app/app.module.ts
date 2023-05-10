@@ -29,6 +29,7 @@ import { UserComponent } from './user/user.component';
 import { UserBodyComponent } from './user-panel/user-body/user-body.component';
 import { UserCrouselComponent } from './user-panel/user-crousel/user-crousel.component';
 import { UserHeaderComponent } from './user-panel/user-header/user-header.component';
+import { UserFooterComponent } from './user-panel/user-footer/user-footer.component';
 
 
 
@@ -55,6 +56,7 @@ import { UserHeaderComponent } from './user-panel/user-header/user-header.compon
     UserBodyComponent,
         UserCrouselComponent,
         UserHeaderComponent,
+        UserFooterComponent,
  ],
   imports: [
     BrowserModule,

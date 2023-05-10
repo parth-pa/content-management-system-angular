@@ -14,9 +14,9 @@ export class UserComponent implements OnInit {
   constructor(private _apiservice:UserServicesService ) {}
 
   ngOnInit(): void {
-    this._apiservice.wetherData().subscribe((response) => {
-      console.warn(response);
-      this.data = response;
-    });
+    // this._apiservice.wetherData().subscribe((response) => {
+    //   console.warn(response);
+    //   this.data = response;
+    // });
   }
 }
