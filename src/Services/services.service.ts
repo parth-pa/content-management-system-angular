@@ -8,15 +8,22 @@ export class ServicesService {
 
   baseURL: string = 'https://localhost:7106/api/Cms';
 
-  getCmsData(data: any) {
-    return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/User/getid?id=' + data
-    );
+
+
+
+  getCmsData(data:any){
+
+   return this.obj.get<dataList[]>("https://localhost:7106/api/Cms/getid?id="+data);
+
+
   }
 
-  postCmsData(data: any) {
-    console.warn(data);
-    return this.obj.post('https://localhost:7082/api/Admin', data);
+
+  postCmsData(data:any){
+
+   console.warn(data)
+   return this.obj.post("https://localhost:7106/api/Admin",data);
+
   }
 
   deleteCmsData(data: any, data2: any) {

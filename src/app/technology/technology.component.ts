@@ -14,13 +14,16 @@ import { DataShareService } from 'src/Services/data-share.service';
 export class TechnologyComponent implements OnInit {
   //imgs:string = 'https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4='
 
-  preferance_id: any = 3;
-  technologysList: dataList[] = [
-    //  {id:1, heading:'Technology_1',image:this.imgs,detail:'details...1'},
-    //  {id:2, heading:'Technology_2',image:this.imgs,detail:'details...2'},
-    //  {id:3, heading:'Technology_3',image:this.imgs,detail:'details...3'},
-    //  {id:3, heading:'Technology_3',image:this.imgs,detail:'details...3'}
-  ];
+  preferance_id:any = 3
+  technologysList:dataList[] = [
+
+  //  {id:1, heading:'Technology_1',image:this.imgs,detail:'details...1'},
+  //  {id:2, heading:'Technology_2',image:this.imgs,detail:'details...2'},
+  //  {id:3, heading:'Technology_3',image:this.imgs,detail:'details...3'},
+  //  {id:3, heading:'Technology_3',image:this.imgs,detail:'details...3'}
+
+
+ ];
 
   constructor(
     private obj: ServicesService,
@@ -28,13 +31,20 @@ export class TechnologyComponent implements OnInit {
     public datashare: DataShareService
   ) {}
   ngOnInit(): void {
+
+    this.preferance_id = this.datashare.preference;
+    console.warn(this.preferance_id)
     this.getCmsDatas();
   }
 
-  getCmsDatas() {
-    this.obj.getCmsData(3).subscribe((data) => {
-      this.technologysList = data;
-    });
+  getCmsDatas(){
+
+      this.obj.getCmsData(this.preferance_id).subscribe(data =>{
+
+        this.technologysList = data;
+
+      })
+
   }
 
   removeHandler(event: any) {

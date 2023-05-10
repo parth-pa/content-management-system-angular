@@ -1,56 +1,43 @@
-<app-Blog></app-Blog>
-<!-- <mat-toolbar>
-  <mat-toolbar-row>
-    <button class="btn btn-primary" (click)="openDialog()">Add Data</button>
-  </mat-toolbar-row>
-</mat-toolbar> -->
-
-<h1 style="color: black">Sport</h1>
+<app-user-header></app-user-header>
+<app-Blog ></app-Blog>
+<h1 style="color: black;">Sport</h1>
 <kendo-grid
-  [data]="sportsList"
-  [kendoGridBinding]="sportsList"
-  [sortable]="true"
-  [groupable]="true"
-  (remove)="removeHandler($event)"
-  (edit)="editHandler($event)"
-  style="color: black"
->
-  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
-  <kendo-grid-column field="image" title="image">
-    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-      <img [src]="dataItem.image" alt="img" />
-    </ng-template>
-  </kendo-grid-column>
-  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
-  <kendo-grid-column field="description" title="description">
-  </kendo-grid-column>
-  <!-- <kendo-grid-column field="description" title="description">
+[data]="sportsList"
+[kendoGridBinding]="sportsList"
+[sortable]="true"
+[groupable]="true"
+(remove)="removeHandler($event)"
+(edit)="editHandler($event)"
+
+      style="color: black;">
+        <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+        <kendo-grid-column field="image" title="image">
+          <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+            <img [src]="dataItem.image" alt="img">
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="title" title="title"> </kendo-grid-column>
+        <kendo-grid-column field="description" title="description"> </kendo-grid-column>
+        <kendo-grid-column field="description" title="description">
           <ng-template kendoGridCellTemplate let-dataItem>
             {{!dataItem.description!}}
           </ng-template>
-        </kendo-grid-column> -->
-  <kendo-grid-column field="prefId" title="prefId"> </kendo-grid-column>
-  <kendo-grid-column field="subPreferenceId" title="subPreferenceId">
-  </kendo-grid-column>
+        </kendo-grid-column>
+        <kendo-grid-column field="prefId" title="prefId"> </kendo-grid-column>
+        <kendo-grid-column field="subPreferenceId" title="subPreferenceId"> </kendo-grid-column>
 
-  <kendo-grid-column field="delete" title="delete">
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">
-        Remove
-      </button>
-      <!-- <button class= " btn btn-danger" style="margin:5px" (click)="deleteData(1,1)"> Delete </button> -->
-    </ng-template>
-  </kendo-grid-column>
+        <kendo-grid-column field="delete"  title="delete">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">Remove</button>
+            </ng-template>
+          </kendo-grid-column>
 
-  <kendo-grid-column field="Update" title="Update">
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">
-        Edit
-      </button>
-      <!-- <button #update class= " btn btn-warning"  style="margin:5px" (click)="openDialog(1)">Upadate</button> -->
-    </ng-template>
-  </kendo-grid-column>
-</kendo-grid>
+        <kendo-grid-column field="Update"  title="Update">
+          <ng-template kendoGridCellTemplate let-dataItem >
+            <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">Edit</button>
+          </ng-template>
+          </kendo-grid-column>
+  </kendo-grid>
 
 <!-- <input type="file" (change)="onchange($event)">
 <input type="button" value="upload" (click)="onupload()"> -->
