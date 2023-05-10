@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Getdata, subdata } from 'src/app/model/model';
+import { Getdata, preferenceList, subdata } from 'src/app/model/model';
+import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 import { UserServicesService } from 'src/Services/user-services.service';
 
@@ -27,7 +28,7 @@ export class UserHeaderComponent {
     this.getresponce();
 
   }
-  constructor(private _apiService:UserServicesService, private _router: Router,private keycloakapiservice:KeyCloakApiService){}
+  constructor(private _apiService:UserServicesService, private _router: Router,private keycloakapiservice:KeyCloakApiService,public datashare: DataShareService){}
 
 
   @Output() senddata = new EventEmitter<any>();
@@ -69,6 +70,17 @@ getresponce()
         this.subPrefDeatils = response;
         // console.log(this.subPrefDeatils);
       });
+  }
+
+
+  PreList: preferenceList[] = [
+    { preferenceId: 1, preferenceName: 'Sports' },
+    { preferenceId: 2, preferenceName: 'Politics' },
+    { preferenceId: 3, preferenceName: 'Technologies' },
+  ];
+
+  preferenceChange(preferenceValue?: number) {
+    this.datashare.preference = preferenceValue;
   }
 
   logOut() {

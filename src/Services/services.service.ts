@@ -11,7 +11,7 @@ export class ServicesService {
   constructor(private obj:HttpClient) { }
 
 
-baseURL : string ='https://localhost:7106/api/Cms'
+   baseURL : string ='https://localhost:7106/api/Cms'
 
 
   getCmsData(data:any){
@@ -25,7 +25,7 @@ baseURL : string ='https://localhost:7106/api/Cms'
   postCmsData(data:any){
 
    console.warn(data)
-   return this.obj.post("https://localhost:7106/api/Cms",data);
+   return this.obj.post("https://localhost:7106/api/Admin",data);
 
   }
 
