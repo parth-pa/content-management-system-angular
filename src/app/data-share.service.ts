@@ -9,7 +9,7 @@ export class DataShareService implements OnInit{
 
   blogData:any[] = [];
 
-  public preference :any
+   public preference :any
 
 
 

@@ -19,10 +19,15 @@ PreList :preferenceList[] = [
   {preferenceId:1 , preferenceName:'Sports' },
   {preferenceId:2 , preferenceName:'Politics' },
   {preferenceId:3 , preferenceName:'Technologies' }
+  // {preferenceId:1 , preferenceName:'Sports' },
+  // {preferenceId:2 , preferenceName:'Sports' },
+  // {preferenceId:3 , preferenceName:'Sports' }
+
+
 ];
 
 
-preferenceChange(preferenceValue?:number){
+preferenceChange(preferenceValue?:any){
 
   this.datashare.preference = preferenceValue;
 

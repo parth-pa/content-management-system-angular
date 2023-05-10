@@ -21,31 +21,24 @@ import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DropDownListModule } from "@progress/kendo-angular-dropdowns";
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular'
 import { EditorModule } from '@progress/kendo-angular-editor';
-import { SideNavComponent } from './side-nav/side-nav.component';
+// import { SideNavComponent } from './side-nav/side-nav.component';
 import {BlogsComponent} from './Blogs/Blogs.component'
-
-
-
-
-
-
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
     SportsComponent,
     AddBlogDataComponent,
     PoliticsComponent,
     TechnologyComponent,
-    SideNavComponent,
-    BlogsComponent
-
-
+    // SideNavComponent,
+    BlogsComponent,
+    AdminComponent,
 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

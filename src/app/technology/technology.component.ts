@@ -15,7 +15,7 @@ export class TechnologyComponent implements OnInit{
 
   //imgs:string = 'https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4='
 
-  preferance_id:any = 3;
+  preferance_id:any = 3
   technologysList:dataList[] = [
 
   //  {id:1, heading:'Technology_1',image:this.imgs,detail:'details...1'},
@@ -30,14 +30,15 @@ export class TechnologyComponent implements OnInit{
  constructor(private obj:ServicesService , private dialogRef:MatDialog, public datashare:DataShareService){}
   ngOnInit(): void {
 
-
+    this.preferance_id = this.datashare.preference;
+    console.warn(this.preferance_id)
     this.getCmsDatas();
 
   }
 
   getCmsDatas(){
 
-      this.obj.getCmsData(3).subscribe(data =>{
+      this.obj.getCmsData(this.preferance_id).subscribe(data =>{
 
         this.technologysList = data;
 
