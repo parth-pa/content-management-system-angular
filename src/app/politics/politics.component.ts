@@ -27,6 +27,8 @@ export class PoliticsComponent implements OnInit {
   ngOnInit(): void {
 
     this.getCmsDatas(this.preferance_id);
+    this.preferance_id = this.datashare.preference;
+    console.warn(this.preferance_id)
   }
 
  getCmsDatas(value:any){

@@ -20,15 +20,24 @@ export class AdminComponent {
     private _apiService: KeyCloakApiService
   ) {}
 
-  PreList: preferenceList[] = [
-    { preferenceId: 1, preferenceName: 'Sports' },
-    { preferenceId: 2, preferenceName: 'Politics' },
-    { preferenceId: 3, preferenceName: 'Technologies' },
-  ];
+PreList :preferenceList[] = [
 
-  preferenceChange(preferenceValue?: number) {
-    this.datashare.preference = preferenceValue;
-  }
+  {preferenceId:1 , preferenceName:'Sports' },
+  {preferenceId:2 , preferenceName:'Politics' },
+  {preferenceId:3 , preferenceName:'Technologies' }
+  // {preferenceId:1 , preferenceName:'Sports' },
+  // {preferenceId:2 , preferenceName:'Sports' },
+  // {preferenceId:3 , preferenceName:'Sports' }
+
+
+];
+
+
+preferenceChange(preferenceValue?:any){
+
+  this.datashare.preference = preferenceValue;
+
+}
 
   logOut() {
     this._apiService.remove();

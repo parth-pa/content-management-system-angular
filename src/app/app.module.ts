@@ -34,12 +34,6 @@ import { UserFooterComponent } from './user-panel/user-footer/user-footer.compon
 
 
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

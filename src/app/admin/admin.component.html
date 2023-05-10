@@ -19,29 +19,16 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container>
+
+<!-- <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
     <mat-list>
-      <mat-list-item
-        ><button class="btn btn-submit" style="width: 90%" routerLink="/">
-          Home
-        </button></mat-list-item
-      >
 
-      <h2>Blogs</h2>
-      <hr />
+      <h2> Blogs</h2>
+      <hr>
+      <div *ngFor=" let i of PreList">
+        <mat-list-item> <a mat-button style="width: 90%;" routerLink="/{{i.preferenceName}}" (click)="preferenceChange(i.preferenceId)">{{i.preferenceName}}</a> </mat-list-item>
 
-      <!-- -- side Nav bar -- -->
-      <div *ngFor="let i of PreList">
-        <mat-list-item>
-          <a
-            mat-button
-            style="width: 90%"
-            routerLink="/{{ i.preferenceName }}"
-            (click)="preferenceChange(i.preferenceId)"
-            >{{ i.preferenceName }}</a
-          >
-        </mat-list-item>
       </div>
     </mat-list>
   </mat-sidenav>
@@ -49,3 +36,5 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+-->
+
