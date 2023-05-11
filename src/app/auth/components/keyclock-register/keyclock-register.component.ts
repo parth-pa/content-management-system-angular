@@ -1,4 +1,4 @@
-import { preferenceModel } from './../model/prefrenceModel';
+import { preferenceModel } from '../../../model/prefrenceModel';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';

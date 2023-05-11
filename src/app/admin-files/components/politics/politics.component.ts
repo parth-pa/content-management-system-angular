@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { dataList, dataList2 } from 'src/app/model/model';
 import { ServicesService } from 'src/Services/services.service';
-import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataShareService } from 'src/Services/data-share.service';
+import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 
 @Component({
   selector: 'app-politics',
@@ -26,7 +26,7 @@ export class PoliticsComponent implements OnInit {
   ngOnInit(): void {
     this.getCmsDatas(this.preferance_id);
     this.preferance_id = this.datashare.preference;
-    console.warn(this.preferance_id)
+    console.warn(this.preferance_id);
   }
 
   getCmsDatas(value: any) {
