@@ -1,6 +1,6 @@
 .card{
   width: 1000px;
-  height: 550px;
+  height: 650px;
   /* margin-top: 3%; */
   /* box-shadow: 3px; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
@@ -28,4 +28,10 @@
 
     background-color:whitesmoke;
   }
+
+  .inputFile{
+    width: 600px;
+
+  }
+
 

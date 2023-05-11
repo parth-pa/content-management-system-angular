@@ -14,6 +14,7 @@ import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 export class TechnologyComponent implements OnInit {
   //imgs:string = 'https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4='
 
+<<<<<<< HEAD:src/app/admin-files/components/technology/technology.component.ts
   preferance_id: any = 3;
   technologysList: dataList[] = [
     //  {id:1, heading:'Technology_1',image:this.imgs,detail:'details...1'},
@@ -21,6 +22,10 @@ export class TechnologyComponent implements OnInit {
     //  {id:3, heading:'Technology_3',image:this.imgs,detail:'details...3'},
     //  {id:3, heading:'Technology_3',image:this.imgs,detail:'details...3'}
   ];
+=======
+  preferance_id:any = 3
+  technologysList:dataList[] = [ ];
+>>>>>>> master:src/app/technology/technology.component.ts
 
   constructor(
     private obj: ServicesService,
