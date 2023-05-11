@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 
   isLogin?: boolean;
   opened = false;
+  sidenavToggle:boolean = true;
 
   constructor(
     public datashare: DataShareService,
@@ -28,7 +29,7 @@ PreList :preferenceList[] = [
 
   {preferenceId:1 , preferenceName:'Sports',icon:'fa-solid fa-person-biking' },
   {preferenceId:2 , preferenceName:'Politics', icon:'fa-solid fa-landmark-dome' },
-  {preferenceId:3 , preferenceName:'Technologies', icon:'fa-solid fa-laptop-mobile'}
+  {preferenceId:3 , preferenceName:'Technologies', icon:'fa-solid fa-microchip'}
   // {preferenceId:1 , preferenceName:'Sports' },
   // {preferenceId:2 , preferenceName:'Sports' },
   // {preferenceId:3 , preferenceName:'Sports' }
@@ -72,6 +73,18 @@ list =[
   }
 ]
 
+onclickmenu(){
+
+  if(this.sidenavToggle == true){
+
+    this.sidenavToggle = false;
+  }
+  else{
+    this.sidenavToggle = true;
+
+  }
+
+}
 
 
 

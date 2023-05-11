@@ -17,13 +17,6 @@
         </kendo-grid-column>
         <kendo-grid-column field="title" title="title"> </kendo-grid-column>
         <kendo-grid-column field="description" title="description"> </kendo-grid-column>
-        <kendo-grid-column field="description" title="description">
-          <ng-template kendoGridCellTemplate let-dataItem>
-            {{!dataItem.description!}}
-          </ng-template>
-        </kendo-grid-column>
-        <kendo-grid-column field="prefId" title="prefId"> </kendo-grid-column>
-        <kendo-grid-column field="subPreferenceId" title="subPreferenceId"> </kendo-grid-column>
 
         <kendo-grid-column field="delete"  title="delete">
           <ng-template kendoGridCellTemplate let-dataItem>
@@ -37,8 +30,3 @@
           </ng-template>
           </kendo-grid-column>
   </kendo-grid>
-
-<!-- <input type="file" (change)="onchange($event)">
-<input type="button" value="upload" (click)="onupload()"> -->
-
-<!-- <app-add-blog-data [fromParent] = 'parentmessage'></app-add-blog-data> -->

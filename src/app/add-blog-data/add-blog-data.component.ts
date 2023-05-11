@@ -32,9 +32,8 @@ export class AddBlogDataComponent implements OnInit {
   ngOnInit(): void {
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
+    this.img = this.updateData.image;
     this.selectedOption = this.datashare.preference;
-    // this.selectedOption = this.updateData.subPreferenceId
-    // console.warn(this.selectedOption)
   }
 
   blogdata: Array<dataList> = [];
@@ -64,7 +63,7 @@ export class AddBlogDataComponent implements OnInit {
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
-    this.add.image = this.img;
+    this.add.image = this.img
     this.add.prefId = this.blogForm.value.prefId;
     this.add.subPreferenceId = this.blogForm.value.subPreferenceId;
 
