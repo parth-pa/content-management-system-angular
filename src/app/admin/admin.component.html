@@ -1,10 +1,10 @@
-<mat-toolbar>
+<!-- <mat-toolbar>
   <mat-toolbar-row>
     <button
       class="btn btn-submit"
       (click)="opened = !opened"
       style="color: black; background-color: cornsilk"
-      *ngIf="isLogin"
+
     >
       Menu
     </button>
@@ -17,8 +17,45 @@
       Logout
     </button>
   </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
 
+<!-- ********** header **************** -->
+<div class="container-fluid g-0">
+  <nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+    <div class="side-nav-button p-2 me-3 text-light">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <a class="navbar-brand px-4" href="#"> Amnex</a>
+    <div class="navbar-collapse"></div>
+  </nav>
+
+  <main>
+    <!-- *************** side navbar **************** -->
+    <div class="side-nav" [ngClass]="{'side-nav-open':true}">
+      <div class="side-nav-content">
+        <ul class="nav-list" >
+          <li class="nav-list-item " *ngFor="let item of PreList">
+            <i class="{{ item.icon }}"></i>
+            <span>
+              <a
+                routerLink="/{{item.preferenceName}}"
+                >{{ item.preferenceName }}</a
+              >
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- class="black-border" -->
+    <div class="display-area p-3">
+      <!-- <p>Main display area</p> -->
+      <router-outlet></router-outlet>
+
+    </div>
+  </main>
+</div>
 
 <!-- <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
@@ -35,6 +72,4 @@
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container>
--->
-
+</mat-sidenav-container> -->

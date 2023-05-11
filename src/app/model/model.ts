@@ -34,6 +34,7 @@ export class preferenceList{
 
   preferenceId?:number
   preferenceName?:string
+  icon?:any
 
 }
 
