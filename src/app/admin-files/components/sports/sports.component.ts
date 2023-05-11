@@ -40,11 +40,9 @@ export class SportsComponent implements OnInit {
   }
 
   removeHandler(event: any) {
-    this.obj
-      .deleteCmsData(event.dataItem.prefId, event.dataItem.id)
-      .subscribe((data) => {
-        this.getCmsDatas(this.preferance_id);
-      });
+    this.obj.deleteCmsData(1,event.dataItem.id).subscribe((data) => {
+      this.getCmsDatas(this.preferance_id);
+    });
   }
 
   openDialog(value?: any) {

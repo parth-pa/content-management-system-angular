@@ -1,6 +1,7 @@
 <app-user-header (senddata)="headerdata($event)"></app-user-header>
 
 <!-- <app-user-crousel></app-user-crousel> -->
+<!-- <app-user-crousel></app-user-crousel> -->
 
 <!-- <body class="welcome">
   <span id="splash-overlay" class="splash"></span>
@@ -37,34 +38,38 @@
 
 </body> -->
 
-
 <div id="home" class="first_page">
-
-  <div class="wrapper" *ngFor="let i of getdetails;" style="margin-top: 2%; margin-bottom: 1%;">
-
+  <div
+    class="wrapper"
+    *ngFor="let i of getdetails"
+    style="margin-top: 2%; margin-bottom: 1%"
+  >
     <div class="content-splitter">
-      <div class="nav">
-
-      </div>
+      <div class="nav"></div>
       <div class="left">
-        <div class="block" >
-          <div class="header">
-          {{ i.title }}</div>
+        <div class="block">
+          <div class="header">{{ i.title }}</div>
           <div class="content">
-            {{i.description}}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, reprehenderit possimus accusantium, quis, amet similique odio qui nam sequi pariatur modi aperiam. Et, sed adipisci sit consequatur provident a quo.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero reprehenderit quam, velit at reiciendis esse in provident necessitatibus ipsa dolorum magni exercitationem voluptatem numquam illum amet. Facilis commodi veniam facere.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quo blanditiis cupiditate cum sequi qui debitis magnam at, aliquam quas nulla expedita tempora iusto nesciunt eos tenetur nobis quisquam aut?
-            I am a Freelance Designer and Photographer, each experience is for me a unique mean of growing as a person and delivering great content. (And this is some dummy text to fill more space.)</div>
+            {{ i.description }}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+            reprehenderit possimus accusantium, quis, amet similique odio qui
+            nam sequi pariatur modi aperiam. Et, sed adipisci sit consequatur
+            provident a quo. Lorem ipsum dolor sit, amet consectetur adipisicing
+            elit. Libero reprehenderit quam, velit at reiciendis esse in
+            provident necessitatibus ipsa dolorum magni exercitationem
+            voluptatem numquam illum amet. Facilis commodi veniam facere. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Inventore quo
+            blanditiis cupiditate cum sequi qui debitis magnam at, aliquam quas
+            nulla expedita tempora iusto nesciunt eos tenetur nobis quisquam
+            aut? I am a Freelance Designer and Photographer, each experience is
+            for me a unique mean of growing as a person and delivering great
+            content. (And this is some dummy text to fill more space.)
+          </div>
         </div>
       </div>
     </div>
     <div class="right">
-        <img [src]="i.image" alt="">
+      <img [src]="i.image" alt="" />
     </div>
-
   </div>
-
 </div>
-
-

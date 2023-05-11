@@ -22,8 +22,10 @@ export class ServicesService {
   }
 
   deleteCmsData(data: any, data2: any) {
+    console.warn(data);
+
     return this.obj.delete(
-      'https://localhost:7082/api/User?id=' + data + '&id1=' + data2
+      'https://localhost:7082/api/Admin?id=' + data + '&id1=' + data2
     );
   }
 

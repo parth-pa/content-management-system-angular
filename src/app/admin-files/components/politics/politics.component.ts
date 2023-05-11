@@ -33,13 +33,15 @@ export class PoliticsComponent implements OnInit {
     this.preferance_id = value;
     this.obj.getCmsData(this.preferance_id).subscribe((data) => {
       this.politicsList = data;
+      console.warn(this.politicsList);
+
     });
   }
 
   removeHandler(event: any) {
     // this.deleteData(event.dataItem.prefId,event.dataItem.id)
     // console.warn(event.dataItem.id,event.dataItem.prefId)
-    console.warn(event);
+    console.warn(event.dataItem.prefId);
     this.obj
       .deleteCmsData(event.dataItem.prefId, event.dataItem.id)
       .subscribe((data) => {
