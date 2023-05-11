@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
-import { Login } from '../model/Login';
+import { Login } from '../../../model/Login';
 
 @Component({
   selector: 'app-login',
@@ -41,7 +41,11 @@ export class KeyCloakLoginComponent implements OnInit {
         (response) => {
           this.isSucessfull = true;
           this.storeLoginInfo(response);
-          this._router.navigate(['user'], { replaceUrl: true });
+          if (response.userole == 'admin') {
+            this._router.navigate(['admin'], { replaceUrl: true });
+          } else {
+            this._router.navigate(['user'], { replaceUrl: true });
+          }
           this.isValid = true;
         },
         (error) => {

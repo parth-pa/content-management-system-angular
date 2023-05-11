@@ -10,13 +10,15 @@ export class ServicesService {
 
   getCmsData(data: any) {
     return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/Admin/getid?id=' + data
+      'https://localhost:7082/api/User/getinsindedatadetalils?id=' +
+        data +
+        '&id1=0'
     );
   }
 
   postCmsData(data: any) {
     console.warn(data);
-    return this.obj.post('https://localhost:7106/api/Admin', data);
+    return this.obj.post('https://localhost:7082/api/Admin', data);
   }
 
   deleteCmsData(data: any, data2: any) {

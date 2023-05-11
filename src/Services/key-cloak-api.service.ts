@@ -48,7 +48,9 @@ export class KeyCloakApiService {
   }
 
   onReaload() {
-    if (this.getToken()) {
+    if ((this.getToken() && this, this.getUserRole() == 'admin')) {
+      this._router.navigate(['admin'], { replaceUrl: true });
+    } else if (this.getToken()) {
       this._router.navigate(['user'], { replaceUrl: true });
     }
   }
