@@ -4,7 +4,7 @@ nav{
   background-color:orange;
   width: 100%;
   position: fixed;
-  margin-right: 2%;
+  /* margin-right: 2%; */
   z-index: 1030;
   height: 10px;
 }
