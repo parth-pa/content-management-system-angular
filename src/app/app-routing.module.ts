@@ -14,7 +14,7 @@ import { UserBodyComponent } from './user-panel/user-body/user-body.component';
 const routes: Routes = [
   { path: '', redirectTo: 'keycloakLogin', pathMatch: 'full' },
 
-  { path: 'Admin', component: AdminComponent },
+  { path: 'Admin', component: AdminComponent},
   { path: 'Blogs', component: BlogsComponent },
   { path: 'Sports', component: SportsComponent },
 

@@ -26,9 +26,9 @@ export class AdminComponent implements OnInit {
 
 PreList :preferenceList[] = [
 
-  {preferenceId:1 , preferenceName:'Sports' },
-  {preferenceId:2 , preferenceName:'Politics' },
-  {preferenceId:3 , preferenceName:'Technologies' }
+  {preferenceId:1 , preferenceName:'Sports',icon:'fa-solid fa-person-biking' },
+  {preferenceId:2 , preferenceName:'Politics', icon:'fa-solid fa-landmark-dome' },
+  {preferenceId:3 , preferenceName:'Technologies', icon:'fa-solid fa-laptop-mobile'}
   // {preferenceId:1 , preferenceName:'Sports' },
   // {preferenceId:2 , preferenceName:'Sports' },
   // {preferenceId:3 , preferenceName:'Sports' }
@@ -49,4 +49,32 @@ preferenceChange(preferenceValue?:any){
     this.opened = false;
     this._apiService.userType = 'defult';
   }
+
+
+// ******** side nav data *******************
+
+list =[
+
+  {
+    number:'1',
+    name: 'sport',
+    icon: 'fa-solid fa-house'
+  },
+  {
+    number:'2',
+    name: 'technology',
+    icon: 'fa-solid fa-house'
+  },
+  {
+    number:'3',
+    name: 'Politics',
+    icon: 'fa-solid fa-house'
+  }
+]
+
+
+
+
+
+
 }
