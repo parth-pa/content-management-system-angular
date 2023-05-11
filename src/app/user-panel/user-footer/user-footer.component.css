@@ -21,8 +21,9 @@ footer{
   bottom: 3%;
   /* margin-top: 3%; */
   padding: 1%;
-  background-color: rgb(223, 244, 255);
+  background-color: #00308b;
   height: 270px;
+  color: white;
   font-size: larger;
   /* margin-right: auto; */
 }

@@ -41,9 +41,9 @@ export class UserServicesService {
 
  baseURL : string = 'https://localhost:7135/Cms';
 
- public getdata(id:any):Observable <Getdata[]>{
-   return this.http.get<Getdata[]>('https://localhost:7082/api/User/getid?id='+ id);
- }
+//  public getdata(id:any):Observable <Getdata[]>{
+//    return this.http.get<Getdata[]>('https://localhost:7082/api/User/getid?id='+ id);
+//  }
 
 // this api is for the preference
  // public firstdata():Observable<firstdata[]>{
