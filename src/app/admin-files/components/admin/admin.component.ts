@@ -42,6 +42,7 @@ export class AdminComponent implements OnInit {
       preferenceName: 'Technologies',
       icon: ' fa-solid fa-microchip',
     },
+    
 
     // {preferenceId:1 , preferenceName:'Sports' },
     // {preferenceId:2 , preferenceName:'Sports' },
