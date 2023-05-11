@@ -13,6 +13,8 @@ export class AdminComponent implements OnInit {
 
   isLogin?: boolean;
   opened = false;
+  sidenavToggle:boolean = true;
+
 
   constructor(
     public datashare: DataShareService,
@@ -74,4 +76,15 @@ export class AdminComponent implements OnInit {
       icon: 'fa-solid fa-house',
     },
   ];
+  onclickmenu(){
+
+    if(this.sidenavToggle == true){
+
+      this.sidenavToggle = false;
+    }
+    else{
+      this.sidenavToggle = true;
+
+    }
+}
 }
