@@ -1,34 +1,44 @@
 <nav class="navbar navbar-default" >
-  <div class="container-fluid">
-  <li><a routerLink="/Admin">admin</a></li>
-    <li><a class="nav-link "
-      style="color: black; "
-      routerLink="/Sports"
-      *ngIf="isLogin">MENU</a></li>
-     <ul class="nav ">
-       <li><a  class="nav-link navbar-brand" style="color:black;" href="https://www.amnex.com/" >Amnex</a></li>
-       <li><a class="nav-link "
-        (click)="logOut()"
-        style="color: black;  "
-        *ngIf="userType === 'user'">Logout</a></li>
+  <div class="container-fluid" style="margin-left: -15%;">
 
+     <ul class="nav " style="margin-right: 10%;">
+       <li><a  class="nav-link navbar-brand"
+        style="color:black;"
+        href="https://www.amnex.com/">Amnex</a>
+      </li>
+
+       <li><button class="nav-link navbar-dark "
+        (click)="logOut()"
+        style="color: black; margin-top: 5%;"
+        *ngIf="userType === 'user'">Logout</button>
+      </li>
+      <li>
+        <button class="nav-link "
+        style="color: black; margin-top: 5%; margin-left: 20%;"
+        routerLink="/Sports"
+        *ngIf="isLogin">MENU</button>
+      </li>
      </ul>
 
-     <ul class="nav " >
-      <li><div class="dropdown" style="margin-top:-3% ;">
+     <ul class="nav " style="margin-left: 10%;" >
+      <li>
+        <div class="dropdown" style="margin-top: 2%;">
         <Label style="margin-right: 5px;">Filter by Name : </Label>
-        <select style="color: black;" (change)="onChangeSubPrefrence($event)" >
+        <select style="color: black; " (change)="onChangeSubPrefrence($event)" >
           <option [value]="0">View all</option>
           <option *ngFor="let item of subPrefDeatils" [value]="item.id">
             {{ item.name }}
           </option>
         </select>
       </div></li>
-     </ul>
-     <li><a class="nav-link "
-      style="color: black; "
+      <li>
+        <a class="nav-link "
+      style="color: black; font-size: large; margin-bottom: 10%;"
       routerLink="/user"
-      *ngIf="isLogin">Home</a></li>
+      *ngIf="isLogin">Home</a>
+      </li>
+     </ul>
+
  </div>
 
 </nav>

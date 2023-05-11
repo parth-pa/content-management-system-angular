@@ -44,7 +44,7 @@
 }
 
 body {
-  max-width: 37.5rem;
+  max-width: 10rem;
   margin: 0 auto;
   padding: 0 0.25rem;
 
@@ -86,7 +86,7 @@ ol, li {
   /* filter: drop-shadow(0 0 10px #0003); */
   /* perspective: 10px; */
   background-image: url("https://static.vecteezy.com/system/resources/previews/006/998/394/original/blue-abstract-background-blue-background-design-abstract-futuristic-background-free-vector.jpg" );
-  height: 10px;
+  /* height: 10px; */
   background-color: aliceblue;
 
 }
