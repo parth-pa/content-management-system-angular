@@ -14,6 +14,8 @@ export class AdminComponent implements OnInit {
   isLogin?: boolean;
   opened = false;
 
+  sidenavToggle: boolean = true;
+
   constructor(
     public datashare: DataShareService,
     private _router: Router,
@@ -74,4 +76,17 @@ export class AdminComponent implements OnInit {
       icon: 'fa-solid fa-house',
     },
   ];
+
+  onclickmenu() {
+    if (this.sidenavToggle == true) {
+      this.sidenavToggle = false;
+    } else {
+      this.sidenavToggle = true;
+    }
+  }
+  logOut() {
+    this._apiService.remove();
+    this._router.navigate(['auth/login']);
+    this.opened = false;
+  }
 }
