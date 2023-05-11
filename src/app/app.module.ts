@@ -1,3 +1,4 @@
+import { UserModule } from './user/user.module';
 import { AdminFilesModule } from './admin-files/admin-files.module';
 import { AuthModule } from './auth/auth.module';
 import { SportsComponent } from './admin-files/components/sports/sports.component';
@@ -77,6 +78,7 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     FormsModule,
     AuthModule,
     AdminFilesModule,
+    UserModule,
   ],
   providers: [
     {
