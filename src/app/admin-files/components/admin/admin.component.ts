@@ -13,8 +13,10 @@ export class AdminComponent implements OnInit {
 
   isLogin?: boolean;
   opened = false;
-  sidenavToggle:boolean = true;
 
+
+
+  sidenavToggle: boolean = true;
 
   constructor(
     public datashare: DataShareService,
@@ -76,15 +78,17 @@ export class AdminComponent implements OnInit {
       icon: 'fa-solid fa-house',
     },
   ];
-  onclickmenu(){
 
-    if(this.sidenavToggle == true){
-
+  onclickmenu() {
+    if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
-    }
-    else{
+    } else {
       this.sidenavToggle = true;
-
     }
-}
+  }
+  logOut() {
+    this._apiService.remove();
+    this._router.navigate(['auth/login']);
+    this.opened = false;
+  }
 }
