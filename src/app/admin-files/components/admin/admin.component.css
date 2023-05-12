@@ -211,3 +211,15 @@ left: 10px; */
   margin-left: 1.5%;
   margin-right: 3%;
 }
+
+button {
+  border-radius: 10px;
+  height: 50px;
+  width: 135%;
+  background-color: lightblue;
+  margin-block: 10px;
+}
+
+.i {
+  margin-left: 0%;
+}

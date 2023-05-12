@@ -43,14 +43,14 @@ export class AdminComponent implements OnInit {
       icon: ' fa-solid fa-microchip',
     },
 
-
     // {preferenceId:1 , preferenceName:'Sports' },
     // {preferenceId:2 , preferenceName:'Sports' },
     // {preferenceId:3 , preferenceName:'Sports' }
   ];
 
-  preferenceChange(preferenceValue?: any) {
-    this.datashare.preference = preferenceValue;
+  preferenceChange(preferenceId: any) {
+    this.datashare.preference = preferenceId;
+    // console.warn(preferenceId);
   }
 
   // ******** side nav data *******************

@@ -27,20 +27,22 @@
     <div class="side-nav-content">
       <ul class="nav-list">
         <li class="nav-list-item" *ngFor="let item of PreList">
-          <i class="{{ item.icon }}"></i>
+          <!-- <i class="{{ item.icon }}"></i> -->
           <span>
-            <a routerLink="{{ item.preferenceName }}">{{
-              item.preferenceName
-            }}</a>
+            <button
+              routerLink="{{ item.preferenceName }}"
+              (click)="preferenceChange(item.preferenceId)"
+            >
+              <i class="{{ item.icon }} i"></i>
+              {{ item.preferenceName }}
+            </button>
           </span>
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- class="black-border" -->
   <div class="display-area p-3">
-    <!-- <p>Main display area</p> -->
     <router-outlet></router-outlet>
   </div>
 </main>

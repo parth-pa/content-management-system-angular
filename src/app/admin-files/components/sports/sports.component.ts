@@ -11,7 +11,7 @@ import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
   styleUrls: ['./sports.component.css'],
 })
 export class SportsComponent implements OnInit {
-  preferance_id: any = 1;
+  preferance_id: any;
   myimage?: any;
 
   sportsList: dataList[] = [];
@@ -26,23 +26,24 @@ export class SportsComponent implements OnInit {
     public datashare: DataShareService
   ) {}
   ngOnInit(): void {
-    this.getCmsDatas(this.preferance_id);
     this.preferance_id = this.datashare.preference;
+    this.getCmsDatas(this.preferance_id);
     console.warn(this.preferance_id);
   }
 
   getCmsDatas(value: any) {
-    this.preferance_id = value;
-    this.obj.getCmsData(this.preferance_id).subscribe((data) => {
+    this.obj.getCmsData(value).subscribe((data) => {
       this.sportsList = data;
-      console.log(this.sportsList);
+      console.warn(this.preferance_id);
     });
   }
 
   removeHandler(event: any) {
-    this.obj.deleteCmsData(1,event.dataItem.id).subscribe((data) => {
-      this.getCmsDatas(this.preferance_id);
-    });
+    this.obj
+      .deleteCmsData(this.preferance_id, event.dataItem.id)
+      .subscribe((data) => {
+        this.getCmsDatas(this.preferance_id);
+      });
   }
 
   openDialog(value?: any) {
