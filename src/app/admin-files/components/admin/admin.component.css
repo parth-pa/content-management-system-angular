@@ -217,9 +217,11 @@ button {
   height: 50px;
   width: 135%;
   background-color: lightblue;
-  margin-block: 10px;
+  padding-right: 80%;
+  display: flex;
 }
 
 .i {
-  margin-left: 0%;
+  padding-right: 50%;
+  display: flex;
 }
