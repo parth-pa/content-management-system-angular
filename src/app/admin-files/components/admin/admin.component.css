@@ -101,7 +101,7 @@ main {
   height: auto;
 }
 
-.side-nav-open .display-area-size {
+.display-toggle {
   left: 60px;
 }
 

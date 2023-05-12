@@ -25,10 +25,10 @@ export class ServicesService {
     console.warn(data1);
 
     return this.obj.delete(
-      'https://localhost:7082/api/Admin?id=' + data + '&id1=' + data1
+      'https://localhost:7082/api/User?id=' + data + '&id1=' + data1
     );
   }
-
+  // https://localhost:7082/api/User?id=1&id1=12
   updateCmsData(data: any) {
     console.warn(data);
     return this.obj.put('https://localhost:7082/api/Cms/Admin', data);

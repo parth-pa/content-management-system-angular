@@ -38,7 +38,7 @@ export class PoliticsComponent implements OnInit {
   removeHandler(event: any) {
     console.warn(event.dataItem.prefId);
     this.obj
-      .deleteCmsData(event.dataItem.prefId, event.dataItem.id)
+      .deleteCmsData(this.preferance_id, event.dataItem.id)
       .subscribe((data) => {
         this.getCmsDatas(this.preferance_id);
       });

@@ -63,11 +63,11 @@ export class AddBlogDataComponent implements OnInit {
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
-    this.add.image = this.img
+    this.add.image = this.img;
     this.add.prefId = this.blogForm.value.prefId;
     this.add.subPreferenceId = this.blogForm.value.subPreferenceId;
-
     console.warn(this.blogForm);
+
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         console.warn(this.add);
