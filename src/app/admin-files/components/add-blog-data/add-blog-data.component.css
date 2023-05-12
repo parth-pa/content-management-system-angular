@@ -1,4 +1,4 @@
-.card{
+.card {
   width: 1000px;
   height: 650px;
   /* margin-top: 3%; */
@@ -6,32 +6,31 @@
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   /* border-radius: 10px; */
   background-color: white;
-  }
+}
 
-  form{
+form {
   padding: 2%;
   /* margin: 3%; */
-  }
+}
 
-  button{
+button {
+  margin: 1%;
+}
 
-    margin: 1%;
-  }
-
-  label , option{
-
+label,
+option {
   color: black;
+}
 
-  }
+mat-toolbar {
+  background-color: whitesmoke;
+}
 
-  mat-toolbar{
+.inputFile {
+  width: 600px;
+}
 
-    background-color:whitesmoke;
-  }
-
-  .inputFile{
-    width: 600px;
-
-  }
-
-
+.imgshow {
+  max-width: 100px;
+  max-height: 100px;
+}

@@ -14,8 +14,6 @@ export class AdminComponent implements OnInit {
   isLogin?: boolean;
   opened = false;
 
-
-
   sidenavToggle: boolean = true;
 
   constructor(
@@ -42,8 +40,9 @@ export class AdminComponent implements OnInit {
     {
       preferenceId: 3,
       preferenceName: 'Technologies',
-      icon: 'fa-solid fa-laptop-mobile',
+      icon: ' fa-solid fa-microchip',
     },
+
 
     // {preferenceId:1 , preferenceName:'Sports' },
     // {preferenceId:2 , preferenceName:'Sports' },
