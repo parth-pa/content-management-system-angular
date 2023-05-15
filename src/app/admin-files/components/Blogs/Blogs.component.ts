@@ -21,15 +21,5 @@ export class BlogsComponent {
 
   preference: any = this.datashare.preference;
 
-  subpreference: topicList[] = [
-    { blogId: 1, topic: 'Cricket', preferenceId: 1 },
-    { blogId: 1, topic: 'Football', preferenceId: 3 },
-    { blogId: 1, topic: 'Hockey', preferenceId: 2 },
-    { blogId: 2, topic: 'Gujarat', preferenceId: 4 },
-    { blogId: 2, topic: 'India', preferenceId: 5 },
-    { blogId: 2, topic: 'World', preferenceId: 6 },
-    { blogId: 3, topic: 'Mobile', preferenceId: 7 },
-    { blogId: 3, topic: 'Laptop', preferenceId: 8 },
-    { blogId: 3, topic: 'Innovative', preferenceId: 9 },
-  ];
+  subpreference: topicList[] = [];
 }
