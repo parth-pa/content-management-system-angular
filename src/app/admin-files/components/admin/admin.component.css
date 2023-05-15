@@ -101,7 +101,7 @@ main {
   height: auto;
 }
 
-.display-area-size {
+.display-toggle {
   left: 60px;
 }
 
@@ -127,7 +127,7 @@ nav {
 /* ************** side navbar ****************** */
 
 .side-nav-content {
-  color: white;
+  /* color: white; */
   width: 230px;
   margin-left: 10px;
   margin-right: 10px;
@@ -173,7 +173,7 @@ nav {
 
 a {
   text-decoration: none;
-  color: white;
+  /* color: white; */
 }
 
 .header {
@@ -191,7 +191,7 @@ a {
   display: flex;
   align-items: center;
   background-color: #1976d2;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
   /* font-weight: 600; */
   font-size: 17px;
   z-index: 1030;
@@ -210,4 +210,21 @@ a {
 left: 10px; */
   margin-left: 1.5%;
   margin-right: 3%;
+}
+
+button {
+  border-radius: 10px;
+  height: 50px;
+  width: 135%;
+  background-color: lightblue;
+  padding-right: 80%;
+  display: flex;
+  padding-top: 10%;
+  margin-block: 10%;
+}
+
+.i {
+  /* padding-top: 2%; */
+  padding-right: 50%;
+  display: flex;
 }

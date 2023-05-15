@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataShareService {
+  blogData: any[] = [];
 
+  public preference: any = 1;
 
-  blogData:any[] = [];
-
-  preference :any
-
-  constructor() {
-
-
-  }
-
-
-
-
-
+  constructor() {}
 }

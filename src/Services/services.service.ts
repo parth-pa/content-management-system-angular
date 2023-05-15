@@ -9,10 +9,9 @@ export class ServicesService {
   baseURL: string = 'https://localhost:7106/api/Cms';
 
   getCmsData(data: any) {
+    console.warn(data);
     return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/User/getinsindedatadetalils?id=' +
-        data +
-        '&id1=0'
+      'https://localhost:7082/api/User/getid?id=' + data
     );
   }
 
@@ -21,22 +20,17 @@ export class ServicesService {
     return this.obj.post('https://localhost:7082/api/Admin', data);
   }
 
-  deleteCmsData(data: any, data2: any) {
+  deleteCmsData(data: any, data1: any) {
     console.warn(data);
+    console.warn(data1);
 
     return this.obj.delete(
-      'https://localhost:7082/api/Admin?id=' + data + '&id1=' + data2
+      'https://localhost:7082/api/User?id=' + data + '&id1=' + data1
     );
   }
-
+  // https://localhost:7082/api/User?id=1&id1=12
   updateCmsData(data: any) {
     console.warn(data);
     return this.obj.put('https://localhost:7082/api/Cms/Admin', data);
   }
-
-  // uploadjpg(data:any){
-
-  //   console.warn(data)
-  //   return this.obj.post('https://localhost:7106/api/Cms/UploadImages',data);
-  // }
 }
