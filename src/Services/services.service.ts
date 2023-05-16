@@ -31,6 +31,6 @@ export class ServicesService {
   // https://localhost:7082/api/User?id=1&id1=12
   updateCmsData(data: any) {
     console.warn(data);
-    return this.obj.put('https://localhost:7082/api/Cms/Admin', data);
+    return this.obj.put('https://localhost:7082/api/Admin', data);
   }
 }

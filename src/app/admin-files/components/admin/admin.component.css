@@ -183,6 +183,7 @@ a {
   display: flex;
   align-items: center;
   background-color: #1976d2e6;
+  font-size: larger;
   /* color: rgb(255, 255, 255); */
   /* font-weight: 600; */
   font-size: 17px;
@@ -215,6 +216,7 @@ left: 10px; */
   padding-right: 80%;
   display: flex;
   padding-top: 10%;
+  font-size: larger;
   margin-block: 10%;
 }
 
@@ -223,3 +225,4 @@ left: 10px; */
   padding-right: 50%;
   display: flex;
 }
+

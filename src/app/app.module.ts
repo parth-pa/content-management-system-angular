@@ -18,12 +18,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PoliticsComponent } from './admin-files/components/politics/politics.component';
 import { TechnologyComponent } from './admin-files/components/technology/technology.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { UploadsModule } from '@progress/kendo-angular-upload';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { LabelModule } from '@progress/kendo-angular-label';
 import { FooterComponent, GridModule } from '@progress/kendo-angular-grid';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { EditorModule } from '@progress/kendo-angular-editor';
+
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { TokenIntercepterService } from './Intercepters/token-intercepter.service';
 import { BlogsComponent } from './admin-files/components/Blogs/Blogs.component';
 import { KeyCloakLoginComponent } from './auth/components/keycloak-login/login.component';
@@ -79,6 +84,9 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     AuthModule,
     AdminFilesModule,
     UserModule,
+    UploadsModule,
+    DateInputsModule,
+    LabelModule,
   ],
   providers: [
     {

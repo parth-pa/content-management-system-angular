@@ -32,9 +32,9 @@ export class SportsComponent implements OnInit {
   }
 
   getCmsDatas(value: any) {
-    this.obj.getCmsData(value).subscribe((data) => {
+    this.obj.getCmsData(1).subscribe((data) => {
       this.sportsList = data;
-      console.warn(this.preferance_id);
+      console.warn(this.sportsList);
     });
   }
 

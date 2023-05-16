@@ -36,10 +36,10 @@ export class AdminComponent implements OnInit {
     this.UserName= this.keycloakapiService.getName();
     this.getSubPref();
     this.getresponce();
-    this.onClick();
+    // this.onClick();
 
-    this.visibility = this.userapiservices.isVisible;
-    this.visibility = !this.visibility
+    // this.visibility = this.userapiservices.isVisible;
+    // this.visibility = !this.visibility
   }
   getdeatils: Getdata[] = [];
   subPrefDeatils: subdata[] = [];
@@ -71,17 +71,17 @@ export class AdminComponent implements OnInit {
   }
 
   // ******** side nav data *******************
-   onClick(){
-    if(this.userapiservices.isVisible = true){
-      this.userapiservices.isVisible =false
-      this.visibility= this.userapiservices.isVisible;
-    }
-    else if(this.userapiservices.isVisible = false){
-      this.userapiservices.isVisible = true
-      this.visibility= this.userapiservices.isVisible;
-    }
+  //  onClick(){
+  //   if(this.userapiservices.isVisible = true){
+  //     this.userapiservices.isVisible =false
+  //     this.visibility= this.userapiservices.isVisible;
+  //   }
+  //   else if(this.userapiservices.isVisible = false){
+  //     this.userapiservices.isVisible = true
+  //     this.visibility= this.userapiservices.isVisible;
+  //   }
 
-   }
+  //  }
 
   list = [
     {

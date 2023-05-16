@@ -10,13 +10,13 @@
   /></a>
   <span style="margin-right: 0.5%">Welcome</span>
   <span style="margin-right: 1%">{{UserName}}</span>
-  <p style="margin-right: 1%; margin-top: 0.8%; margin-left: 0.2%"
-    routerLink="/user" *ngIf="isLogin && visibility" (click)="onClick()">home
-  </p>
+  <span style="margin-right: 1%; "
+    routerLink="/user" *ngIf="isLogin && !visibility">home
+  </span>
 
 
   <div class="spacer"></div>
-  <div class="dropdown" style="margin-right: 1%" [style.visibility]="visibility ? 'visible' : 'hidden'" >
+  <div class="dropdown" style="margin-right: 1%" >
     <span>Filter by Name : </span>
     <select style="color: black" (change)="onChangeSubPrefrence($event)">
       <option [value]="0">View all</option>
