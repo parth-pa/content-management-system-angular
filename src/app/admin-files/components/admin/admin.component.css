@@ -49,9 +49,6 @@ a:active {
 }
 
 /* ************** Admin header side nav  ******************** */
-.black-border {
-  border: 1px solid black;
-}
 
 .app-header {
   position: fixed;
@@ -176,11 +173,6 @@ a {
   /* color: white; */
 }
 
-.header {
-  position: fixed;
-  width: 100%;
-  z-index: 1030;
-}
 
 .toolbar {
   position: fixed;
@@ -190,11 +182,13 @@ a {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: #1976d2e6;
+  font-size: larger;
   /* color: rgb(255, 255, 255); */
   /* font-weight: 600; */
   font-size: 17px;
   z-index: 1030;
+  color: white;
 }
 
 .toolbar img {
@@ -209,17 +203,20 @@ a {
   /*
 left: 10px; */
   margin-left: 1.5%;
-  margin-right: 3%;
+  color: white  ;
+  /* margin-right: 3%; */
 }
 
-button {
+.sidenavdata{
   border-radius: 10px;
   height: 50px;
   width: 135%;
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  color: white;
   padding-right: 80%;
   display: flex;
   padding-top: 10%;
+  font-size: larger;
   margin-block: 10%;
 }
 
@@ -228,3 +225,4 @@ button {
   padding-right: 50%;
   display: flex;
 }
+
