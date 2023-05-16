@@ -69,6 +69,7 @@ export class AddBlogDataComponent implements OnInit {
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         this.blogForm.reset();
+        this.getSubPreference(this.preferance_id);  
         console.warn(this.add);
       });
     }

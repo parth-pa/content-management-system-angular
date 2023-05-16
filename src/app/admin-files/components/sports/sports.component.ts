@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ServicesService } from 'src/Services/services.service';
 import { DataShareService } from 'src/Services/data-share.service';
 import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-sports',
@@ -13,6 +15,8 @@ import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 export class SportsComponent implements OnInit {
   preferance_id: any;
   myimage?: any;
+
+  clickEventSubscription:Subscription;
 
   sportsList: dataList[] = [];
 
@@ -24,7 +28,20 @@ export class SportsComponent implements OnInit {
     private obj: ServicesService,
     private dialogRef: MatDialog,
     public datashare: DataShareService
-  ) {}
+  ) {
+
+    this.clickEventSubscription = this.datashare.getclickEvent().subscribe(()=>{
+
+      this.ngOnInit()
+
+    });
+
+  }
+
+
+
+
+
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
     this.getCmsDatas(this.preferance_id);
@@ -32,7 +49,7 @@ export class SportsComponent implements OnInit {
   }
 
   getCmsDatas(value: any) {
-    this.obj.getCmsData(1).subscribe((data) => {
+    this.obj.getCmsData(value).subscribe((data) => {
       this.sportsList = data;
       console.warn(this.sportsList);
     });
