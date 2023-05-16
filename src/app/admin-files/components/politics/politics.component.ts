@@ -31,9 +31,14 @@ export class PoliticsComponent implements OnInit {
     console.warn(this.preferance_id);
   }
 
-  getCmsDatas(value: any,value1: any = 0) {
-    value1 = this.userservices.readsubuserPreferencefordetails();
-    this.userservices.getperticulardetailsinsidedata(value, value1).subscribe((data) => {
+  // getCmsDatas(value: any,value1: any = 0) {
+  //   value1 = this.userservices.readsubuserPreferencefordetails();
+  //   this.userservices.getperticulardetailsinsidedata(value, value1).subscribe((data) => {
+  //     this.politicsList = data;
+  //   });
+  // }
+  getCmsDatas(value: any) {
+    this.obj.getCmsData(value).subscribe((data) => {
       this.politicsList = data;
     });
   }
