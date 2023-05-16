@@ -11,29 +11,31 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  refreshClick() {
+    this.datashare.sendClickEvent();
+  }
+
   userType?: string;
 
   isLogin?: boolean;
   opened = false;
-  UserName:any;
+  UserName: any;
   sidenavToggle: boolean = true;
   visibility?: boolean;
 
   selectedSubPrefrence: any = 0;
   selectedOption: any;
 
-
   constructor(
     public datashare: DataShareService,
     private _router: Router,
     private keycloakapiService: KeyCloakApiService,
-    private userapiservices: UserServicesService,
-
+    private userapiservices: UserServicesService
   ) {}
   ngOnInit(): void {
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
-    this.UserName= this.keycloakapiService.getName();
+    this.UserName = this.keycloakapiService.getName();
     this.getSubPref();
     this.getresponce();
     // this.onClick();
@@ -67,6 +69,7 @@ export class AdminComponent implements OnInit {
 
   preferenceChange(preferenceId: any) {
     this.datashare.preference = preferenceId;
+    refreshClick();
     // console.warn(preferenceId);
   }
 
@@ -115,17 +118,18 @@ export class AdminComponent implements OnInit {
   }
   logOut() {
     this.keycloakapiService.remove();
-    this._router.navigate(['auth/login'],{replaceUrl: true});
+    this._router.navigate(['auth/login'], { replaceUrl: true });
     this.opened = false;
   }
 
-
   // new form here
-   @Output() senddata = new EventEmitter<any>( );
+  @Output() senddata = new EventEmitter<any>();
 
   onChangeSubPrefrence(e: any) {
     this.selectedSubPrefrence = e.target.value;
-    this.userapiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence);
+    this.userapiservices.savesubuserPreferencefordetails(
+      this.selectedSubPrefrence
+    );
 
     // var pref=this.keycloakapiservice.getPrefence();
 
