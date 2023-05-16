@@ -9,20 +9,20 @@ export class ServicesService {
   baseURL: string = 'https://localhost:7106/api/Cms';
 
   getCmsData(data: any) {
-    console.warn(data);
+    // console.warn(data);
     return this.obj.get<dataList[]>(
       'https://localhost:7082/api/User/getid?id=' + data
     );
   }
 
   postCmsData(data: any) {
-    console.warn(data);
+    // console.warn(data);
     return this.obj.post('https://localhost:7082/api/Admin', data);
   }
 
   deleteCmsData(data: any, data1: any) {
-    console.warn(data);
-    console.warn(data1);
+    // console.warn(data);
+    // console.warn(data1);
 
     return this.obj.delete(
       'https://localhost:7082/api/User?id=' + data + '&id1=' + data1

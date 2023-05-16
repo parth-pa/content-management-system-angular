@@ -19,9 +19,8 @@ export class UserBodyComponent implements OnInit{
   ngOnInit(): void {
     // this.firstdata();
     this.storesubpref();
-    this.getsubData();
+    // this.getsubData();
     this.getSubPref();
-
   }
 
   constructor(
@@ -30,7 +29,7 @@ export class UserBodyComponent implements OnInit{
   ) {}
 
 
-  isDone: boolean = false;
+  isNull: boolean = false;
   selectedOption: any = 1;
   selectprefoption: any;
   selectcardoption: any = 0;
@@ -40,9 +39,13 @@ export class UserBodyComponent implements OnInit{
   GetData() {
     var pref = this.keyclockapiservice.getPrefence();
     this.apiservices.getperticulardetailsinsidedata(pref).subscribe((res) => {
-      this.getdetails = res;
-      this.isDone = true;
+      this.getdetails = res
+       console.log(this.getdetails);
+
+
+
     });
+
   }
 
 
@@ -80,15 +83,15 @@ export class UserBodyComponent implements OnInit{
 
 
 
-  getsubData() {
-    var pref=this.keyclockapiservice.getPrefence();
-    var subPrefDeatils=this.apiservices.readsubuserPreferencefordetails();
+  // getsubData() {
+  //   var pref=this.keyclockapiservice.getPrefence();
+  //   var subPrefDeatils=this.apiservices.readsubuserPreferencefordetails();
 
-    this.apiservices.getperticulardetailsinsidedata(pref,subPrefDeatils).subscribe((respones) => {
-      this.getdetails = respones;
+  //   this.apiservices.getperticulardetailsinsidedata(pref,subPrefDeatils).subscribe((respones) => {
+  //     this.getdetails = respones;
 
-    });
-  }
+  //   });
+  // }
 
 
   getSubPref() {
@@ -99,9 +102,16 @@ export class UserBodyComponent implements OnInit{
         this.subPrefDeatils = response;
       });
   }
-
   headerdata(event: any){
     this.getdetails = event;
-  }
+    if(this.getdetails.length === 0)
+    {
+      this.isNull= true
 
+    }
+    else{
+      this.isNull= false;
+    }
+
+  }
 }

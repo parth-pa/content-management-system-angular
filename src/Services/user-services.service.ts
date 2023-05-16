@@ -10,6 +10,8 @@ import { Getdata, subdata } from 'src/app/model/model';
   providedIn: 'root'
 })
 export class UserServicesService {
+
+  isVisible:boolean = true;
   getPrefence() {
     throw new Error('Method not implemented.');
   }
