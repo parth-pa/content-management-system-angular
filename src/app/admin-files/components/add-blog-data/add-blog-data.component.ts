@@ -56,7 +56,7 @@ export class AddBlogDataComponent implements OnInit {
   });
 
   onclick() {
-    this.preferance_id = this.datashare.preference;
+    // this.preferance_id = this.datashare.preference;
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
@@ -117,7 +117,7 @@ export class AddBlogDataComponent implements OnInit {
     observable.subscribe((d) => {
       console.log(d);
       this.img = d;
-      //  console.log(this.img)
+      console.log(this.img);
 
       // this.showimage =this.showimage2(d)
     });
