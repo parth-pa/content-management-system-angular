@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { dataList, dataList2, topicList } from 'src/app/model/model';
 
 import { ServicesService } from 'src/Services/services.service';
@@ -36,31 +36,34 @@ export class AddBlogDataComponent implements OnInit {
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
     this.img = this.updateData.image;
+    console.warn(this.img);
     this.preferance_id = this.datashare.preference;
-    this.getSubPreference(this.preference_id);
+    this.getSubPreference(this.preferance_id);
   }
 
   blogdata: Array<dataList> = [];
 
   add: dataList = new dataList();
   topic: topicList[] = [];
+  // { id: 1, name: 'ankur', pref_id: 1 }
 
   blogForm = new FormGroup({
     title: new FormControl(),
     description: new FormControl(),
     image: new FormControl(),
     prefId: new FormControl(),
-    subPreferenceId: new FormControl(),
+    subPreferenceId: new FormControl('', [Validators.required]),
   });
 
   onclick() {
+    this.preferance_id = this.datashare.preference;
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
     this.add.image = this.img;
-    this.add.prefId = this.blogForm.value.prefId;
+    this.add.prefId = this.preferance_id;
     this.add.subPreferenceId = this.blogForm.value.subPreferenceId;
-    this.preferance_id = this.datashare.preference;
+
     console.warn(this.blogForm);
 
     if (this.editmode == true) {
@@ -72,12 +75,12 @@ export class AddBlogDataComponent implements OnInit {
 
     if (this.editmode == false) {
       this.obj.postCmsData(this.add).subscribe();
-      this.clearForm();
     }
   }
 
   sendCmsData() {
     this.editmode = false;
+    console.warn('Hello');
   }
 
   updateCmsData() {
@@ -87,7 +90,7 @@ export class AddBlogDataComponent implements OnInit {
 
   getSubPreference(value: any) {
     this.user.getSubdatadeatails(value).subscribe((data) => {
-      this.topicList = data;
+      this.topic = data;
     });
   }
 

@@ -49,10 +49,11 @@
 
 <div class="card">
   <form class="k-form" [formGroup]="blogForm" (ngSubmit)="onclick()">
-    <h1>Technology</h1>
+    <h1>Form</h1>
     <kendo-formfield>
       <kendo-label text="Heading"></kendo-label>
       <kendo-textbox
+        [(ngModel)]="updateData.title"
         formControlName="title"
         [clearButton]="true"
         #title
@@ -79,33 +80,68 @@
       >
     </kendo-formfield>
 
-    <kendo-formfield>
+    <!-- <kendo-formfield>
       <kendo-label text="Image"></kendo-label>
-      <!-- <input class="form-control inputFile" formControlName="image" type="File"  (change)="onchange($event)" [(ngModel)]="updateData.image" > -->
+
       <kendo-upload
         formControlName="image"
         (change)="onchange($event)"
         [(ngModel)]="updateData.image"
       >
       </kendo-upload>
-    </kendo-formfield>
+    </kendo-formfield> -->
+    <div class="file_upload">
+      <label>File</label>
+      <input
+        class="form-control inputFile"
+        formControlName="image"
+        type="File"
+        (change)="onchange($event)"
+      />
+      <img class="imgshow" [src]="img" alt="" />
+    </div>
 
-    <kendo-formfield>
+    <!-- <kendo-formfield>
       <kendo-label text="preference"></kendo-label>
       <kendo-dropdownlist [data]="topic" #preference required>
+        <ng-template>
+          {{ name }}
+        </ng-template>
       </kendo-dropdownlist>
       <kendo-formerror
         *ngIf="blogForm.controls.subPreferenceId.errors?.['required']"
         >Error: preference is required</kendo-formerror
       >
-    </kendo-formfield>
+    </kendo-formfield> -->
+
+    <div class="dropdown">
+      <Label>Select Topic : </Label>
+      <select
+        [(ngModel)]="updateData.subPreferenceId"
+        style="color: black"
+        name="blog"
+        id="blog"
+        formControlName="subPreferenceId"
+      >
+        <option
+          [(ngModel)]="updateData.prefId"
+          value="{{ i.id }}"
+          *ngFor="let i of topic"
+        >
+          {{ i.name }}
+        </option>
+      </select>
+    </div>
+    <br />
 
     <div class="k-form-buttons">
       <button
         kendoButton
-        themeColor="primary"
+        themeColor="success"
         mat-dialog-close
+        type="submit"
         (click)="sendCmsData()"
+        [disabled]="blogForm.invalid"
       >
         Submit
       </button>
@@ -114,7 +150,9 @@
         kendoButton
         themeColor="primary"
         mat-dialog-close
+        type="submit"
         (click)="updateCmsData()"
+        [disabled]="blogForm.invalid"
       >
         Update
       </button>

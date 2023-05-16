@@ -4,7 +4,7 @@ export class dataList {
   description?: string;
   image?: string;
   prefId?: number;
-  subPreferenceId?: number;
+  subPreferenceId?: any;
 }
 
 export class dataList2 {
