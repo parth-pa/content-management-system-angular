@@ -14,7 +14,7 @@ export class SportsComponent implements OnInit {
   preferance_id: any;
   myimage?: any;
 
-  sportsList: dataList[] = [];
+  DataList: dataList[] = [];
 
   addOpenDialog(value?: any) {
     this.dialogRef.open(AddBlogDataComponent);
@@ -32,9 +32,8 @@ export class SportsComponent implements OnInit {
   }
 
   getCmsDatas(value: any) {
-    this.obj.getCmsData(1).subscribe((data) => {
-      this.sportsList = data;
-      console.warn(this.sportsList);
+    this.obj.getCmsData(value).subscribe((data) => {
+      this.DataList = data;
     });
   }
 
