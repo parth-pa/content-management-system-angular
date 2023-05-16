@@ -1,5 +1,5 @@
-<app-user-header (senddata)="headerdata($event)"></app-user-header>
-
+<!-- <app-user-header (senddata)="headerdata($event)"></app-user-header> -->
+<app-admin (senddata)="headerdata($event)"></app-admin>
 <!-- <app-user-crousel></app-user-crousel> -->
 <!-- <app-user-crousel></app-user-crousel> -->
 
@@ -37,8 +37,8 @@
 
 
 </body> -->
-
-<div id="home" class="first_page">
+<h1 class="nulltime" *ngIf="isNull">No result found</h1>
+<div id="home" class="first_page" *ngIf="!isNull" style="margin-top: 2%;">
   <div
     class="wrapper"
     *ngFor="let i of getdetails"
@@ -49,8 +49,9 @@
       <div class="left">
         <div class="block">
           <div class="header">{{ i.title }}</div>
-          <div class="content">
-            {{ i.description }}
+
+            <div class="content">
+              <p [innerHTML]="i.description">{{ i.description }}</p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
             reprehenderit possimus accusantium, quis, amet similique odio qui
             nam sequi pariatur modi aperiam. Et, sed adipisci sit consequatur
@@ -64,7 +65,8 @@
             aut? I am a Freelance Designer and Photographer, each experience is
             for me a unique mean of growing as a person and delivering great
             content. (And this is some dummy text to fill more space.)
-          </div>
+            </div>
+
         </div>
       </div>
     </div>
@@ -73,3 +75,4 @@
     </div>
   </div>
 </div>
+

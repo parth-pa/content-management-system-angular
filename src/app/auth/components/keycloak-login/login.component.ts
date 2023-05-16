@@ -33,6 +33,7 @@ export class KeyCloakLoginComponent implements OnInit {
     this._apiservice.saveToken(response.token);
     this._apiservice.saveUserRole(response.userole);
     this._apiservice.savePreference(response.userpreference);
+    this._apiservice.saveName(response.username);
   }
 
   onSubmit() {

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { UserServicesService } from 'src/Services/user-services.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { preferenceList } from 'src/app/model/model';
+import { Getdata, preferenceList, subdata } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -13,19 +15,34 @@ export class AdminComponent implements OnInit {
 
   isLogin?: boolean;
   opened = false;
-
+  UserName:any;
   sidenavToggle: boolean = true;
+  visibility?: boolean;
+
+  selectedSubPrefrence: any = 0;
+  selectedOption: any;
+
 
   constructor(
     public datashare: DataShareService,
     private _router: Router,
-    private _apiService: KeyCloakApiService
+    private keycloakapiService: KeyCloakApiService,
+    private userapiservices: UserServicesService,
+
   ) {}
   ngOnInit(): void {
-    this.isLogin = this._apiService.isLogin;
-    this.userType = this._apiService.userType;
-  }
+    this.isLogin = this.keycloakapiService.isLogin;
+    this.userType = this.keycloakapiService.userType;
+    this.UserName= this.keycloakapiService.getName();
+    this.getSubPref();
+    this.getresponce();
+    this.onClick();
 
+    this.visibility = this.userapiservices.isVisible;
+    this.visibility = !this.visibility
+  }
+  getdeatils: Getdata[] = [];
+  subPrefDeatils: subdata[] = [];
   PreList: preferenceList[] = [
     {
       preferenceId: 1,
@@ -54,6 +71,17 @@ export class AdminComponent implements OnInit {
   }
 
   // ******** side nav data *******************
+   onClick(){
+    if(this.userapiservices.isVisible = true){
+      this.userapiservices.isVisible =false
+      this.visibility= this.userapiservices.isVisible;
+    }
+    else if(this.userapiservices.isVisible = false){
+      this.userapiservices.isVisible = true
+      this.visibility= this.userapiservices.isVisible;
+    }
+
+   }
 
   list = [
     {
@@ -86,8 +114,50 @@ export class AdminComponent implements OnInit {
     }
   }
   logOut() {
-    this._apiService.remove();
-    this._router.navigate(['auth/login']);
+    this.keycloakapiService.remove();
+    this._router.navigate(['auth/login'],{replaceUrl: true});
     this.opened = false;
   }
+
+
+  // new form here
+   @Output() senddata = new EventEmitter<any>( );
+
+  onChangeSubPrefrence(e: any) {
+    this.selectedSubPrefrence = e.target.value;
+    this.userapiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence);
+
+    // var pref=this.keycloakapiservice.getPrefence();
+
+    // this._apiService.getperticulardetailsinsidedata(pref,this.selectedSubPrefrence).subscribe((respones) => {
+    //   this.getdeatils = respones;
+    //   this.senddata.emit(this.getdeatils);
+    // });
+    this.getresponce();
+  }
+
+  getresponce() {
+    var pref = this.keycloakapiService.getPrefence();
+    var subpref = this.userapiservices.readsubuserPreferencefordetails();
+
+    this.userapiservices
+      .getperticulardetailsinsidedata(pref, subpref)
+      .subscribe((respones) => {
+        this.getdeatils = respones;
+        this.senddata.emit(this.getdeatils);
+      });
+  }
+
+  getSubPref() {
+    var pref = this.keycloakapiService.getPrefence();
+    console.log(pref);
+    this.userapiservices.getSubdatadeatails(pref).subscribe((response) => {
+      this.subPrefDeatils = response;
+      // console.log(this.subPrefDeatils);
+    });
+  }
+
+  // preferenceChange(preferenceValue?: number) {
+  //   this.datashare.preference = preferenceValue;
+  // }
 }
