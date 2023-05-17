@@ -101,7 +101,8 @@ main {
   height: auto;
 }
 
-.side-nav-open .display-area-size {
+.display-open {
+
   left: 60px;
 }
 
