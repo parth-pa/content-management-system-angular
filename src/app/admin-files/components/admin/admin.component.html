@@ -2,9 +2,8 @@
 <div class="toolbar" role="banner">
   <i
     class="fa-solid fa-bars icon"
-    routerLink="/Sports"
     (click)="onclickmenu()"
-    *ngIf="isLogin"
+
   ></i>
 
   <a href="https://www.amnex.com/"
@@ -15,12 +14,6 @@
   /></a>
   <span style="margin-right: 0.5%">Welcome</span>
   <span style="margin-right: 1%">{{ UserName }}</span>
-  <span
-    style="margin-right: 1%"
-    routerLink="/user"
-    *ngIf="isLogin && !visibility"
-    >home
-  </span>
 
   <div class="spacer"></div>
   <div class="dropdown" style="margin-right: 1%">
@@ -35,27 +28,56 @@
   <p style="margin-right: 1%; margin-top: 0.5%" (click)="logOut()">Logout</p>
 </div>
 
-<main *ngIf="isLogin">
+<main >
   <!-- *************** side navbar **************** -->
-  <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
+  <div class="side-nav"  [ngClass]="{ 'side-nav-open': sidenavToggle }">
     <div class="side-nav-content">
-      <ul class="nav-list">
+      <div routerLink="/user">
+        <i
+          class="fa-sharp fa-solid fa-house"
+          style="
+            color: white;
+            margin-left: 24px;
+            font-size: larger;
+            margin-top: 20px;
+          "
+        ></i>
+        <span style="color: white; margin-left: 37px; font-size: larger ; margin-bottom: 5%;"
+          >home</span
+        >
+      </div>
+      <ul class="nav-list"*ngIf="isLogin">
         <li class="nav-list-item" *ngFor="let item of PreList">
           <span>
             <p
               class="sidenavdata"
               (click)="preferenceChange(item.preferenceId)"
+              routerLink="/admin/{{ item.preferenceName }}"
             >
-              <i class="{{ item.icon }} i"></i>
+              <i class="{{ item.icon }}" ></i>
               {{ item.preferenceName }}
             </p>
           </span>
         </li>
       </ul>
+      <div routerLink="/user" *ngIf="isLogin">
+        <i
+          class="fa-solid fa-trash"
+          style="
+            color: white;
+            margin-left: 24px;
+            font-size: larger;
+            margin-top: 20px;
+          "
+        ></i>
+        <span style="color: white; margin-left: 37px; font-size: larger"
+          >Deleted Data</span
+        >
+      </div>
     </div>
   </div>
 
-  <!-- routerLink="/admin/{{ item.preferenceName }}" -->
+
 
   <div
     class="display-area p-3"

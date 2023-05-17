@@ -20,8 +20,8 @@ export class AdminComponent implements OnInit {
   isLogin?: boolean;
   opened = false;
   UserName: any;
-  sidenavToggle: boolean = true;
-  visibility?: boolean;
+  sidenavToggle:any ;
+  visibility?: boolean = false;
 
   selectedSubPrefrence: any = 0;
   selectedOption: any;
@@ -33,12 +33,14 @@ export class AdminComponent implements OnInit {
     private userapiservices: UserServicesService
   ) {}
   ngOnInit(): void {
+
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
     this.UserName = this.keycloakapiService.getName();
+    this.sidenavToggle = this.datashare.sidenavToggle;
     this.getSubPref();
     this.getresponce();
-    // this.onClick();
+    // this.onclick();
 
     // this.visibility = this.userapiservices.isVisible;
     // this.visibility = !this.visibility
@@ -69,37 +71,35 @@ export class AdminComponent implements OnInit {
 
   preferenceChange(preferenceId: any) {
     this.datashare.preference = preferenceId;
-    refreshClick();
+    console.warn(preferenceId)
+    this.refreshClick();
     // console.warn(preferenceId);
   }
 
   // ******** side nav data *******************
-  //  onClick(){
-  //   if(this.userapiservices.isVisible = true){
-  //     this.userapiservices.isVisible =false
-  //     this.visibility= this.userapiservices.isVisible;
+  //  onclick(){
+  //   if(this.visibility = true){
+  //     this.visibility = false
   //   }
-  //   else if(this.userapiservices.isVisible = false){
-  //     this.userapiservices.isVisible = true
-  //     this.visibility= this.userapiservices.isVisible;
+  //   else if(this.visibility = false){
+  //    this.visibility=true
   //   }
-
-  //  }
+  // }
 
   list = [
     {
       number: '1',
-      name: 'sport',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
       number: '2',
-      name: 'technology',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
       number: '3',
-      name: 'Politics',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
@@ -112,8 +112,14 @@ export class AdminComponent implements OnInit {
   onclickmenu() {
     if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
+      this.datashare.sidenavToggle = false;
+      console.warn( this.datashare.sidenavToggle)
+      this.refreshClick();
     } else {
       this.sidenavToggle = true;
+      this.datashare.sidenavToggle = true;
+      console.warn( this.datashare.sidenavToggle)
+      this.refreshClick();
     }
   }
   logOut() {

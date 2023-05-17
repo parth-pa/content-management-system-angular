@@ -7,7 +7,10 @@ import { Observable, Subject } from 'rxjs';
 export class DataShareService {
   blogData: any[] = [];
 
-  public preference: any;
+  public preference: any=1;
+  public sidenavToggle :any;
+
+
 
   constructor() {}
 

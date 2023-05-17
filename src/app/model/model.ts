@@ -1,6 +1,6 @@
 export class dataList {
   id?: number;
-  title?: string;
+  title?: any;
   description?: string;
   image?: string;
   prefId?: number;

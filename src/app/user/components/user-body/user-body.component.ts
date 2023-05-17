@@ -2,6 +2,9 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 import { Component, OnInit } from '@angular/core';
 import { Getdata, subdata } from 'src/app/model/model';
 import { UserServicesService } from 'src/Services/user-services.service';
+import { DataShareService } from 'src/Services/data-share.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-user-body',
@@ -10,23 +13,38 @@ import { UserServicesService } from 'src/Services/user-services.service';
 })
 export class UserBodyComponent implements OnInit{
 
-
+  clickEventSubscription: Subscription;
   getdetails: Getdata[] = [];
   // prefrences: firstdata[] = [];
   subPrefDeatils: subdata[] = [];
 
+  sidenavtoggle:any;
+
 
   ngOnInit(): void {
     // this.firstdata();
+    this.sidenavtoggle = this.datashare.sidenavToggle;
+
+    console.warn(this.datashare.sidenavToggle);
     this.storesubpref();
     // this.getsubData();
     this.getSubPref();
+
   }
 
   constructor(
     private apiservices: UserServicesService,
-    private keyclockapiservice: KeyCloakApiService
-  ) {}
+    private keyclockapiservice: KeyCloakApiService,
+    public datashare: DataShareService
+  ) {
+
+    this.clickEventSubscription = this.datashare
+    .getclickEvent()
+    .subscribe(() => {
+      this.ngOnInit();
+    });
+
+  }
 
 
   isNull: boolean = false;

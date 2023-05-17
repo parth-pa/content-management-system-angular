@@ -43,6 +43,8 @@ export class AddBlogDataComponent implements OnInit {
 
   blogdata: Array<dataList> = [];
 
+
+
   add: dataList = new dataList();
   topic: topicList[] = [];
   // { id: 1, name: 'ankur', pref_id: 1 }
@@ -78,14 +80,21 @@ export class AddBlogDataComponent implements OnInit {
     }
   }
 
+  refreshClick() {
+    this.datashare.sendClickEvent();
+  }
+
+
   sendCmsData() {
     this.editmode = false;
     console.warn('Hello');
+    this.refreshClick()
   }
 
   updateCmsData() {
     this.editmode = true;
     console.warn(this.updateData.image);
+    this.refreshClick()
   }
 
   getSubPreference(value: any) {
@@ -95,6 +104,7 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   public clearForm() {
+    this.refreshClick()
     this.blogForm.reset();
   }
 
@@ -118,7 +128,6 @@ export class AddBlogDataComponent implements OnInit {
       console.log(d);
       this.img = d;
       console.log(this.img);
-
       // this.showimage =this.showimage2(d)
     });
   }

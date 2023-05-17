@@ -38,11 +38,11 @@
 
 </body> -->
 <h1 class="nulltime" *ngIf="isNull">No result found</h1>
-<div id="home" class="first_page" *ngIf="!isNull" style="margin-top: 2%;">
+<div id="home" class="first_page" *ngIf="!isNull" style="padding-top: 3%; padding-left: 10%;" [ngClass]="{ 'display-toggle': !sidenavtoggle }">
   <div
     class="wrapper"
     *ngFor="let i of getdetails"
-    style="margin-top: 2%; margin-bottom: 1%"
+    style=" margin-bottom: 1%"
   >
     <div class="content-splitter">
       <div class="nav"></div>
