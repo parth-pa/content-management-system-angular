@@ -9,6 +9,7 @@ export class DataShareService {
   public preference: any;
 
   private subject = new Subject<any>();
+
   sendClickEvent() {
     this.subject.next(null);
   }
