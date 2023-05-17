@@ -276,10 +276,19 @@ a {
 #home {
   /* width: 100vw; */
   /* height: 100vh; */
+
   display: grid;
   place-items: center;
   background-color: rgb(206, 240, 253);
 }
+
+.display-toggle{
+
+  padding-right: 8%;
+
+}
+
+
 .wrapper {
 
   display: grid;

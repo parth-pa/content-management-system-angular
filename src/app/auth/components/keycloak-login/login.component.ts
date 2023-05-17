@@ -43,7 +43,7 @@ export class KeyCloakLoginComponent implements OnInit {
           this.isSucessfull = true;
           this.storeLoginInfo(response);
           if (response.userole == 'admin') {
-            this._router.navigate(['admin'], { replaceUrl: true });
+            this._router.navigate(['admin/Sports'], { replaceUrl: true });
           } else {
             this._router.navigate(['user'], { replaceUrl: true });
           }

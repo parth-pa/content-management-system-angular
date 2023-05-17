@@ -1,0 +1,38 @@
+<app-Blog></app-Blog>
+<h1 style="color: black">Sports</h1>
+<kendo-grid
+  [data]="DataList"
+  [kendoGridBinding]="DataList"
+  [sortable]="true"
+  [groupable]="true"
+  (remove)="removeHandler($event)"
+  (edit)="editHandler($event)"
+  style="color: black"
+>
+  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+
+  <kendo-grid-column field="image" title="image">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <img [src]="dataItem.image" alt="img" />
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
+  <kendo-grid-column field="description" title="description">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="delete" title="delete">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">
+        Remove
+      </button>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column field="Update" title="Update">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">
+        Edit
+      </button>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>

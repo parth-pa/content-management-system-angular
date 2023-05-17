@@ -8,7 +8,7 @@
     </a>
 
   <span style="margin-right: 0.5%">Welcome</span>
-  <span style="margin-right: 1%">{{UserName}}</span>
+  <span style="margin-right: 0.5%">{{UserName}}</span>
   <span *ngIf="isLogin" routerLink="/admin">admin</span>
   <div class="spacer"></div>
   <div class="dropdown" style="margin-right: 1%">
@@ -20,7 +20,7 @@
       </option>
     </select>
   </div>
-  <p style="margin-right: 1%; margin-top: 0.5%" (click)="logOut()">Logout</p>
+  <p style="margin-right: 1%; " (click)="logOut()">Logout</p>
 </div>
 
 
@@ -44,13 +44,12 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div>-->
 
-  <div
+   <div
     class="display-area p-3"
-    [ngClass]="{ 'display-toggle': !sidenavToggle }"
-  >
-<router-outlet></router-outlet>
+    [ngClass]="{ 'display-toggle': !sidenavToggle }">
+    <router-outlet></router-outlet>
 
   </div>
-</main> -->
+<!-- </main> -->

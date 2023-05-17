@@ -15,7 +15,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PoliticsComponent } from './admin-files/components/politics/politics.component';
 import { TechnologyComponent } from './admin-files/components/technology/technology.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -40,6 +39,7 @@ import { UserFooterComponent } from './user/components/user-footer/user-footer.c
 import { AdminFilesComponent } from './admin-files/admin-files.component';
 import { AuthComponent } from './auth/auth.component';
 import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add-blog-data.component';
+import { BlogComponent } from './admin-files/components/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,6 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     UserComponent,
     AdminComponent,
     SportsComponent,
-    PoliticsComponent,
     TechnologyComponent,
     BlogsComponent,
     UserComponent,
@@ -60,6 +59,7 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     AdminFilesComponent,
     AuthComponent,
     AddBlogDataComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,

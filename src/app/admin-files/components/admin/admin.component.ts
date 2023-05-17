@@ -20,8 +20,8 @@ export class AdminComponent implements OnInit {
   isLogin?: boolean;
   opened = false;
   UserName: any;
-  sidenavToggle: boolean = true;
-  visibility?: boolean;
+  sidenavToggle: any;
+  visibility?: boolean = false;
 
   selectedSubPrefrence: any = 0;
   selectedOption: any;
@@ -36,9 +36,10 @@ export class AdminComponent implements OnInit {
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
     this.UserName = this.keycloakapiService.getName();
+    this.sidenavToggle = this.datashare.sidenavToggle;
     this.getSubPref();
     this.getresponce();
-    // this.onClick();
+    // this.onclick();
 
     // this.visibility = this.userapiservices.isVisible;
     // this.visibility = !this.visibility
@@ -61,46 +62,43 @@ export class AdminComponent implements OnInit {
       preferenceName: 'Technologies',
       icon: ' fa-solid fa-microchip',
     },
-
-    // {preferenceId:1 , preferenceName:'Sports' },
-    // {preferenceId:2 , preferenceName:'Sports' },
-    // {preferenceId:3 , preferenceName:'Sports' }
+    // {
+    //   preferenceId: 5,
+    //   preferenceName: 'Blog',
+    //   icon: ' fa-solid fa-person-biking',
+    // },
   ];
 
-  preferenceChange(preferenceId: any) {
-    this.datashare.preference = preferenceId;
-
-    // refreshClick();
+  preferenceChange(value: any) {
+    this.datashare.preference = value;
+    this.refreshClick();
     // console.warn(preferenceId);
   }
 
   // ******** side nav data *******************
-  //  onClick(){
-  //   if(this.userapiservices.isVisible = true){
-  //     this.userapiservices.isVisible =false
-  //     this.visibility= this.userapiservices.isVisible;
+  //  onclick(){
+  //   if(this.visibility = true){
+  //     this.visibility = false
   //   }
-  //   else if(this.userapiservices.isVisible = false){
-  //     this.userapiservices.isVisible = true
-  //     this.visibility= this.userapiservices.isVisible;
+  //   else if(this.visibility = false){
+  //    this.visibility=true
   //   }
-
-  //  }
+  // }
 
   list = [
     {
       number: '1',
-      name: 'sport',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
       number: '2',
-      name: 'technology',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
       number: '3',
-      name: 'Politics',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
@@ -108,13 +106,22 @@ export class AdminComponent implements OnInit {
       name: 'user',
       icon: 'fa-solid fa-house',
     },
+    {
+      number: '1',
+      name: 'Blog',
+      icon: 'fa-solid fa-house',
+    },
   ];
 
   onclickmenu() {
     if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
+      this.datashare.sidenavToggle = false;
+      this.refreshClick();
     } else {
       this.sidenavToggle = true;
+      this.datashare.sidenavToggle = true;
+      this.refreshClick();
     }
   }
   logOut() {

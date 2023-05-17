@@ -70,12 +70,19 @@ export class AddBlogDataComponent implements OnInit {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         this.blogForm.reset();
         console.warn(this.add);
+        this.refreshClick();
       });
     }
 
     if (this.editmode == false) {
-      this.obj.postCmsData(this.add).subscribe();
+      this.obj.postCmsData(this.add).subscribe(() => {
+        this.refreshClick();
+      });
     }
+  }
+
+  refreshClick() {
+    this.datashare.sendClickEvent();
   }
 
   sendCmsData() {
@@ -95,6 +102,7 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   public clearForm() {
+    this.refreshClick();
     this.blogForm.reset();
   }
 
@@ -118,7 +126,6 @@ export class AddBlogDataComponent implements OnInit {
       console.log(d);
       this.img = d;
       console.log(this.img);
-
       // this.showimage =this.showimage2(d)
     });
   }

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { dataList, dataList2, topicList } from 'src/app/model/model';
+import {
+  dataList,
+  dataList2,
+  preferenceList,
+  topicList,
+} from 'src/app/model/model';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicesService } from 'src/Services/services.service';
 import { DataShareService } from 'src/Services/data-share.service';
@@ -7,17 +12,17 @@ import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-sports',
-  templateUrl: './sports.component.html',
-  styleUrls: ['./sports.component.css'],
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css'],
 })
-export class SportsComponent implements OnInit {
+export class BlogComponent {
   preferance_id: any;
-  preferance: any[] = [];
   myimage?: any;
   clickEventSubscription: Subscription;
 
   DataList: dataList[] = [];
+  preferance: any[] = [];
 
   addOpenDialog(value?: any) {
     this.dialogRef.open(AddBlogDataComponent);
@@ -37,11 +42,10 @@ export class SportsComponent implements OnInit {
 
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
-    this.preferance = this.datashare._preference;
-    console.warn(this.preferance);
-
     this.getCmsDatas(this.preferance_id);
-    console.warn(this.preferance_id);
+
+    // this.preferance = this.datashare._preference;
+    // console.warn(this.preferance);
   }
 
   getCmsDatas(value: any) {
