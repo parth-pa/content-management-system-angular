@@ -6,9 +6,12 @@ import { Observable, Subject } from 'rxjs';
 })
 export class DataShareService {
   blogData: any[] = [];
-  public preference: any;
 
   private subject = new Subject<any>();
+
+  public preference: any = 1;
+
+  constructor() {}
 
   sendClickEvent() {
     this.subject.next(null);
@@ -17,6 +20,4 @@ export class DataShareService {
   getclickEvent(): Observable<any> {
     return this.subject.asObservable();
   }
-
-  constructor() {}
 }

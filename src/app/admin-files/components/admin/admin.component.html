@@ -10,6 +10,12 @@
   /></a>
   <span style="margin-right: 0.5%">Welcome</span>
   <span style="margin-right: 1%">{{ UserName }}</span>
+  <span
+    style="margin-right: 1%"
+    routerLink="/user"
+    *ngIf="isLogin && !visibility"
+    >home
+  </span>
 
   <div class="spacer"></div>
   <div class="dropdown" style="margin-right: 1%">
@@ -73,10 +79,11 @@
     </div>
   </div>
 
+  <!-- routerLink="/admin/{{ item.preferenceName }}" -->
+
   <div
     class="display-area p-3"
-    [ngClass]="{ 'display-toggle': !sidenavToggle }"
-  >
+    [ngClass]="{ 'display-toggle': !sidenavToggle }">
     <router-outlet></router-outlet>
   </div>
 </main>

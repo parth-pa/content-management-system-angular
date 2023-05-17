@@ -11,6 +11,10 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  refreshClick() {
+    this.datashare.sendClickEvent();
+  }
+
   userType?: string;
 
   isLogin?: boolean;
@@ -65,6 +69,7 @@ export class AdminComponent implements OnInit {
 
   preferenceChange(preferenceId: any) {
     this.datashare.preference = preferenceId;
+    // refreshClick();
     // console.warn(preferenceId);
   }
 

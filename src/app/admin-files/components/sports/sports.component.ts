@@ -6,7 +6,6 @@ import { DataShareService } from 'src/Services/data-share.service';
 import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-sports',
   templateUrl: './sports.component.html',
@@ -15,10 +14,9 @@ import { Subscription } from 'rxjs';
 export class SportsComponent implements OnInit {
   preferance_id: any;
   myimage?: any;
+  clickEventSubscription: Subscription;
 
-  clickEventSubscription:Subscription;
-
-  sportsList: dataList[] = [];
+  DataList: dataList[] = [];
 
   addOpenDialog(value?: any) {
     this.dialogRef.open(AddBlogDataComponent);
@@ -29,18 +27,12 @@ export class SportsComponent implements OnInit {
     private dialogRef: MatDialog,
     public datashare: DataShareService
   ) {
-
-    this.clickEventSubscription = this.datashare.getclickEvent().subscribe(()=>{
-
-      this.ngOnInit()
-
-    });
-
+    this.clickEventSubscription = this.datashare
+      .getclickEvent()
+      .subscribe(() => {
+        this.ngOnInit();
+      });
   }
-
-
-
-
 
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
@@ -50,8 +42,7 @@ export class SportsComponent implements OnInit {
 
   getCmsDatas(value: any) {
     this.obj.getCmsData(value).subscribe((data) => {
-      this.sportsList = data;
-      console.warn(this.sportsList);
+      this.DataList = data;
     });
   }
 
