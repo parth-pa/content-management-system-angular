@@ -68,7 +68,8 @@ main {
 .side-nav {
   position: fixed;
   left: 0rem;
-  width: 2.8%;
+  width: 3.5%;
+
   height: calc(100vh - 4rem);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
@@ -116,10 +117,10 @@ nav {
   cursor: pointer;
 }
 
-.side-nav-button:hover {
+/* .side-nav-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 30%;
-}
+} */
 
 /* ************** side navbar ****************** */
 
@@ -140,6 +141,7 @@ nav {
   height: 100%;
   padding: 0%;
   margin-bottom: 0%;
+  margin-left: 5%;
 }
 
 .nav-list-item {
@@ -148,10 +150,10 @@ nav {
   height: 50px;
 }
 
-.side-nav-open .nav-list-item:hover {
+/* .side-nav-open .nav-list-item:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-}
+} */
 
 .nav-list-item i {
   font-size: 20px;

@@ -1,7 +1,7 @@
 import { UserServicesService } from 'src/Services/user-services.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Getdata, preferenceList, subdata } from 'src/app/model/model';
+import { dataList, Getdata, preferenceList, subdata } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 
@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   }
 
   userType?: string;
-
+  preferance_id: any;
   isLogin?: boolean;
   opened = false;
   UserName: any;
@@ -38,8 +38,10 @@ export class AdminComponent implements OnInit {
     this.userType = this.keycloakapiService.userType;
     this.UserName = this.keycloakapiService.getName();
     this.sidenavToggle = this.datashare.sidenavToggle;
+    this.preferance_id = this.datashare.preference;
     this.getSubPref();
     this.getresponce();
+    this.getresponseforadmin();
     // this.onclick();
 
     // this.visibility = this.userapiservices.isVisible;
@@ -47,6 +49,7 @@ export class AdminComponent implements OnInit {
   }
   getdeatils: Getdata[] = [];
   subPrefDeatils: subdata[] = [];
+  DataList: dataList[] = [];
   PreList: preferenceList[] = [
     {
       preferenceId: 1,
@@ -71,7 +74,7 @@ export class AdminComponent implements OnInit {
 
   preferenceChange(preferenceId: any) {
     this.datashare.preference = preferenceId;
-    console.warn(preferenceId)
+    // console.warn(preferenceId)
     this.refreshClick();
     // console.warn(preferenceId);
   }
@@ -130,12 +133,17 @@ export class AdminComponent implements OnInit {
 
   // new form here
   @Output() senddata = new EventEmitter<any>();
+  @Output() senddataforadmin = new EventEmitter<any>();
 
   onChangeSubPrefrence(e: any) {
     this.selectedSubPrefrence = e.target.value;
     this.userapiservices.savesubuserPreferencefordetails(
       this.selectedSubPrefrence
     );
+
+    // this.senddataforadmin.emit(this.selectedSubPrefrence);
+    // console.log(this.selectedSubPrefrence);
+
 
     // var pref=this.keycloakapiservice.getPrefence();
 
@@ -144,6 +152,24 @@ export class AdminComponent implements OnInit {
     //   this.senddata.emit(this.getdeatils);
     // });
     this.getresponce();
+    this.getresponseforadmin();
+
+  }
+
+  getresponseforadmin(){
+    console.log(this.preferance_id);
+    var subpref = this.userapiservices.readsubuserPreferencefordetails();
+    console.log(subpref);
+
+    this.userapiservices
+      .getperticulardetailsinsidedata(this.preferance_id, subpref)
+      .subscribe((respones) => {
+        this.DataList = respones;
+        this.senddataforadmin.emit(this.DataList);
+        console.log(this.DataList);
+
+      });
+
   }
 
   getresponce() {
@@ -155,12 +181,14 @@ export class AdminComponent implements OnInit {
       .subscribe((respones) => {
         this.getdeatils = respones;
         this.senddata.emit(this.getdeatils);
+        // console.log(this.getdeatils);
+
       });
   }
 
   getSubPref() {
     var pref = this.keycloakapiService.getPrefence();
-    console.log(pref);
+    // console.log(pref);
     this.userapiservices.getSubdatadeatails(pref).subscribe((response) => {
       this.subPrefDeatils = response;
       // console.log(this.subPrefDeatils);

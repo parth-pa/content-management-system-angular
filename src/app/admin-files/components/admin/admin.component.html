@@ -30,33 +30,35 @@
 
 <main >
   <!-- *************** side navbar **************** -->
-  <div class="side-nav"  [ngClass]="{ 'side-nav-open': sidenavToggle }">
+  <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
     <div class="side-nav-content">
       <div routerLink="/user">
         <i
           class="fa-sharp fa-solid fa-house"
           style="
             color: white;
-            margin-left: 24px;
+            margin-left: 9%;
             font-size: larger;
             margin-top: 20px;
+            margin-bottom: 8px;
+            margin-right: 10%;
           "
         ></i>
-        <span style="color: white; margin-left: 37px; font-size: larger ; margin-bottom: 5%;"
+        <span style="color: white; margin-left: 9%; font-size: larger ; margin-bottom: 5%;"
           >home</span
         >
       </div>
-      <ul class="nav-list"*ngIf="isLogin">
+      <ul class="nav-list" *ngIf="isLogin">
         <li class="nav-list-item" *ngFor="let item of PreList">
-          <span>
+          <span  >
             <p
               class="sidenavdata"
               (click)="preferenceChange(item.preferenceId)"
               routerLink="/admin/{{ item.preferenceName }}"
             >
-              <i class="{{ item.icon }}" ></i>
+              <i class="{{ item.icon }}" style="margin-right: 40%;"></i>
               {{ item.preferenceName }}
-            </p>
+            </p >
           </span>
         </li>
       </ul>
@@ -65,12 +67,13 @@
           class="fa-solid fa-trash"
           style="
             color: white;
-            margin-left: 24px;
+            margin-left: 11%;
             font-size: larger;
             margin-top: 20px;
+            margin-right: 10%;
           "
         ></i>
-        <span style="color: white; margin-left: 37px; font-size: larger"
+        <span style="color: white; margin-left: 9%; font-size: larger"
           >Deleted Data</span
         >
       </div>
@@ -84,5 +87,6 @@
     [ngClass]="{ 'display-toggle': !sidenavToggle }"
   >
     <router-outlet></router-outlet>
+
   </div>
 </main>

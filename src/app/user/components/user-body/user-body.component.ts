@@ -25,7 +25,7 @@ export class UserBodyComponent implements OnInit{
     // this.firstdata();
     this.sidenavtoggle = this.datashare.sidenavToggle;
 
-    console.warn(this.datashare.sidenavToggle);
+    // console.warn(this.datashare.sidenavToggle);
     this.storesubpref();
     // this.getsubData();
     this.getSubPref();
@@ -120,16 +120,17 @@ export class UserBodyComponent implements OnInit{
         this.subPrefDeatils = response;
       });
   }
+
   headerdata(event: any){
     this.getdetails = event;
+    console.log(event);
+
     if(this.getdetails.length === 0)
     {
       this.isNull= true
-
     }
     else{
       this.isNull= false;
     }
-
   }
 }
