@@ -15,7 +15,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PoliticsComponent } from './admin-files/components/politics/politics.component';
 import { TechnologyComponent } from './admin-files/components/technology/technology.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -49,7 +48,6 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     UserComponent,
     AdminComponent,
     SportsComponent,
-    PoliticsComponent,
     TechnologyComponent,
     BlogsComponent,
     UserComponent,

@@ -11,32 +11,36 @@ import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  refreshClick() {
+    this.datashare.sendClickEvent();
+  }
+
   userType?: string;
 
   isLogin?: boolean;
   opened = false;
-  UserName:any;
-  sidenavToggle: boolean = true;
-  visibility?: boolean;
+  UserName: any;
+  sidenavToggle:any ;
+  visibility?: boolean = false;
 
   selectedSubPrefrence: any = 0;
   selectedOption: any;
-
 
   constructor(
     public datashare: DataShareService,
     private _router: Router,
     private keycloakapiService: KeyCloakApiService,
-    private userapiservices: UserServicesService,
-
+    private userapiservices: UserServicesService
   ) {}
   ngOnInit(): void {
+
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
-    this.UserName= this.keycloakapiService.getName();
+    this.UserName = this.keycloakapiService.getName();
+    this.sidenavToggle = this.datashare.sidenavToggle;
     this.getSubPref();
     this.getresponce();
-    // this.onClick();
+    // this.onclick();
 
     // this.visibility = this.userapiservices.isVisible;
     // this.visibility = !this.visibility
@@ -67,36 +71,35 @@ export class AdminComponent implements OnInit {
 
   preferenceChange(preferenceId: any) {
     this.datashare.preference = preferenceId;
+    console.warn(preferenceId)
+    this.refreshClick();
     // console.warn(preferenceId);
   }
 
   // ******** side nav data *******************
-  //  onClick(){
-  //   if(this.userapiservices.isVisible = true){
-  //     this.userapiservices.isVisible =false
-  //     this.visibility= this.userapiservices.isVisible;
+  //  onclick(){
+  //   if(this.visibility = true){
+  //     this.visibility = false
   //   }
-  //   else if(this.userapiservices.isVisible = false){
-  //     this.userapiservices.isVisible = true
-  //     this.visibility= this.userapiservices.isVisible;
+  //   else if(this.visibility = false){
+  //    this.visibility=true
   //   }
-
-  //  }
+  // }
 
   list = [
     {
       number: '1',
-      name: 'sport',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
       number: '2',
-      name: 'technology',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
       number: '3',
-      name: 'Politics',
+      name: 'admin/sports',
       icon: 'fa-solid fa-house',
     },
     {
@@ -109,23 +112,30 @@ export class AdminComponent implements OnInit {
   onclickmenu() {
     if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
+      this.datashare.sidenavToggle = false;
+      console.warn( this.datashare.sidenavToggle)
+      this.refreshClick();
     } else {
       this.sidenavToggle = true;
+      this.datashare.sidenavToggle = true;
+      console.warn( this.datashare.sidenavToggle)
+      this.refreshClick();
     }
   }
   logOut() {
     this.keycloakapiService.remove();
-    this._router.navigate(['auth/login'],{replaceUrl: true});
+    this._router.navigate(['auth/login'], { replaceUrl: true });
     this.opened = false;
   }
 
-
   // new form here
-   @Output() senddata = new EventEmitter<any>( );
+  @Output() senddata = new EventEmitter<any>();
 
   onChangeSubPrefrence(e: any) {
     this.selectedSubPrefrence = e.target.value;
-    this.userapiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence);
+    this.userapiservices.savesubuserPreferencefordetails(
+      this.selectedSubPrefrence
+    );
 
     // var pref=this.keycloakapiservice.getPrefence();
 
