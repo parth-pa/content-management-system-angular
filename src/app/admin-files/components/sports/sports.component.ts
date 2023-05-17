@@ -1,3 +1,4 @@
+import { UserServicesService } from 'src/Services/user-services.service';
 import { Component, OnInit } from '@angular/core';
 import { dataList, dataList2, topicList } from 'src/app/model/model';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,7 +19,7 @@ export class SportsComponent implements OnInit {
   clickEventSubscription: Subscription;
 
   DataList: dataList[] = [];
-
+  isNull: boolean = false;
   addOpenDialog(value?: any) {
     this.dialogRef.open(AddBlogDataComponent);
   }
@@ -26,7 +27,8 @@ export class SportsComponent implements OnInit {
   constructor(
     private obj: ServicesService,
     private dialogRef: MatDialog,
-    public datashare: DataShareService
+    public datashare: DataShareService,
+    public userapi: UserServicesService
   ) {
     this.clickEventSubscription = this.datashare
       .getclickEvent()
@@ -41,11 +43,16 @@ export class SportsComponent implements OnInit {
     console.warn(this.preferance);
 
     this.getCmsDatas(this.preferance_id);
-    console.warn(this.preferance_id);
+
+    // console.warn(this.preferance_id);
   }
 
   getCmsDatas(value: any) {
-    this.obj.getCmsData(value).subscribe((data) => {
+    // console.log(this.preferance_id);
+    // value1=this.userapi.readsubuserPreferencefordetails()
+    // console.log(value1);
+
+    this.userapi.getperticulardetailsinsidedata(value,0).subscribe((data) => {
       this.DataList = data;
     });
   }
@@ -80,7 +87,19 @@ export class SportsComponent implements OnInit {
 
   editHandler(event: any) {
     this.openDialog(event.dataItem);
-
     // console.warn(event.dataItem)
+  }
+
+
+  headerdata(event: any){
+    console.log(event);
+    this.DataList = event;
+    if(this.DataList.length === 0)
+    {
+      this.isNull= true
+    }
+    else{
+      this.isNull= false;
+    }
   }
 }
