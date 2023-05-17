@@ -1,10 +1,6 @@
 <!-- ********** header **************** -->
 <div class="toolbar" role="banner">
-  <i
-    class="fa-solid fa-bars icon"
-    (click)="onclickmenu()"
-
-  ></i>
+  <i class="fa-solid fa-bars icon" (click)="onclickmenu()"></i>
 
   <a href="https://www.amnex.com/"
     ><img
@@ -28,29 +24,16 @@
   <p style="margin-right: 1%; margin-top: 0.5%" (click)="logOut()">Logout</p>
 </div>
 
-<main >
+<main *ngIf="isLogin">
   <!-- *************** side navbar **************** -->
-  <div class="side-nav"  [ngClass]="{ 'side-nav-open': sidenavToggle }">
+  <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
     <div class="side-nav-content">
-      <div routerLink="/user">
-        <i
-          class="fa-sharp fa-solid fa-house"
-          style="
-            color: white;
-            margin-left: 24px;
-            font-size: larger;
-            margin-top: 20px;
-          "
-        ></i>
-        <span style="color: white; margin-left: 37px; font-size: larger ; margin-bottom: 5%;"
-          >home</span
-        >
-      </div>
-      <ul class="nav-list"*ngIf="isLogin">
+      <ul class="nav-list">
         <li class="nav-list-item" *ngFor="let item of PreList">
           <span>
             <p
               class="sidenavdata"
+              routerLink="/admin/{{ item.preferenceName }}"
               (click)="preferenceChange(item.preferenceId)"
               routerLink="/admin/{{ item.preferenceName }}"
             >
@@ -75,14 +58,27 @@
         >
       </div>
     </div>
+    <div routerLink="/user" (click)="empty()" *ngIf="isLogin">
+      <i
+        class="fa-solid fa-trash"
+        style="
+          color: white;
+          margin-left: 24px;
+          font-size: larger;
+          margin-top: 20px;
+        "
+      ></i>
+      <span style="color: white; margin-left: 37px; font-size: larger"
+        >Deleted Data</span
+      >
+    </div>
   </div>
 
 
 
   <div
     class="display-area p-3"
-    [ngClass]="{ 'display-toggle': !sidenavToggle }"
-  >
+    [ngClass]="{ 'display-toggle': !sidenavToggle }">
     <router-outlet></router-outlet>
   </div>
 </main>

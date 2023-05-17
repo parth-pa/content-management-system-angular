@@ -7,14 +7,18 @@ import { Observable, Subject } from 'rxjs';
 export class DataShareService {
   blogData: any[] = [];
 
+<<<<<<< HEAD
   public preference: any=1;
   public sidenavToggle :any;
 
 
+=======
+  private subject = new Subject<any>();
+
+  public preference: any = 1;
+>>>>>>> 0894ce98d6716aed61a52ab8fcdfc8699c4ecd56
 
   constructor() {}
-
-  private subject = new Subject<any>();
 
   sendClickEvent() {
     this.subject.next(null);
