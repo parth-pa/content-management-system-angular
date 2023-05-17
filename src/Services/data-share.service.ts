@@ -12,9 +12,8 @@ export class DataShareService {
   _preference: any[] = [];
   public sidenavToggle: any;
 
-  constructor() {}
-
   private subject = new Subject<any>();
+  constructor() {}
 
   sendClickEvent() {
     this.subject.next(null);

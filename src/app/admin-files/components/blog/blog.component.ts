@@ -85,6 +85,6 @@ export class BlogComponent {
   editHandler(event: any) {
     this.openDialog(event.dataItem);
 
-    // console.warn(event.dataItem)
+    // console.warn(event.dataItem) Ankur
   }
 }
