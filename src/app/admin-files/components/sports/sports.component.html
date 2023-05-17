@@ -10,13 +10,14 @@
   style="color: black"
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+
   <kendo-grid-column field="image" title="image">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="title" title="title" > </kendo-grid-column>
-  <kendo-grid-column field="description" title="description"  >
+  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
+  <kendo-grid-column field="description" title="description">
   </kendo-grid-column>
 
   <kendo-grid-column field="delete" title="delete">
