@@ -13,7 +13,7 @@ export class KeyCloakApiService {
   ROLE: string = 'role';
   TOKEN: string = 'token';
   PREF: string = 'prefrence';
-
+  NAME: string = 'name';
   isLogin?: boolean;
   userType?: string;
 
@@ -22,6 +22,13 @@ export class KeyCloakApiService {
   }
   public getPrefence() {
     return localStorage.getItem(this.PREF);
+  }
+
+  public saveName(name: any) {
+    localStorage.setItem(this.NAME, name);
+  }
+  public getName() {
+    return localStorage.getItem(this.NAME);
   }
 
   public saveToken(token: string) {
@@ -44,6 +51,7 @@ export class KeyCloakApiService {
     localStorage.removeItem(this.TOKEN);
     localStorage.removeItem(this.ROLE);
     localStorage.removeItem(this.PREF);
+    localStorage.removeItem(this.NAME)
     return false;
   }
 

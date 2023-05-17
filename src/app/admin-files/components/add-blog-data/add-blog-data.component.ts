@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { dataList, dataList2, topicList } from 'src/app/model/model';
 
 import { ServicesService } from 'src/Services/services.service';
+import { UserServicesService } from 'src/Services/user-services.service';
+
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subscriber } from 'rxjs';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -18,12 +20,13 @@ export class AddBlogDataComponent implements OnInit {
 
   constructor(
     private obj: ServicesService,
-    public datashare: DataShareService
+    public datashare: DataShareService,
+    private user: UserServicesService
   ) {}
 
   updateData?: any;
   addBlog: dataList[] = [];
-  selectedOption?: any;
+  preferance_id?: any;
   editmode: boolean = true;
   updateImg?: any;
   showimage?: any;
@@ -33,46 +36,43 @@ export class AddBlogDataComponent implements OnInit {
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
     this.img = this.updateData.image;
-    this.selectedOption = this.datashare.preference;
+    console.warn(this.img);
+    this.preferance_id = this.datashare.preference;
+    this.getSubPreference(this.preferance_id);
   }
 
   blogdata: Array<dataList> = [];
 
   add: dataList = new dataList();
-  topic: topicList[] = [
-    { blogId: 1, topic: 'Cricket', preferenceId: 1 },
-    { blogId: 1, topic: 'Football', preferenceId: 3 },
-    { blogId: 1, topic: 'Hockey', preferenceId: 2 },
-    { blogId: 2, topic: 'Gujarat', preferenceId: 4 },
-    { blogId: 2, topic: 'India', preferenceId: 5 },
-    { blogId: 2, topic: 'World', preferenceId: 6 },
-    { blogId: 3, topic: 'Mobile', preferenceId: 7 },
-    { blogId: 3, topic: 'Laptop', preferenceId: 8 },
-    { blogId: 3, topic: 'Innovative', preferenceId: 9 },
-  ];
+  topic: topicList[] = [];
+  // { id: 1, name: 'ankur', pref_id: 1 }
 
   blogForm = new FormGroup({
     title: new FormControl(),
     description: new FormControl(),
     image: new FormControl(),
     prefId: new FormControl(),
-    subPreferenceId: new FormControl(),
+    subPreferenceId: new FormControl('', [Validators.required]),
   });
 
   onclick() {
+    // this.preferance_id = this.datashare.preference;
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
-    this.add.image = this.img
-    this.add.prefId = this.blogForm.value.prefId;
+    this.add.image = this.img;
+    this.add.prefId = this.preferance_id;
     this.add.subPreferenceId = this.blogForm.value.subPreferenceId;
 
     console.warn(this.blogForm);
+
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
+        this.blogForm.reset();
         console.warn(this.add);
       });
     }
+
     if (this.editmode == false) {
       this.obj.postCmsData(this.add).subscribe();
     }
@@ -80,6 +80,7 @@ export class AddBlogDataComponent implements OnInit {
 
   sendCmsData() {
     this.editmode = false;
+    console.warn('Hello');
   }
 
   updateCmsData() {
@@ -87,44 +88,17 @@ export class AddBlogDataComponent implements OnInit {
     console.warn(this.updateData.image);
   }
 
-  // **************   Image *****************
+  getSubPreference(value: any) {
+    this.user.getSubdatadeatails(value).subscribe((data) => {
+      this.topic = data;
+    });
+  }
 
-  // onchange(event:any){
+  public clearForm() {
+    this.blogForm.reset();
+  }
 
-  //   this.myimage = event.target.files[0];
-  //      }
-
-  // onupload(){
-  //     const filedata = new FormData();
-  //     filedata.append('image',this.myimage)
-  //     console.warn(this.myimage)
-
-  //     this.obj.uploadjpg(filedata).subscribe( data =>{
-
-  //           })
-  //       }
-
-  // ***********************************
-
-  // dataUpdate(){
-
-  //   // console.warn(this.blogForm.value)
-  //   // this.add.id = this.head.id
-  //   // this.add.title = this.blogForm.value.title
-  //   // this.add.description = this.blogForm.value.description
-  //   // this.add.image = this.blogForm.value.image
-  //   // this.add.subId = this.blogForm.value.subId
-  //   // this.add.subPreferenceId = this.blogForm.value.subPreferenceId
-  //   console.warn(this.add)
-  //   this.obj.updateCmsData(this.add).subscribe()
-  // }
-
-  // openDialog(){
-
-  //   this.dialogRef.open(AddBlogDataComponent);
-  // }
-
-  // ******************* Update  ******************************
+  // *********** convert image into base64 *************
 
   onchange = ($event: Event) => {
     const target = $event.target as HTMLInputElement;
@@ -143,7 +117,7 @@ export class AddBlogDataComponent implements OnInit {
     observable.subscribe((d) => {
       console.log(d);
       this.img = d;
-      //  console.log(this.img)
+      console.log(this.img);
 
       // this.showimage =this.showimage2(d)
     });

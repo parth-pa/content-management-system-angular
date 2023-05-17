@@ -19,12 +19,16 @@ export class UserHeaderComponent {
 
   userType?: string;
   isLogin?: boolean;
+  UserName? : any;
+  isNull?:boolean;
+  sidenavToggle: boolean = true;
 
   ngOnInit(): void {
     this.userType = this.keycloakapiservice.userType;
     this.isLogin = this.keycloakapiservice.isLogin;
     this.getSubPref();
     this.getresponce();
+    this.UserName= this.keycloakapiservice.getName();
   }
   constructor(
     private _apiService: UserServicesService,
@@ -33,7 +37,7 @@ export class UserHeaderComponent {
     public datashare: DataShareService
   ) {}
 
-  @Output() senddata = new EventEmitter<any>();
+  @Output() senddata = new EventEmitter<any>( );
 
   onChangeSubPrefrence(e: any) {
     this.selectedSubPrefrence = e.target.value;
@@ -69,11 +73,7 @@ export class UserHeaderComponent {
     });
   }
 
-  PreList: preferenceList[] = [
-    { preferenceId: 1, preferenceName: 'Sports' },
-    { preferenceId: 2, preferenceName: 'Politics' },
-    { preferenceId: 3, preferenceName: 'Technologies' },
-  ];
+
 
   preferenceChange(preferenceValue?: number) {
     this.datashare.preference = preferenceValue;
@@ -81,7 +81,41 @@ export class UserHeaderComponent {
 
   logOut() {
     this.keycloakapiservice.remove();
-    this._router.navigate(['auth/login']);
+    this._router.navigate(['auth/login'],{replaceUrl:true});
     this.opened = false;
   }
+
+
+
+
+
+  PreList: preferenceList[] = [
+    {
+      preferenceId: 1,
+      preferenceName: 'Sports',
+      icon: 'fa-solid fa-person-biking',
+    },
+    {
+      preferenceId: 2,
+      preferenceName: 'Politics',
+      icon: 'fa-solid fa-landmark-dome',
+    },
+    {
+      preferenceId: 3,
+      preferenceName: 'Technologies',
+      icon: ' fa-solid fa-microchip',
+    },
+  ];
+
+    preferenssceChange(preferenceId: any) {
+      this.datashare.preference = preferenceId;
+      // console.warn(preferenceId);
+    }
+    onclickmenu() {
+      if (this.sidenavToggle == true) {
+        this.sidenavToggle = false;
+      } else {
+        this.sidenavToggle = true;
+      }
+    }
 }

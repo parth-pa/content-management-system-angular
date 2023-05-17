@@ -66,7 +66,7 @@ export class KeyclockRegisterComponent {
             this.form.value.prefrence?.toString()
           );
 
-          this._router.navigate(['keycloakLogin']);
+          this._router.navigate(['auth/login']);
         },
         (error) => {
           this.isError = true;

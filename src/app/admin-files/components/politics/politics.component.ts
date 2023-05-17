@@ -1,3 +1,4 @@
+import { UserServicesService } from 'src/Services/user-services.service';
 import { Component, OnInit } from '@angular/core';
 import { dataList, dataList2 } from 'src/app/model/model';
 import { ServicesService } from 'src/Services/services.service';
@@ -20,7 +21,8 @@ export class PoliticsComponent implements OnInit {
   constructor(
     private obj: ServicesService,
     private dialogRef: MatDialog,
-    public datashare: DataShareService
+    public datashare: DataShareService,
+    public userservices: UserServicesService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +30,13 @@ export class PoliticsComponent implements OnInit {
     this.getCmsDatas(this.preferance_id);
     console.warn(this.preferance_id);
   }
+
+  // getCmsDatas(value: any,value1: any = 0) {
+  //   value1 = this.userservices.readsubuserPreferencefordetails();
+  //   this.userservices.getperticulardetailsinsidedata(value, value1).subscribe((data) => {
+  //     this.politicsList = data;
+  //   });
+  // }
 
   getCmsDatas(value: any) {
     this.obj.getCmsData(value).subscribe((data) => {
@@ -38,7 +47,7 @@ export class PoliticsComponent implements OnInit {
   removeHandler(event: any) {
     console.warn(event.dataItem.prefId);
     this.obj
-      .deleteCmsData(event.dataItem.prefId, event.dataItem.id)
+      .deleteCmsData(this.preferance_id, event.dataItem.id)
       .subscribe((data) => {
         this.getCmsDatas(this.preferance_id);
       });

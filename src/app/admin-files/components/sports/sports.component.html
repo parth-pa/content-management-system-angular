@@ -1,8 +1,8 @@
 <app-Blog></app-Blog>
 <h1 style="color: black">Sport</h1>
 <kendo-grid
-  [data]="sportsList"
-  [kendoGridBinding]="sportsList"
+  [data]="DataList"
+  [kendoGridBinding]="DataList"
   [sortable]="true"
   [groupable]="true"
   (remove)="removeHandler($event)"
@@ -15,8 +15,8 @@
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
-  <kendo-grid-column field="description" title="description">
+  <kendo-grid-column field="title" title="title" > </kendo-grid-column>
+  <kendo-grid-column field="description" title="description"  >
   </kendo-grid-column>
 
   <kendo-grid-column field="delete" title="delete">

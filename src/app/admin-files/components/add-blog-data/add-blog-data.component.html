@@ -1,7 +1,4 @@
-
-
-
-    <div class="card">
+<!-- <div class="card">
       <form [formGroup]="blogForm" (ngSubmit)="onclick()">
         <label>Heading</label>
         <input class="form-control"  formControlName="title" type="text" [(ngModel)]="updateData.title" ><br>
@@ -12,27 +9,26 @@
           data="Details"
           formControlName="description"
           >
-          </kendo-editor>
+          </kendo-editor> -->
 
 <!-- ************* image file ************* -->
-        <label>File</label>
+<!-- <label>File</label>
         <input class="form-control inputFile" formControlName="image" type="File"  (change)="onchange($event)" >
         <span><img class="imgshow"    [src]="img" alt=""></span>
-        <!-- [(ngModel)]="head.image" -->
-        <br>
+        <br> -->
 
-    <!-- *********************** Blog dropdown *************************** -->
-    <div class="dropdown">
+<!-- *********************** Blog dropdown *************************** -->
+<!-- <div class="dropdown">
       <Label>Select Blogs : </Label>
       <select [(ngModel)]="updateData.prefId" style="color:black" name="blog" id="blog" formControlName="prefId">
         <option value="1" >Sport</option>
         <option value="2" >Politics</option>
         <option value="3" >Technology</option>
       </select>
-    </div><br>
+    </div><br> -->
 
-    <!-- ************************** Topic Dropdown ********************************** -->
-    <div class="dropdown" >
+<!-- ************************** Topic Dropdown ********************************** -->
+<!-- <div class="dropdown" >
       <Label>Select Topic : </Label>
       <select [(ngModel)]="updateData.subPreferenceId" style="color:black" name="blog" id="blog" formControlName="subPreferenceId">
         <option value="{{i.preferenceId}}" *ngFor="let i of topic">
@@ -40,23 +36,130 @@
           <p  *ngIf="i.blogId == updateData.prefId">{{i.topic}}</p>
         </option>
       </select>
-    </div><br>
+    </div><br> -->
 
-     <!-- ******************* Submit and Update ****************************** -->
-    <button type="submit" class="btn btn-success" mat-dialog-close (click)="sendCmsData()">Add</button>
+<!-- ******************* Submit and Update ****************************** -->
+<!-- <button type="submit" class="btn btn-success" mat-dialog-close (click)="sendCmsData()">Add</button>
     <button  type="submit" class="btn btn-primary" mat-dialog-close (click)="updateCmsData()" >Update</button>
     <button  type="reset" class="btn btn-warning"  >Reset</button>
 
   </form>
 
-</div>
-
-<!-- <div class="component-container">
-    <kendo-dropdownlist [data]="topic"></kendo-dropdownlist>
 </div> -->
 
+<div class="card">
+  <form class="k-form" [formGroup]="blogForm" (ngSubmit)="onclick()">
+    <h1>Form</h1>
+    <kendo-formfield>
+      <kendo-label text="Heading"></kendo-label>
+      <kendo-textbox
+        [(ngModel)]="updateData.title"
+        formControlName="title"
+        [clearButton]="true"
+        #title
+        required
+      ></kendo-textbox>
 
+      <kendo-formerror *ngIf="blogForm.controls.title.errors?.['required']"
+        >Error: Heading is required</kendo-formerror
+      >
+    </kendo-formfield>
 
+    <kendo-formfield>
+      <kendo-label text="Description"></kendo-label>
+      <kendo-editor
+        formControlName="description"
+        [(ngModel)]="updateData.description"
+        #description
+        required
+      >
+      </kendo-editor>
+      <kendo-formerror
+        *ngIf="blogForm.controls.description.errors?.['required']"
+        >Error: Description is required</kendo-formerror
+      >
+    </kendo-formfield>
 
+    <!-- <kendo-formfield>
+      <kendo-label text="Image"></kendo-label>
 
+      <kendo-upload
+        formControlName="image"
+        (change)="onchange($event)"
+        [(ngModel)]="updateData.image"
+      >
+      </kendo-upload>
+    </kendo-formfield> -->
+    <div class="file_upload">
+      <label>File</label>
+      <input
+        class="form-control inputFile"
+        formControlName="image"
+        type="File"
+        (change)="onchange($event)"
+      />
+      <img class="imgshow" [src]="img" alt="" />
+    </div>
 
+    <!-- <kendo-formfield>
+      <kendo-label text="preference"></kendo-label>
+      <kendo-dropdownlist [data]="topic" #preference required>
+        <ng-template>
+          {{ name }}
+        </ng-template>
+      </kendo-dropdownlist>
+      <kendo-formerror
+        *ngIf="blogForm.controls.subPreferenceId.errors?.['required']"
+        >Error: preference is required</kendo-formerror
+      >
+    </kendo-formfield> -->
+
+    <div class="dropdown">
+      <Label>Select Topic : </Label>
+      <select
+        [(ngModel)]="updateData.subPreferenceId"
+        style="color: black"
+        name="blog"
+        id="blog"
+        formControlName="subPreferenceId"
+      >
+        <option
+          [(ngModel)]="updateData.prefId"
+          value="{{ i.id }}"
+          *ngFor="let i of topic"
+        >
+          {{ i.name }}
+        </option>
+      </select>
+    </div>
+    <br />
+
+    <div class="k-form-buttons">
+      <button
+        kendoButton
+        themeColor="success"
+        mat-dialog-close
+        type="submit"
+        (click)="sendCmsData()"
+        [disabled]="blogForm.invalid"
+      >
+        Submit
+      </button>
+
+      <button
+        kendoButton
+        themeColor="primary"
+        mat-dialog-close
+        type="submit"
+        (click)="updateCmsData()"
+        [disabled]="blogForm.invalid"
+      >
+        Update
+      </button>
+
+      <button kendoButton type="button" mat-dialog-close (click)="clearForm()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

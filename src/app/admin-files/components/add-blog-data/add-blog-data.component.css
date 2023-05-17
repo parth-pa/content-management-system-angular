@@ -1,6 +1,6 @@
 .card {
   width: 1000px;
-  height: 650px;
+  height: 700px;
   /* margin-top: 3%; */
   /* box-shadow: 3px; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
@@ -33,4 +33,22 @@ mat-toolbar {
 .imgshow {
   max-width: 100px;
   max-height: 100px;
+}
+
+.file_upload {
+  padding-top: 2%;
+  display: flex;
+  width: 100%;
+}
+
+.inputFile {
+  display: flex;
+  width: 50%;
+}
+
+.imgshow {
+  display: flex;
+  margin-left: 10%;
+  width: 70px;
+  height: 70px;
 }

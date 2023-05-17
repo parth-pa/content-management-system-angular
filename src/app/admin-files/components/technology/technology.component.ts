@@ -42,7 +42,7 @@ export class TechnologyComponent implements OnInit {
 
   removeHandler(event: any) {
     this.obj
-      .deleteCmsData(event.dataItem.prefId, event.dataItem.id)
+      .deleteCmsData(this.preferance_id, event.dataItem.id)
       .subscribe((data) => {
         this.getCmsDatas(this.preferance_id);
       });
