@@ -11,6 +11,7 @@ export class DataShareService {
   public preference: any;
   public preferenceName: any;
   public sidenavToggle: any;
+  public buttonpress: any;
 
   private subject = new Subject<any>();
   constructor() {}

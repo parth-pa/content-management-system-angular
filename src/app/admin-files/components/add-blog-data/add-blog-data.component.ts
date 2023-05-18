@@ -31,10 +31,14 @@ export class AddBlogDataComponent implements OnInit {
   updateImg?: any;
   showimage?: any;
   img?: any;
+  buttonpress?: any = false;
 
   ngOnInit(): void {
+    this.img = ' ';
+    this.clearForm();
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
+    this.buttonpress = this.datashare.buttonpress;
     this.img = this.updateData.image;
     console.warn(this.img);
     this.preferance_id = this.datashare.preference;
@@ -72,12 +76,14 @@ export class AddBlogDataComponent implements OnInit {
         this.getSubPreference(this.preferance_id);
         console.warn(this.add);
         this.refreshClick();
+        this.clearForm();
       });
     }
 
     if (this.editmode == false) {
       this.obj.postCmsData(this.add).subscribe(() => {
         this.refreshClick();
+        this.clearForm();
       });
     }
   }
@@ -94,6 +100,7 @@ export class AddBlogDataComponent implements OnInit {
   updateCmsData() {
     this.editmode = true;
     console.warn(this.updateData.image);
+    this.datashare.buttonpress = false;
   }
 
   getSubPreference(value: any) {
@@ -103,8 +110,8 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   public clearForm() {
-    this.refreshClick();
     this.blogForm.reset();
+    this.refreshClick();
   }
 
   // *********** convert image into base64 *************
