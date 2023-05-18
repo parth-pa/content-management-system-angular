@@ -49,12 +49,21 @@
 
 <div class="card">
   <form class="k-form" [formGroup]="blogForm" (ngSubmit)="onclick()">
+    <i
+      class="fa-solid fa-xmark close-btn"
+      kendoButton
+      type="button"
+      mat-dialog-close
+      (click)="clearForm()"
+    >
+    </i>
     <h1>Form</h1>
     <kendo-formfield>
       <kendo-label text="Heading"></kendo-label>
       <kendo-textbox
-        [(ngModel)]="updateData.title"
         formControlName="title"
+        placeholder=" "
+        [(ngModel)]="updateData.title"
         [clearButton]="true"
         #title
         required
@@ -136,29 +145,28 @@
 
     <div class="k-form-buttons">
       <button
+        class="submitBtn"
         kendoButton
-        themeColor="success"
+        themeColor="primary"
         mat-dialog-close
         type="submit"
         (click)="sendCmsData()"
         [disabled]="blogForm.invalid"
+        [ngClass]="{ submitBtn: buttonpress }"
       >
         Submit
       </button>
 
       <button
-        kendoButton
-        themeColor="primary"
+        class="btn btn-primary updateBtn"
         mat-dialog-close
+        themeColor="primary"
         type="submit"
         (click)="updateCmsData()"
         [disabled]="blogForm.invalid"
+        [ngClass]="{ updateBtn: !buttonpress }"
       >
         Update
-      </button>
-
-      <button kendoButton type="button" mat-dialog-close (click)="clearForm()">
-        Cancel
       </button>
     </div>
   </form>

@@ -31,10 +31,14 @@ export class AddBlogDataComponent implements OnInit {
   updateImg?: any;
   showimage?: any;
   img?: any;
+  buttonpress?: any = false;
 
   ngOnInit(): void {
+    this.img = ' ';
+    this.clearForm();
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
+    this.buttonpress = this.datashare.buttonpress;
     this.img = this.updateData.image;
     console.warn(this.img);
     this.preferance_id = this.datashare.preference;
@@ -103,8 +107,8 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   public clearForm() {
-    this.refreshClick();
     this.blogForm.reset();
+    this.refreshClick();
   }
 
   // *********** convert image into base64 *************
