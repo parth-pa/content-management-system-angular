@@ -9,7 +9,7 @@ export class DataShareService {
   blogData: any[] = [];
 
   public preference: any;
-  _preference: any[] = [];
+  public preferenceName: any;
   public sidenavToggle: any;
 
   private subject = new Subject<any>();

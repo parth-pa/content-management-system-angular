@@ -160,7 +160,14 @@ left: 10px; */
 }
 
 .i {
-  /* padding-top: 2%; */
-  padding-right: 50%;
+  border-radius: 10px;
+  height: 50px;
+  width: 135%;
+  /* background-color: lightblue; */
+  color: white;
+  padding-right: 80%;
   display: flex;
+  padding-top: 10%;
+  font-size: larger;
+  margin-block: 10%;
 }

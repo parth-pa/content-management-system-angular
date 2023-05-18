@@ -1,7 +1,6 @@
 import { UserModule } from './user/user.module';
 import { AdminFilesModule } from './admin-files/admin-files.module';
 import { AuthModule } from './auth/auth.module';
-import { SportsComponent } from './admin-files/components/sports/sports.component';
 import { KeyclockRegisterComponent } from './auth/components/keyclock-register/keyclock-register.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +14,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TechnologyComponent } from './admin-files/components/technology/technology.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { InputsModule } from '@progress/kendo-angular-inputs';
@@ -48,8 +46,6 @@ import { BlogComponent } from './admin-files/components/blog/blog.component';
     KeyCloakLoginComponent,
     UserComponent,
     AdminComponent,
-    SportsComponent,
-    TechnologyComponent,
     BlogsComponent,
     UserComponent,
     UserBodyComponent,

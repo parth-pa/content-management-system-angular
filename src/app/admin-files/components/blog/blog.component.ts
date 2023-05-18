@@ -18,6 +18,7 @@ import { Subscription } from 'rxjs';
 })
 export class BlogComponent {
   preferance_id: any;
+  preferenceName: any;
   myimage?: any;
   clickEventSubscription: Subscription;
 
@@ -42,6 +43,7 @@ export class BlogComponent {
 
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
+    this.preferenceName = this.datashare.preferenceName;
     this.getCmsDatas(this.preferance_id);
 
     // this.preferance = this.datashare._preference;
