@@ -56,6 +56,8 @@ mat-toolbar {
 } */
 
 .updateBtn {
+  display: flex;
+  margin-left: 95%;
   visibility: hidden;
 }
 
