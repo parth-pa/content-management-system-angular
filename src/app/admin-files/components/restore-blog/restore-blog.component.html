@@ -1,19 +1,16 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar>
   <mat-toolbar-row>
-    <h1>{{ preferenceName }}</h1>
-    <button class="btn btn-basic addbtn" (click)="openDialog2()">
-      Add Data
-    </button>
+    <h1 style="color: white">Deleted Data</h1>
   </mat-toolbar-row>
 </mat-toolbar>
 <br />
+
 <kendo-grid
   [data]="DataList"
   [kendoGridBinding]="DataList"
   [sortable]="true"
   [groupable]="true"
-  (remove)="removeHandler($event)"
-  (edit)="editHandler($event)"
+  (remove)="restoreHandler($event)"
   style="color: black"
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
@@ -27,18 +24,14 @@
   <kendo-grid-column field="description" title="description">
   </kendo-grid-column>
 
-  <kendo-grid-column field="delete" title="delete">
+  <kendo-grid-column field="Restore" title="Restore">
     <ng-template kendoGridCellTemplate let-dataItem>
-      <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">
-        Remove
-      </button>
-    </ng-template>
-  </kendo-grid-column>
-
-  <kendo-grid-column field="Update" title="Update">
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">
-        Edit
+      <button
+        kendoGridRemoveCommand
+        fillMode="outline"
+        [themeColor]="'success'"
+      >
+        Restore
       </button>
     </ng-template>
   </kendo-grid-column>

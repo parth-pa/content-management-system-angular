@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  dataList,
-  dataList2,
-  preferenceList,
-  topicList,
-} from 'src/app/model/model';
+import { dataList } from 'src/app/model/model';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicesService } from 'src/Services/services.service';
 import { DataShareService } from 'src/Services/data-share.service';
@@ -57,6 +52,7 @@ export class BlogComponent {
   }
 
   removeHandler(event: any) {
+    console.warn(event);
     this.obj
       .deleteCmsData(this.preferance_id, event.dataItem.id)
       .subscribe((data) => {
