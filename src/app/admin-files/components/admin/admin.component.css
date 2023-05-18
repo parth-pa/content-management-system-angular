@@ -175,7 +175,6 @@ a {
   /* color: white; */
 }
 
-
 .toolbar {
   position: fixed;
   top: 0;
@@ -205,11 +204,11 @@ a {
   /*
 left: 10px; */
   margin-left: 1.5%;
-  color: white  ;
+  color: white;
   /* margin-right: 3%; */
 }
 
-.sidenavdata{
+.sidenavdata {
   border-radius: 10px;
   height: 50px;
   width: 135%;
@@ -227,4 +226,3 @@ left: 10px; */
   padding-right: 50%;
   display: flex;
 }
-
