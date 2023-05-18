@@ -82,6 +82,7 @@ export class BlogComponent {
 
   editHandler(event: any) {
     this.datashare.buttonpress = true;
+    console.log(this.datashare.buttonpress);
     this.openDialog(event.dataItem);
 
     // console.warn(event.dataItem) Ankur
