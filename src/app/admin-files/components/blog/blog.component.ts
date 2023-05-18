@@ -89,4 +89,8 @@ export class BlogComponent {
 
     // console.warn(event.dataItem) Ankur
   }
+
+  openDialog2(value?: any) {
+    this.dialogRef.open(AddBlogDataComponent);
+  }
 }

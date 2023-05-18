@@ -1,4 +1,9 @@
-<app-Blog></app-Blog>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button class="btn btn-primary" (click)="openDialog2()">Add Data</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <h1 style="color: black">{{ preferenceName }}</h1>
 <kendo-grid
   [data]="DataList"

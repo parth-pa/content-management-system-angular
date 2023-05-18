@@ -38,6 +38,8 @@ import { AdminFilesComponent } from './admin-files/admin-files.component';
 import { AuthComponent } from './auth/auth.component';
 import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add-blog-data.component';
 import { BlogComponent } from './admin-files/components/blog/blog.component';
+import { RestoreComponent } from './admin-files/components/restore/restore.component';
+import { ApprovalComponent } from './admin-files/components/approval/approval.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { BlogComponent } from './admin-files/components/blog/blog.component';
     AuthComponent,
     AddBlogDataComponent,
     BlogComponent,
+    RestoreComponent,
+    ApprovalComponent,
   ],
   imports: [
     BrowserModule,

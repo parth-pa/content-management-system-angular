@@ -48,7 +48,7 @@ export class AddBlogDataComponent implements OnInit {
   // { id: 1, name: 'ankur', pref_id: 1 }
 
   blogForm = new FormGroup({
-    title: new FormControl(),
+    title: new FormControl(''),
     description: new FormControl(),
     image: new FormControl(),
     prefId: new FormControl(),
@@ -69,7 +69,7 @@ export class AddBlogDataComponent implements OnInit {
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         this.blogForm.reset();
-        this.getSubPreference(this.preferance_id);  
+        this.getSubPreference(this.preferance_id);
         console.warn(this.add);
         this.refreshClick();
       });
