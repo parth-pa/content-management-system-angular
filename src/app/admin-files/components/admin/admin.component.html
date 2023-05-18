@@ -2,8 +2,9 @@
 <div class="toolbar" role="banner">
   <i
     class="fa-solid fa-bars icon"
+    routerLink="/Sports"
     (click)="onclickmenu()"
-
+    *ngIf="isLogin"
   ></i>
 
   <a href="https://www.amnex.com/"
@@ -30,7 +31,21 @@
 
 <main >
   <!-- *************** side navbar **************** -->
-  <div class="side-nav"  [ngClass]="{ 'side-nav-open': sidenavToggle }">
+  <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
+    <div routerLink="/user" (click)="empty()">
+      <i
+        class="fa-sharp fa-solid fa-house"
+        style="
+          color: white;
+          margin-left: 24px;
+          font-size: larger;
+          margin-top: 20px;
+        "
+      ></i>
+      <span style="color: white; margin-left: 37px; font-size: larger"
+        >home</span
+      >
+    </div>
     <div class="side-nav-content">
       <div routerLink="/user">
         <i
@@ -51,6 +66,7 @@
           <span>
             <p
               class="sidenavdata"
+              routerLink="/admin/{{ item.preferenceName }}"
               (click)="preferenceChange(item.preferenceId)"
               routerLink="/admin/{{ item.preferenceName }}"
             >
@@ -60,20 +76,6 @@
           </span>
         </li>
       </ul>
-      <div routerLink="/user" *ngIf="isLogin">
-        <i
-          class="fa-solid fa-trash"
-          style="
-            color: white;
-            margin-left: 24px;
-            font-size: larger;
-            margin-top: 20px;
-          "
-        ></i>
-        <span style="color: white; margin-left: 37px; font-size: larger"
-          >Deleted Data</span
-        >
-      </div>
     </div>
   </div>
 
@@ -81,8 +83,7 @@
 
   <div
     class="display-area p-3"
-    [ngClass]="{ 'display-toggle': !sidenavToggle }"
-  >
+    [ngClass]="{ 'display-toggle': !sidenavToggle }">
     <router-outlet></router-outlet>
   </div>
 </main>

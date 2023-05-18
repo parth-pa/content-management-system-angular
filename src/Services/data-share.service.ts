@@ -16,6 +16,7 @@ export class DataShareService {
 
   private subject = new Subject<any>();
 
+
   sendClickEvent() {
     this.subject.next(null);
   }

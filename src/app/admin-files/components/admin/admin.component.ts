@@ -71,8 +71,7 @@ export class AdminComponent implements OnInit {
 
   preferenceChange(preferenceId: any) {
     this.datashare.preference = preferenceId;
-    console.warn(preferenceId)
-    this.refreshClick();
+    // refreshClick();
     // console.warn(preferenceId);
   }
 
@@ -170,4 +169,6 @@ export class AdminComponent implements OnInit {
   // preferenceChange(preferenceValue?: number) {
   //   this.datashare.preference = preferenceValue;
   // }
+
+  empty() {}
 }
