@@ -1,7 +1,12 @@
 import { UserServicesService } from 'src/Services/user-services.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { dataList, Getdata, preferenceList, subdata } from 'src/app/model/model';
+import {
+  dataList,
+  Getdata,
+  preferenceList,
+  subdata,
+} from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 
@@ -20,7 +25,7 @@ export class AdminComponent implements OnInit {
   isLogin?: boolean;
   opened = false;
   UserName: any;
-  sidenavToggle:any ;
+  sidenavToggle: any;
   visibility?: boolean = false;
 
   selectedSubPrefrence: any = 0;
@@ -33,7 +38,6 @@ export class AdminComponent implements OnInit {
     private userapiservices: UserServicesService
   ) {}
   ngOnInit(): void {
-
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
     this.UserName = this.keycloakapiService.getName();
@@ -66,14 +70,17 @@ export class AdminComponent implements OnInit {
       preferenceName: 'Technologies',
       icon: ' fa-solid fa-microchip',
     },
-
-    // {preferenceId:1 , preferenceName:'Sports' },
-    // {preferenceId:2 , preferenceName:'Sports' },
-    // {preferenceId:3 , preferenceName:'Sports' }
+    // {
+    //   preferenceId: 5,
+    //   preferenceName: 'Blog',
+    //   icon: ' fa-solid fa-person-biking',
+    // },
   ];
 
-  preferenceChange(preferenceId: any) {
+  preferenceChange(preferenceId: any, preferenceName: any) {
     this.datashare.preference = preferenceId;
+    this.datashare.preferenceName = preferenceName;
+
     // console.warn(preferenceId)
     this.refreshClick();
     // console.warn(preferenceId);
@@ -110,18 +117,21 @@ export class AdminComponent implements OnInit {
       name: 'user',
       icon: 'fa-solid fa-house',
     },
+    {
+      number: '1',
+      name: 'Blog',
+      icon: 'fa-solid fa-house',
+    },
   ];
 
   onclickmenu() {
     if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
       this.datashare.sidenavToggle = false;
-      console.warn( this.datashare.sidenavToggle)
       this.refreshClick();
     } else {
       this.sidenavToggle = true;
       this.datashare.sidenavToggle = true;
-      console.warn( this.datashare.sidenavToggle)
       this.refreshClick();
     }
   }
@@ -144,7 +154,6 @@ export class AdminComponent implements OnInit {
     // this.senddataforadmin.emit(this.selectedSubPrefrence);
     // console.log(this.selectedSubPrefrence);
 
-
     // var pref=this.keycloakapiservice.getPrefence();
 
     // this._apiService.getperticulardetailsinsidedata(pref,this.selectedSubPrefrence).subscribe((respones) => {
@@ -153,10 +162,9 @@ export class AdminComponent implements OnInit {
     // });
     this.getresponce();
     this.getresponseforadmin();
-
   }
 
-  getresponseforadmin(){
+  getresponseforadmin() {
     console.log(this.preferance_id);
     var subpref = this.userapiservices.readsubuserPreferencefordetails();
     console.log(subpref);
@@ -167,9 +175,7 @@ export class AdminComponent implements OnInit {
         this.DataList = respones;
         this.senddataforadmin.emit(this.DataList);
         console.log(this.DataList);
-
       });
-
   }
 
   getresponce() {
@@ -182,7 +188,6 @@ export class AdminComponent implements OnInit {
         this.getdeatils = respones;
         this.senddata.emit(this.getdeatils);
         // console.log(this.getdeatils);
-
       });
   }
 
@@ -198,4 +203,6 @@ export class AdminComponent implements OnInit {
   // preferenceChange(preferenceValue?: number) {
   //   this.datashare.preference = preferenceValue;
   // }
+
+  empty() {}
 }

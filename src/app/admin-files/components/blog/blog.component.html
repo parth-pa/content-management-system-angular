@@ -1,7 +1,10 @@
-<!-- <app-admin (senddataforadmin)="headerdata($event)"> </app-admin> -->
-<app-Blog ></app-Blog>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button class="btn btn-primary" (click)="openDialog2()">Add Data</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-<h1 style="color: black">Sport</h1>
+<h1 style="color: black">{{ preferenceName }}</h1>
 <kendo-grid
   [data]="DataList"
   [kendoGridBinding]="DataList"
@@ -12,13 +15,14 @@
   style="color: black"
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+
   <kendo-grid-column field="image" title="image">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="title" title="title" > </kendo-grid-column>
-  <kendo-grid-column field="description" title="description"  >
+  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
+  <kendo-grid-column field="description" title="description">
   </kendo-grid-column>
 
   <kendo-grid-column field="delete" title="delete">

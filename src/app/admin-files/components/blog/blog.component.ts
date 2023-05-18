@@ -1,6 +1,10 @@
-import { UserServicesService } from 'src/Services/user-services.service';
 import { Component, OnInit } from '@angular/core';
-import { dataList, dataList2, topicList } from 'src/app/model/model';
+import {
+  dataList,
+  dataList2,
+  preferenceList,
+  topicList,
+} from 'src/app/model/model';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicesService } from 'src/Services/services.service';
 import { DataShareService } from 'src/Services/data-share.service';
@@ -8,17 +12,19 @@ import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-sports',
-  templateUrl: './sports.component.html',
-  styleUrls: ['./sports.component.css'],
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css'],
 })
-export class SportsComponent implements OnInit {
+export class BlogComponent {
   preferance_id: any;
+  preferenceName: any;
   myimage?: any;
   clickEventSubscription: Subscription;
 
   DataList: dataList[] = [];
-  isNull: boolean = false;
+  preferance: any[] = [];
+
   addOpenDialog(value?: any) {
     this.dialogRef.open(AddBlogDataComponent);
   }
@@ -26,8 +32,7 @@ export class SportsComponent implements OnInit {
   constructor(
     private obj: ServicesService,
     private dialogRef: MatDialog,
-    public datashare: DataShareService,
-    public userapi: UserServicesService
+    public datashare: DataShareService
   ) {
     this.clickEventSubscription = this.datashare
       .getclickEvent()
@@ -38,17 +43,15 @@ export class SportsComponent implements OnInit {
 
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
+    this.preferenceName = this.datashare.preferenceName;
     this.getCmsDatas(this.preferance_id);
 
-    // console.warn(this.preferance_id);
+    // this.preferance = this.datashare._preference;
+    // console.warn(this.preferance);
   }
 
   getCmsDatas(value: any) {
-    // console.log(this.preferance_id);
-    // value1=this.userapi.readsubuserPreferencefordetails()
-    // console.log(value1);
-
-    this.userapi.getperticulardetailsinsidedata(value,0).subscribe((data) => {
+    this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
     });
   }
@@ -83,19 +86,11 @@ export class SportsComponent implements OnInit {
 
   editHandler(event: any) {
     this.openDialog(event.dataItem);
-    // console.warn(event.dataItem)
+
+    // console.warn(event.dataItem) Ankur
   }
 
-
-  headerdata(event: any){
-    console.log(event);
-    this.DataList = event;
-    if(this.DataList.length === 0)
-    {
-      this.isNull= true
-    }
-    else{
-      this.isNull= false;
-    }
+  openDialog2(value?: any) {
+    this.dialogRef.open(AddBlogDataComponent);
   }
 }

@@ -43,14 +43,12 @@ export class AddBlogDataComponent implements OnInit {
 
   blogdata: Array<dataList> = [];
 
-
-
   add: dataList = new dataList();
   topic: topicList[] = [];
   // { id: 1, name: 'ankur', pref_id: 1 }
 
   blogForm = new FormGroup({
-    title: new FormControl(),
+    title: new FormControl(''),
     description: new FormControl(),
     image: new FormControl(),
     prefId: new FormControl(),
@@ -71,12 +69,16 @@ export class AddBlogDataComponent implements OnInit {
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         this.blogForm.reset();
+        this.getSubPreference(this.preferance_id);
         console.warn(this.add);
+        this.refreshClick();
       });
     }
 
     if (this.editmode == false) {
-      this.obj.postCmsData(this.add).subscribe();
+      this.obj.postCmsData(this.add).subscribe(() => {
+        this.refreshClick();
+      });
     }
   }
 
@@ -84,17 +86,14 @@ export class AddBlogDataComponent implements OnInit {
     this.datashare.sendClickEvent();
   }
 
-
   sendCmsData() {
     this.editmode = false;
     console.warn('Hello');
-    this.refreshClick()
   }
 
   updateCmsData() {
     this.editmode = true;
     console.warn(this.updateData.image);
-    this.refreshClick()
   }
 
   getSubPreference(value: any) {
@@ -104,7 +103,7 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   public clearForm() {
-    this.refreshClick()
+    this.refreshClick();
     this.blogForm.reset();
   }
 

@@ -1,0 +1,34 @@
+td {
+  color: black;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+mat-toolbar {
+  background-color: azure;
+}
+
+/* .btn{
+
+background-color: steelblue;
+
+} */
+
+button {
+  /* margin: 2px; */
+  width: 120px;
+}
+
+/* ************************ */
+
+mat-toolbar {
+  background-color: antiquewhite;
+}
+
+button {
+  /* margin: 2px; */
+  width: 120px;
+}

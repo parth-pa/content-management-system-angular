@@ -1,7 +1,6 @@
 import { UserModule } from './user/user.module';
 import { AdminFilesModule } from './admin-files/admin-files.module';
 import { AuthModule } from './auth/auth.module';
-import { SportsComponent } from './admin-files/components/sports/sports.component';
 import { KeyclockRegisterComponent } from './auth/components/keyclock-register/keyclock-register.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +14,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TechnologyComponent } from './admin-files/components/technology/technology.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { InputsModule } from '@progress/kendo-angular-inputs';
@@ -29,7 +27,6 @@ import { EditorModule } from '@progress/kendo-angular-editor';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { TokenIntercepterService } from './Intercepters/token-intercepter.service';
-import { BlogsComponent } from './admin-files/components/Blogs/Blogs.component';
 import { KeyCloakLoginComponent } from './auth/components/keycloak-login/login.component';
 import { UserComponent } from './user/user.component';
 import { UserBodyComponent } from './user/components/user-body/user-body.component';
@@ -39,6 +36,9 @@ import { UserFooterComponent } from './user/components/user-footer/user-footer.c
 import { AdminFilesComponent } from './admin-files/admin-files.component';
 import { AuthComponent } from './auth/auth.component';
 import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add-blog-data.component';
+import { BlogComponent } from './admin-files/components/blog/blog.component';
+import { RestoreComponent } from './admin-files/components/restore/restore.component';
+import { ApprovalComponent } from './admin-files/components/approval/approval.component';
 
 @NgModule({
   declarations: [
@@ -47,9 +47,6 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     KeyCloakLoginComponent,
     UserComponent,
     AdminComponent,
-    SportsComponent,
-    TechnologyComponent,
-    BlogsComponent,
     UserComponent,
     UserBodyComponent,
     UserCrouselComponent,
@@ -58,6 +55,9 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
     AdminFilesComponent,
     AuthComponent,
     AddBlogDataComponent,
+    BlogComponent,
+    RestoreComponent,
+    ApprovalComponent,
   ],
   imports: [
     BrowserModule,
