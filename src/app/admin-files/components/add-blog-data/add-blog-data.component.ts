@@ -76,12 +76,14 @@ export class AddBlogDataComponent implements OnInit {
         this.getSubPreference(this.preferance_id);
         console.warn(this.add);
         this.refreshClick();
+        this.clearForm();
       });
     }
 
     if (this.editmode == false) {
       this.obj.postCmsData(this.add).subscribe(() => {
         this.refreshClick();
+        this.clearForm();
       });
     }
   }
@@ -98,6 +100,7 @@ export class AddBlogDataComponent implements OnInit {
   updateCmsData() {
     this.editmode = true;
     console.warn(this.updateData.image);
+    this.datashare.buttonpress = false;
   }
 
   getSubPreference(value: any) {
