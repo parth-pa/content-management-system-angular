@@ -34,15 +34,31 @@ export class ApproveBlogComponent implements OnInit {
   }
 
   Approvedata() {
-    this.obj.deletedblog(0).subscribe((data) => {
+    this.obj.getapprovedata().subscribe((data) => {
       this.ApprovedataList = data;
     });
   }
   approveHandler(event: any) {
     console.warn(event);
     this.obj
-      .restoreblog(event.dataItem.prefId, event.dataItem.id)
+      .approvedata(event.dataItem.prefId, event.dataItem.id)
       .subscribe((data) => {
+        this.Approvedata();
+        // this.deletedBlog(this.preferance_id);
+      });
+  }
+
+  declineHandler(event: any) {
+    if (confirm('Are you sure want to Decline ')) {
+      this.declinedata(event);
+    }
+  }
+
+  declinedata(value: any) {
+    this.obj
+      .deleteCmsData(value.dataItem.prefId, value.dataItem.id)
+      .subscribe((data) => {
+        this.Approvedata();
         // this.deletedBlog(this.preferance_id);
       });
   }

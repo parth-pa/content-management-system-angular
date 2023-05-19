@@ -48,13 +48,20 @@ export class BlogComponent implements OnInit {
   getCmsDatas(value: any) {
     this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
+      console.log(data);
     });
   }
 
   removeHandler(event: any) {
-    console.warn(event);
+    if (confirm('Are you sure want to delete ')) {
+      this.deletedata(event);
+    }
+  }
+
+  deletedata(value: any) {
+    console.warn(value);
     this.obj
-      .deleteCmsData(this.preferance_id, event.dataItem.id)
+      .deleteCmsData(this.preferance_id, value.dataItem.id)
       .subscribe((data) => {
         this.getCmsDatas(this.preferance_id);
       });

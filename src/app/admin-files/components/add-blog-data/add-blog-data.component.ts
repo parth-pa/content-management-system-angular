@@ -26,10 +26,10 @@ export class AddBlogDataComponent implements OnInit {
 
   updateData?: any;
   addBlog: dataList[] = [];
+  resetform: dataList[] = [];
   preferance_id?: any;
-  editmode: boolean = true;
+  editmode: boolean = false;
   updateImg?: any;
-  // showimage?: any;
   img?: any = '';
   buttonpress?: any;
 
@@ -38,8 +38,7 @@ export class AddBlogDataComponent implements OnInit {
     this.blogForm.reset();
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
-    this.img1();
-    // this.img = this.updateData.image;
+    this.img = this.updateData.image;
     this.preferance_id = this.datashare.preference;
     this.getSubPreference(this.preferance_id);
   }
@@ -71,8 +70,6 @@ export class AddBlogDataComponent implements OnInit {
 
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
-        this.clearForm();
-        // this.blogForm.reset();
         this.getSubPreference(this.preferance_id);
         console.warn(this.add);
         this.refreshClick();
@@ -110,17 +107,12 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   clearForm() {
+    this.editmode = false;
     this.img = 'dsfds';
     this.blogForm.reset();
     this.refreshClick();
-
+    this.datashare.blogData = this.resetform;
     this.datashare.buttonpress = false;
-  }
-
-  img1() {
-    if ((this.editmode = false)) {
-      this.img = this.updateData.image;
-    }
   }
 
   // *********** convert image into base64 *************

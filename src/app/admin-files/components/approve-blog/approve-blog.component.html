@@ -11,6 +11,7 @@
   [sortable]="true"
   [groupable]="true"
   (remove)="approveHandler($event)"
+  (edit)="declineHandler($event)"
   style="color: black"
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
@@ -38,7 +39,7 @@
 
   <kendo-grid-column field="Decline" title="Decline">
     <ng-template kendoGridCellTemplate let-dataItem>
-      <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">
+      <button kendoGridEditCommand fillMode="outline" [themeColor]="'error'">
         Decline
       </button>
     </ng-template>
