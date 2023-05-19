@@ -1,7 +1,7 @@
 <mat-toolbar class="toolbar">
-  <mat-toolbar-row>
-    <h1>{{ preferenceName }}</h1>
-    <button class="btn btn-basic addbtn" (click)="openDialog2()">
+  <mat-toolbar-row >
+    <h1 style=" font-size: larger;">{{ preferenceName }}</h1>
+    <button style=" font-size: larger;" class="btn btn-basic addbtn" (click)="openDialog2()">
       Add Data
     </button>
   </mat-toolbar-row>
@@ -18,7 +18,7 @@
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
 
-  <kendo-grid-column field="isApprove" title="isApprove">
+  <kendo-grid-column field="isApprove" title="">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <span class="material-icons" style="color: rgb(0, 128, 55)"
         >task_alt</span

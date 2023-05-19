@@ -73,15 +73,25 @@
 
         <div routerLink="/admin/deletedblog" *ngIf="isLogin">
           <i class="fa-solid fa-trash icon2"></i>
-          <span style="color: white; margin-left: 9%; font-size: larger"
-            >Deleted Data</span
-          >
+          <!-- <span style="color: white; margin-left: 9%; font-size: larger">
+            Deleted Data
+          </span> -->
+          <div class="dropdown" style="margin-left: 30%;">
+            <span style="color: white; font-size: 16px;"  data-bs-toggle="dropdown" >
+              Deleted Data
+            </span>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Sports</a></li>
+              <li><a class="dropdown-item">Politics</a></li>
+              <li><a class="dropdown-item">Technology</a></li>
+            </ul>
+          </div>
         </div>
         <div routerLink="/admin/approveBlog" *ngIf="isLogin">
           <i class="fa-solid fa-thumbs-up icon2"></i>
           <span style="color: white; margin-left: 9%; font-size: larger">
-            Approve Data</span
-          >
+            Approve Data
+          </span>
         </div>
       </div>
     </div>
@@ -93,3 +103,5 @@
     <router-outlet></router-outlet>
   </div>
 </main>
+
+
