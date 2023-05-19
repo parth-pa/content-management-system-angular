@@ -18,11 +18,22 @@
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
 
-  <kendo-grid-column field="isApprove" title="isApprove">
+  <kendo-grid-column field="approved" title="isApprove">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-      <span class="material-icons" style="color: rgb(0, 128, 55)"
+      <span
+        *ngIf="dataItem.approved === true"
+        class="material-icons"
+        style="color: rgb(0, 128, 55)"
         >task_alt</span
       >
+
+      <span
+        *ngIf="dataItem.approved === false"
+        class="material-icons"
+        style="color: rgb(243, 156, 18)"
+        >pending_actions</span
+      >
+      <!-- {{ dataItem.approved }} -->
     </ng-template>
   </kendo-grid-column>
 

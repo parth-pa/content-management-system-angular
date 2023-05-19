@@ -118,7 +118,7 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   img1() {
-    if ((this.editmode = false)) {
+    if ((this.editmode = true)) {
       this.img = this.updateData.image;
     }
   }

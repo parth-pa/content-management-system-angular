@@ -8,14 +8,14 @@ export class ServicesService {
 
   baseURL: string = 'https://localhost:7106/api/Cms';
 
-  getCmsData(data: any) {
-    // console.warn(data);
-    return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/User/getid?id=' + data
-    );
-  }
+  // getCmsData(data: any) {
+  //   // console.warn(data);
+  //   return this.obj.get<dataList[]>(
+  //     'https://localhost:7082/api/User/getid?id=' + data
+  //   );
+  // }
 
-  getCmsData1(data: any, data2: any) {
+  getCmsData(data: any, data2 = 0) {
     // console.warn(data);
     return this.http.get<dataList[]>(
       'https://localhost:7082/api/User/getinsindedatadetalils?id=' +
@@ -62,9 +62,23 @@ export class ServicesService {
     );
   }
 
-  approvedata() {
+  getapprovedata() {
     return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/Admin/getnotapproveddata?id=1'
+      'https://localhost:7082/api/Admin/getnotapproveddata?id=0'
+    );
+  }
+
+  approvedata(data1: any, data2: any) {
+    console.warn(data1);
+    console.warn(data2);
+    return this.obj.put(
+      'https://localhost:7082/api/Admin/approvedata?id=' +
+        data1 +
+        '&id1=' +
+        data2,
+      data2
     );
   }
 }
+
+// https://localhost:7082/api/Admin/approvedata?id=1&id1=23
