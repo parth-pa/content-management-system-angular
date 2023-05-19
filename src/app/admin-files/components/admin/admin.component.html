@@ -1,6 +1,7 @@
 <!-- ********** header **************** -->
 <div class="toolbar" role="banner">
   <i class="fa-solid fa-bars icon" (click)="onclickmenu()"></i>
+
   <!-- </i> -->
 
   <!-- <a href="https://www.amnex.com/"> -->
@@ -30,15 +31,15 @@
   <!-- *************** side navbar **************** -->
   <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
     <div class="side-nav-content">
-      <div routerLink="/user">
+      <div class="nav-list" routerLink="/user">
         <i
           class="fa-sharp fa-solid fa-house"
           style="
             color: white;
-            margin-left: 5%;
+            margin-left: 2%;
             font-size: larger;
             margin-top: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 3%;
             margin-right: 10%;
           "
         ></i>
@@ -52,36 +53,39 @@
           >home</span
         >
       </div>
-      <ul class="nav-list" *ngIf="isLogin">
-        <li class="nav-list-item" *ngFor="let item of PreList">
-          <span>
-            <p
-              class="sidenavdata"
-              (click)="preferenceChange(item.preferenceId, item.preferenceName)"
-              routerLink="/admin/Blog"
-            >
-              <i class="{{ item.icon }}"></i>
-              {{ item.preferenceName }}
-            </p>
-          </span>
-        </li>
-      </ul>
+      <div>
+        <ul class="nav-list" *ngIf="isLogin">
+          <li class="nav-list-item" *ngFor="let item of PreList">
+            <span>
+              <p
+                class="sidenavdata"
+                (click)="
+                  preferenceChange(item.preferenceId, item.preferenceName)
+                "
+                routerLink="/admin/Blog"
+              >
+                <i class="{{ item.icon }}"></i>
+                {{ item.preferenceName }}
+              </p>
+            </span>
+          </li>
+        </ul>
 
-      <div routerLink="/admin/deletedblog" *ngIf="isLogin">
-        <i class="fa-solid fa-trash icon2"></i>
-        <span style="color: white; margin-left: 9%; font-size: larger"
-          >Deleted Data</span
-        >
-      </div>
-      <div routerLink="/admin/approveBlog" *ngIf="isLogin">
-        <i class="fa-solid fa-thumbs-up icon2"></i>
-        <span style="color: white; margin-left: 9%; font-size: larger">
-          Approve Data</span
-        >
+        <div routerLink="/admin/deletedblog" *ngIf="isLogin">
+          <i class="fa-solid fa-trash icon2"></i>
+          <span style="color: white; margin-left: 9%; font-size: larger"
+            >Deleted Data</span
+          >
+        </div>
+        <div routerLink="/admin/approveBlog" *ngIf="isLogin">
+          <i class="fa-solid fa-thumbs-up icon2"></i>
+          <span style="color: white; margin-left: 9%; font-size: larger">
+            Approve Data</span
+          >
+        </div>
       </div>
     </div>
   </div>
-
   <div
     class="display-area p-3"
     [ngClass]="{ 'display-toggle': !sidenavToggle }"

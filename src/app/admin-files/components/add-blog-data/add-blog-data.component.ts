@@ -77,7 +77,6 @@ export class AddBlogDataComponent implements OnInit {
         console.warn(this.add);
         this.refreshClick();
         this.clearForm();
-        this.datashare.blogData;
       });
     }
 

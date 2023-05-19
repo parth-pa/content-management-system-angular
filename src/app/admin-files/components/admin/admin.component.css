@@ -85,13 +85,13 @@ nav {
 .nav-list-item {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 55px;
 }
 
-.side-nav-open .nav-list-item:hover {
+/* .side-nav-open .nav-list-item:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-}
+} */
 
 .nav-list-item i {
   font-size: 20px;
