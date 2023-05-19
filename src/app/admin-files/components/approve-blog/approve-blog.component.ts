@@ -49,9 +49,14 @@ export class ApproveBlogComponent implements OnInit {
   }
 
   declineHandler(event: any) {
-    console.warn(event);
+    if (confirm('Are you sure want to Decline ')) {
+      this.declinedata(event);
+    }
+  }
+
+  declinedata(value: any) {
     this.obj
-      .deleteCmsData(event.dataItem.prefId, event.dataItem.id)
+      .deleteCmsData(value.dataItem.prefId, value.dataItem.id)
       .subscribe((data) => {
         this.Approvedata();
         // this.deletedBlog(this.preferance_id);

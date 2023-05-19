@@ -53,9 +53,15 @@ export class BlogComponent implements OnInit {
   }
 
   removeHandler(event: any) {
-    console.warn(event);
+    if (confirm('Are you sure want to delete ')) {
+      this.deletedata(event);
+    }
+  }
+
+  deletedata(value: any) {
+    console.warn(value);
     this.obj
-      .deleteCmsData(this.preferance_id, event.dataItem.id)
+      .deleteCmsData(this.preferance_id, value.dataItem.id)
       .subscribe((data) => {
         this.getCmsDatas(this.preferance_id);
       });
