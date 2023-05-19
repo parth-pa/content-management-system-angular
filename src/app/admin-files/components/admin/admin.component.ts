@@ -87,42 +87,6 @@ export class AdminComponent implements OnInit {
   }
 
   // ******** side nav data *******************
-  //  onclick(){
-  //   if(this.visibility = true){
-  //     this.visibility = false
-  //   }
-  //   else if(this.visibility = false){
-  //    this.visibility=true
-  //   }
-  // }
-
-  list = [
-    {
-      number: '1',
-      name: 'admin/sports',
-      icon: 'fa-solid fa-house',
-    },
-    {
-      number: '2',
-      name: 'admin/sports',
-      icon: 'fa-solid fa-house',
-    },
-    {
-      number: '3',
-      name: 'admin/sports',
-      icon: 'fa-solid fa-house',
-    },
-    {
-      number: '4',
-      name: 'user',
-      icon: 'fa-solid fa-house',
-    },
-    {
-      number: '1',
-      name: 'Blog',
-      icon: 'fa-solid fa-house',
-    },
-  ];
 
   onclickmenu() {
     if (this.sidenavToggle == true) {

@@ -4,7 +4,7 @@ import { dataList, dataList2 } from 'src/app/model/model';
 
 @Injectable({ providedIn: 'root' })
 export class ServicesService {
-  constructor(private obj: HttpClient) {}
+  constructor(private obj: HttpClient, private http: HttpClient) {}
 
   baseURL: string = 'https://localhost:7106/api/Cms';
 
@@ -12,6 +12,16 @@ export class ServicesService {
     // console.warn(data);
     return this.obj.get<dataList[]>(
       'https://localhost:7082/api/User/getid?id=' + data
+    );
+  }
+
+  getCmsData1(data: any, data2: any) {
+    // console.warn(data);
+    return this.http.get<dataList[]>(
+      'https://localhost:7082/api/User/getinsindedatadetalils?id=' +
+        data +
+        '&id1=' +
+        data2
     );
   }
 
@@ -50,6 +60,10 @@ export class ServicesService {
         data2,
       data2
     );
+  }
+
+  approvedata() {
+    return this.obj.get<dataList[]>('');
   }
 
   //  https://localhost:7082/api/Admin/restoredata?id=2&id1=13
