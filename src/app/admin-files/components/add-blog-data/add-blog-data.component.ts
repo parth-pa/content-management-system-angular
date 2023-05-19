@@ -26,7 +26,17 @@ export class AddBlogDataComponent implements OnInit {
 
   updateData?: any;
   addBlog: dataList[] = [];
-  resetform: dataList[] = [];
+  resetform: dataList[] = [
+    {
+      id: 0,
+      title: ' ',
+      description: ' ',
+      image: ' ',
+      prefId: 0,
+      subPreferenceId: 0,
+      approved: false,
+    },
+  ];
   preferance_id?: any;
   editmode: boolean = false;
   updateImg?: any;
@@ -35,7 +45,6 @@ export class AddBlogDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.buttonpress = this.datashare.buttonpress;
-    this.blogForm.reset();
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
     this.img = this.updateData.image;
@@ -59,6 +68,7 @@ export class AddBlogDataComponent implements OnInit {
 
   onclick() {
     // this.preferance_id = this.datashare.preference;
+
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
@@ -107,9 +117,7 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   clearForm() {
-    this.editmode = false;
-    this.img = 'dsfds';
-    this.blogForm.reset();
+    // this.blogForm.reset();
     this.refreshClick();
     this.datashare.blogData = this.resetform;
     this.datashare.buttonpress = false;
