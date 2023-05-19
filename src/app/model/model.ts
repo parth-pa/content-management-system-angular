@@ -38,6 +38,7 @@ export class Getdata {
   description?: string;
   image?: string;
   prefname?: string;
+  approved?: boolean;
 }
 
 export class subdata {

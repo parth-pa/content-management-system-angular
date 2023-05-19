@@ -102,7 +102,7 @@ export class UserBodyComponent implements OnInit {
 
   headerdata(event: any) {
     this.getdetails = event;
-    console.log(event);
+    // console.log(event);
 
     if (this.getdetails.length === 0) {
       this.isNull = true;

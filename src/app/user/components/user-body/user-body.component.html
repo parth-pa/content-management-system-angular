@@ -42,11 +42,11 @@
   id="home"
   class="first_page"
   *ngIf="!isNull"
-  style="margin-top: 3%; padding-left: 10%"
+  style="padding-left: 10%"
   [ngClass]="{ 'display-toggle': !sidenavtoggle }"
 >
-  <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 1%; margin-top: 2%;">
-    <div class="content-splitter">
+  <div class="wrapper" *ngFor="let i of getdetails"  style="margin-bottom: 2%; " >
+    <div class="content-splitter" *ngIf="i.approved == true">
       <div class="nav"></div>
       <div class="left">
         <div class="block">
@@ -71,7 +71,7 @@
         </div>
       </div>
     </div>
-    <div class="right">
+    <div class="right" *ngIf="i.approved == true">
       <img [src]="i.image" alt="" />
     </div>
   </div>

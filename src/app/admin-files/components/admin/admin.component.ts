@@ -45,7 +45,7 @@ export class AdminComponent implements OnInit {
     this.preferance_id = this.datashare.preference;
     this.getSubPref();
     this.getresponce();
-    this.getresponseforadmin();
+    // this.getresponseforadmin();
     // this.onclick();
 
     // this.visibility = this.userapiservices.isVisible;
@@ -107,7 +107,7 @@ export class AdminComponent implements OnInit {
 
   // new form here
   @Output() senddata = new EventEmitter<any>();
-  @Output() senddataforadmin = new EventEmitter<any>();
+  // @Output() senddataforadmin = new EventEmitter<any>();
 
   onChangeSubPrefrence(e: any) {
     this.selectedSubPrefrence = e.target.value;
@@ -125,31 +125,35 @@ export class AdminComponent implements OnInit {
     //   this.senddata.emit(this.getdeatils);
     // });
     this.getresponce();
-    this.getresponseforadmin();
+    // this.getresponseforadmin();
   }
 
-  getresponseforadmin() {
-    console.log(this.preferance_id);
-    var subpref = this.userapiservices.readsubuserPreferencefordetails();
-    console.log(subpref);
+  // getresponseforadmin() {
+  //   console.log(this.preferance_id);
+  //   var subpref = this.userapiservices.readsubuserPreferencefordetails();
+  //   console.log(subpref);
 
-    this.userapiservices
-      .getperticulardetailsinsidedata(this.preferance_id, subpref)
-      .subscribe((respones) => {
-        this.DataList = respones;
-        this.senddataforadmin.emit(this.DataList);
-        console.log(this.DataList);
-      });
-  }
+    // this.userapiservices
+    //   .getperticulardetailsinsidedata(this.preferance_id, subpref)
+    //   .subscribe((respones) => {
+    //     this.DataList = respones;
+    //     this.senddataforadmin.emit(this.DataList);
+    //     console.log(this.DataList);
+    //   });
+  // }
 
   getresponce() {
     var pref = this.keycloakapiService.getPrefence();
     var subpref = this.userapiservices.readsubuserPreferencefordetails();
+    console.log(subpref);
+    console.log(pref);
 
     this.userapiservices
       .getperticulardetailsinsidedata(pref, subpref)
       .subscribe((respones) => {
         this.getdeatils = respones;
+        console.log(respones);
+
         this.senddata.emit(this.getdeatils);
         // console.log(this.getdeatils);
       });
