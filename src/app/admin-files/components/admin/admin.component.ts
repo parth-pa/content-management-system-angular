@@ -133,13 +133,13 @@ export class AdminComponent implements OnInit {
   //   var subpref = this.userapiservices.readsubuserPreferencefordetails();
   //   console.log(subpref);
 
-    // this.userapiservices
-    //   .getperticulardetailsinsidedata(this.preferance_id, subpref)
-    //   .subscribe((respones) => {
-    //     this.DataList = respones;
-    //     this.senddataforadmin.emit(this.DataList);
-    //     console.log(this.DataList);
-    //   });
+  // this.userapiservices
+  //   .getperticulardetailsinsidedata(this.preferance_id, subpref)
+  //   .subscribe((respones) => {
+  //     this.DataList = respones;
+  //     this.senddataforadmin.emit(this.DataList);
+  //     console.log(this.DataList);
+  //   });
   // }
 
   getresponce() {
