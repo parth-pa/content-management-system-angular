@@ -34,7 +34,7 @@ export class ApproveBlogComponent implements OnInit {
   }
 
   Approvedata() {
-    this.obj.deletedblog(0).subscribe((data) => {
+    this.obj.approvedata().subscribe((data) => {
       this.ApprovedataList = data;
     });
   }

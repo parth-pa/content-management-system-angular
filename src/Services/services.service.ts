@@ -63,8 +63,8 @@ export class ServicesService {
   }
 
   approvedata() {
-    return this.obj.get<dataList[]>('');
+    return this.obj.get<dataList[]>(
+      'https://localhost:7082/api/Admin/getnotapproveddata?id=1'
+    );
   }
-
-  //  https://localhost:7082/api/Admin/restoredata?id=2&id1=13
 }
