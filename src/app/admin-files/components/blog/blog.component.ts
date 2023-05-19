@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css'],
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit {
   preferance_id: any;
   preferenceName: any;
   myimage?: any;
@@ -62,33 +62,16 @@ export class BlogComponent {
 
   openDialog(value?: any) {
     this.datashare.blogData = value;
-    this.dialogRef.open(AddBlogDataComponent);
+    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
   }
-
-  // onchange(event:any){
-
-  //   this.myimage = event.target.files[0];
-  //    }
-
-  // onupload(){
-  // const filedata = new FormData();
-  // filedata.append('image',this.myimage)
-  // console.warn(this.myimage)
-
-  // this.obj.uploadjpg(filedata).subscribe( data =>{
-
-  // })
-  // }
 
   editHandler(event: any) {
     this.datashare.buttonpress = true;
     console.log(this.datashare.buttonpress);
     this.openDialog(event.dataItem);
-
-    // console.warn(event.dataItem) Ankur
   }
 
   openDialog2(value?: any) {
-    this.dialogRef.open(AddBlogDataComponent);
+    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
   }
 }

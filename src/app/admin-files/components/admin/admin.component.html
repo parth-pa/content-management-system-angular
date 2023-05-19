@@ -66,19 +66,17 @@
           </span>
         </li>
       </ul>
+
       <div routerLink="/admin/deletedblog" *ngIf="isLogin">
-        <i
-          class="fa-solid fa-trash"
-          style="
-            color: white;
-            margin-left: 5%;
-            font-size: larger;
-            margin-top: 20px;
-            margin-right: 10%;
-          "
-        ></i>
+        <i class="fa-solid fa-trash icon2"></i>
         <span style="color: white; margin-left: 9%; font-size: larger"
           >Deleted Data</span
+        >
+      </div>
+      <div routerLink="/admin/approveBlog" *ngIf="isLogin">
+        <i class="fa-solid fa-thumbs-up icon2"></i>
+        <span style="color: white; margin-left: 9%; font-size: larger">
+          Approve Data</span
         >
       </div>
     </div>

@@ -1,10 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataShareService } from 'src/Services/data-share.service';
+import { ServicesService } from 'src/Services/services.service';
+import { dataList } from 'src/app/model/model';
 
 @Component({
   selector: 'app-approve-blog',
   templateUrl: './approve-blog.component.html',
-  styleUrls: ['./approve-blog.component.css']
+  styleUrls: ['./approve-blog.component.css'],
 })
-export class ApproveBlogComponent {
+export class ApproveBlogComponent implements OnInit {
+  preferance_id: any;
+  preferenceName: any;
+  clickEventSubscription: Subscription;
 
+  ApprovedataList: dataList[] = [];
+
+  constructor(
+    private obj: ServicesService,
+    public datashare: DataShareService
+  ) {
+    this.clickEventSubscription = this.datashare
+      .getclickEvent()
+      .subscribe(() => {
+        this.ngOnInit();
+      });
+  }
+
+  ngOnInit(): void {
+    this.preferance_id = this.datashare.preference;
+    this.preferenceName = this.datashare.preferenceName;
+    this.Approvedata();
+  }
+
+  Approvedata() {
+    this.obj.deletedblog(0).subscribe((data) => {
+      this.ApprovedataList = data;
+    });
+  }
+  approveHandler(event: any) {
+    console.warn(event);
+    this.obj
+      .restoreblog(event.dataItem.prefId, event.dataItem.id)
+      .subscribe((data) => {
+        // this.deletedBlog(this.preferance_id);
+      });
+  }
 }

@@ -18,11 +18,23 @@
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
 
+  <kendo-grid-column field="isApprove" title="isApprove">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <span class="material-icons" style="color: rgb(0, 128, 55)"
+        >task_alt</span
+      >
+    </ng-template>
+  </kendo-grid-column>
+
+  <!-- <span class="material-icons" style="color: rgb(243, 156, 18);">pending_actions</span> -->
+  <!-- <span class="material-icons" style="color: rgb(0, 128, 55)">task_alt</span> -->
+
   <kendo-grid-column field="image" title="image">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
+
   <kendo-grid-column class="cloumn" field="title" title="title">
   </kendo-grid-column>
   <kendo-grid-column field="description" title="description">

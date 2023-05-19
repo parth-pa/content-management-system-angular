@@ -52,5 +52,9 @@ export class ServicesService {
     );
   }
 
+  approvedata() {
+    return this.obj.get<dataList[]>('');
+  }
+
   //  https://localhost:7082/api/Admin/restoredata?id=2&id1=13
 }
