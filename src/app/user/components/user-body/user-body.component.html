@@ -42,10 +42,10 @@
   id="home"
   class="first_page"
   *ngIf="!isNull"
-  style="padding-left: 10%"
+  style="padding-left: 10%; margin-top: 3%"
   [ngClass]="{ 'display-toggle': !sidenavtoggle }"
 >
-  <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%;margin-top: 20px;">
+  <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%;">
     <div class="content-splitter" *ngIf="i.approved == true">
       <div class="nav"></div>
       <div class="left">
@@ -55,6 +55,7 @@
           <div class="content">
             <p [innerHTML]="i.description">{{ i.description }}</p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+            reprehenderit possimus accusantium, quis, amet similique odio qui
             reprehenderit possimus accusantium, quis, amet similique odio qui
             nam sequi pariatur modi aperiam. Et, sed adipisci sit consequatur
             provident a quo. Lorem ipsum dolor sit, amet consectetur adipisicing
