@@ -26,31 +26,40 @@ export class AddBlogDataComponent implements OnInit {
 
   updateData?: any;
   addBlog: dataList[] = [];
+  resetform: dataList[] = [
+    {
+      id: 0,
+      title: ' ',
+      description: ' ',
+      image: ' ',
+      prefId: 0,
+      subPreferenceId: 0,
+      approved: false,
+    },
+  ];
   preferance_id?: any;
-  editmode: boolean = true;
+  editmode: boolean = false;
   updateImg?: any;
-  showimage?: any;
-  img?: any;
+  img?: any = '';
+  buttonpress?: any;
 
   ngOnInit(): void {
+    this.buttonpress = this.datashare.buttonpress;
     this.blogdata = this.datashare.blogData;
     this.updateData = this.blogdata;
     this.img = this.updateData.image;
-    console.warn(this.img);
     this.preferance_id = this.datashare.preference;
     this.getSubPreference(this.preferance_id);
   }
 
   blogdata: Array<dataList> = [];
 
-
-
   add: dataList = new dataList();
   topic: topicList[] = [];
   // { id: 1, name: 'ankur', pref_id: 1 }
 
   blogForm = new FormGroup({
-    title: new FormControl(),
+    title: new FormControl(''),
     description: new FormControl(),
     image: new FormControl(),
     prefId: new FormControl(),
@@ -59,6 +68,7 @@ export class AddBlogDataComponent implements OnInit {
 
   onclick() {
     // this.preferance_id = this.datashare.preference;
+
     this.add.id = this.updateData.id;
     this.add.title = this.blogForm.value.title;
     this.add.description = this.blogForm.value.description;
@@ -70,14 +80,18 @@ export class AddBlogDataComponent implements OnInit {
 
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
-        this.blogForm.reset();
-        this.getSubPreference(this.preferance_id);  
+        this.getSubPreference(this.preferance_id);
         console.warn(this.add);
+        this.refreshClick();
+        this.clearForm();
       });
     }
 
     if (this.editmode == false) {
-      this.obj.postCmsData(this.add).subscribe();
+      this.obj.postCmsData(this.add).subscribe(() => {
+        this.refreshClick();
+        this.clearForm();
+      });
     }
   }
 
@@ -85,17 +99,15 @@ export class AddBlogDataComponent implements OnInit {
     this.datashare.sendClickEvent();
   }
 
-
   sendCmsData() {
     this.editmode = false;
     console.warn('Hello');
-    this.refreshClick()
   }
 
   updateCmsData() {
     this.editmode = true;
     console.warn(this.updateData.image);
-    this.refreshClick()
+    this.datashare.buttonpress = false;
   }
 
   getSubPreference(value: any) {
@@ -104,9 +116,11 @@ export class AddBlogDataComponent implements OnInit {
     });
   }
 
-  public clearForm() {
-    this.refreshClick()
-    this.blogForm.reset();
+  clearForm() {
+    // this.blogForm.reset();
+    this.refreshClick();
+    this.datashare.blogData = this.resetform;
+    this.datashare.buttonpress = false;
   }
 
   // *********** convert image into base64 *************

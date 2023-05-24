@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { dataList, dataList2, topicList } from 'src/app/model/model';
+import { dataList } from 'src/app/model/model';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicesService } from 'src/Services/services.service';
 import { DataShareService } from 'src/Services/data-share.service';
@@ -7,20 +7,22 @@ import { AddBlogDataComponent } from '../add-blog-data/add-blog-data.component';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-sports',
-  templateUrl: './sports.component.html',
-  styleUrls: ['./sports.component.css'],
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css'],
 })
-export class SportsComponent implements OnInit {
+export class BlogComponent implements OnInit {
   preferance_id: any;
+  preferenceName: any;
   myimage?: any;
   clickEventSubscription: Subscription;
 
   DataList: dataList[] = [];
+  preferance: any[] = [];
 
-  addOpenDialog(value?: any) {
-    this.dialogRef.open(AddBlogDataComponent);
-  }
+  // addOpenDialog(value?: any) {
+  //   this.dialogRef.open(AddBlogDataComponent);
+  // }
 
   constructor(
     private obj: ServicesService,
@@ -36,19 +38,30 @@ export class SportsComponent implements OnInit {
 
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
+    this.preferenceName = this.datashare.preferenceName;
     this.getCmsDatas(this.preferance_id);
-    console.warn(this.preferance_id);
+
+    // this.preferance = this.datashare._preference;
+    // console.warn(this.preferance);
   }
 
   getCmsDatas(value: any) {
     this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
+      console.log(data);
     });
   }
 
   removeHandler(event: any) {
+    if (confirm('Are you sure want to delete ')) {
+      this.deletedata(event);
+    }
+  }
+
+  deletedata(value: any) {
+    console.warn(value);
     this.obj
-      .deleteCmsData(this.preferance_id, event.dataItem.id)
+      .deleteCmsData(this.preferance_id, value.dataItem.id)
       .subscribe((data) => {
         this.getCmsDatas(this.preferance_id);
       });
@@ -56,27 +69,16 @@ export class SportsComponent implements OnInit {
 
   openDialog(value?: any) {
     this.datashare.blogData = value;
-    this.dialogRef.open(AddBlogDataComponent);
+    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
   }
 
-  // onchange(event:any){
-
-  //   this.myimage = event.target.files[0];
-  //    }
-
-  // onupload(){
-  // const filedata = new FormData();
-  // filedata.append('image',this.myimage)
-  // console.warn(this.myimage)
-
-  // this.obj.uploadjpg(filedata).subscribe( data =>{
-
-  // })
-  // }
-
   editHandler(event: any) {
+    this.datashare.buttonpress = true;
+    console.log(this.datashare.buttonpress);
     this.openDialog(event.dataItem);
+  }
 
-    // console.warn(event.dataItem)
+  openDialog2(value?: any) {
+    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
   }
 }

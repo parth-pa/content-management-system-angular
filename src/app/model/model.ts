@@ -5,6 +5,7 @@ export class dataList {
   image?: string;
   prefId?: number;
   subPreferenceId?: any;
+  approved?: boolean;
 }
 
 export class dataList2 {
@@ -37,10 +38,20 @@ export class Getdata {
   description?: string;
   image?: string;
   prefname?: string;
+  approved?: boolean;
 }
 
 export class subdata {
   id?: number;
   name?: string;
   pref_id?: number;
+}
+
+export class feed {
+
+  name?: any;
+  feedback?: string;
+  email?: string;
+  phonenumber?: any;
+
 }

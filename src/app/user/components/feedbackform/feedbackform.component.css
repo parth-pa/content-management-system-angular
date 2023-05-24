@@ -58,12 +58,9 @@ mat-toolbar {
 .updateBtn {
   display: flex;
   margin-left: 95%;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
-.submitBtn {
-  visibility: hidden;
-}
 
 .close-btn {
   display: flex;

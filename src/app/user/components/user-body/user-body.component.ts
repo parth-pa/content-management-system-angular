@@ -4,48 +4,42 @@ import { Getdata, subdata } from 'src/app/model/model';
 import { UserServicesService } from 'src/Services/user-services.service';
 import { DataShareService } from 'src/Services/data-share.service';
 import { Subscription } from 'rxjs';
-
+import { MatDialog } from '@angular/material/dialog';
+import { FeedbackformComponent } from '../feedbackform/feedbackform.component';
 
 @Component({
   selector: 'app-user-body',
   templateUrl: './user-body.component.html',
-  styleUrls: ['./user-body.component.css']
+  styleUrls: ['./user-body.component.css'],
 })
-export class UserBodyComponent implements OnInit{
-
+export class UserBodyComponent implements OnInit {
   clickEventSubscription: Subscription;
   getdetails: Getdata[] = [];
   // prefrences: firstdata[] = [];
   subPrefDeatils: subdata[] = [];
 
-  sidenavtoggle:any;
-
+  sidenavtoggle: any;
 
   ngOnInit(): void {
-    // this.firstdata();
     this.sidenavtoggle = this.datashare.sidenavToggle;
 
-    console.warn(this.datashare.sidenavToggle);
+    // console.warn(this.datashare.sidenavToggle);
     this.storesubpref();
-    // this.getsubData();
     this.getSubPref();
-
   }
 
   constructor(
     private apiservices: UserServicesService,
     private keyclockapiservice: KeyCloakApiService,
-    public datashare: DataShareService
+    public datashare: DataShareService,
+    private dialogRef: MatDialog,
   ) {
-
     this.clickEventSubscription = this.datashare
-    .getclickEvent()
-    .subscribe(() => {
-      this.ngOnInit();
-    });
-
+      .getclickEvent()
+      .subscribe(() => {
+        this.ngOnInit();
+      });
   }
-
 
   isNull: boolean = false;
   selectedOption: any = 1;
@@ -57,17 +51,12 @@ export class UserBodyComponent implements OnInit{
   GetData() {
     var pref = this.keyclockapiservice.getPrefence();
     this.apiservices.getperticulardetailsinsidedata(pref).subscribe((res) => {
-      this.getdetails = res
-       console.log(this.getdetails);
-
-
-
+      this.getdetails = res;
+      console.log(this.getdetails);
     });
-
   }
 
-
-//this is for the dropdown of 3 preferance (sports,politics,technology)
+  //this is for the dropdown of 3 preferance (sports,politics,technology)
   // firstdata() {
   //   this.apiservices.firstdata().subscribe((res) => {
   //     this.prefrences = res;
@@ -75,31 +64,27 @@ export class UserBodyComponent implements OnInit{
   // }
 
   selectPrefrence(e: any) {
-
     this.selectedOption = e.target.value;
     // this.apiservices.saveUserPrefence(this.selectedOption);
     this.GetData();
-
   }
 
-  storesubpref(){
+  storesubpref() {
     this.apiservices.savesubuserPreferencefordetails();
   }
 
   onChangeSubPrefrence(e: any) {
     this.selectedSubPrefrence = e.target.value;
-    this.apiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence)
+    this.apiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence);
 
-    var pref=this.keyclockapiservice.getPrefence();
-    var subPrefDeatils=this.apiservices.readsubuserPreferencefordetails();
-    this.apiservices.getperticulardetailsinsidedata(pref,subPrefDeatils).subscribe((respones) => {
-
-      this.getdetails = respones;
-
-  });
+    var pref = this.keyclockapiservice.getPrefence();
+    var subPrefDeatils = this.apiservices.readsubuserPreferencefordetails();
+    this.apiservices
+      .getperticulardetailsinsidedata(pref, subPrefDeatils)
+      .subscribe((respones) => {
+        this.getdetails = respones;
+      });
   }
-
-
 
   // getsubData() {
   //   var pref=this.keyclockapiservice.getPrefence();
@@ -111,25 +96,27 @@ export class UserBodyComponent implements OnInit{
   //   });
   // }
 
-
   getSubPref() {
-    var pref =  this.keyclockapiservice.getPrefence();
-    this.apiservices
-      .getSubdatadeatails(pref)
-      .subscribe((response) => {
-        this.subPrefDeatils = response;
-      });
+    var pref = this.keyclockapiservice.getPrefence();
+    this.apiservices.getSubdatadeatails(pref).subscribe((response) => {
+      this.subPrefDeatils = response;
+    });
   }
-  headerdata(event: any){
+
+  headerdata(event: any) {
     this.getdetails = event;
-    if(this.getdetails.length === 0)
-    {
-      this.isNull= true
+    // console.log(event);
 
+    if (this.getdetails.length === 0) {
+      this.isNull = true;
+    } else {
+      this.isNull = false;
     }
-    else{
-      this.isNull= false;
-    }
+  }
 
+
+
+  openDialog() {
+    this.dialogRef.open(FeedbackformComponent);
   }
 }

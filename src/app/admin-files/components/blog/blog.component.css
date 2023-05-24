@@ -1,0 +1,38 @@
+td {
+  color: black;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+mat-toolbar {
+  background-color: dodgerblue;
+  border-radius: 10px;
+}
+
+button {
+  width: 120px;
+}
+
+.addbtn {
+  /* display: fixed; */
+  float: right;
+  margin-left: 83%;
+  /* background-color: #1976d2; */
+  font-size: large;
+  color: white;
+}
+
+h1 {
+  font-size: large;
+  display: fixed;
+  margin-top: 1%;
+  color: white;
+}
+
+kendo-grid {
+  max-width: 100%;
+  min-width: 100%;
+}

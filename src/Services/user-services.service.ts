@@ -1,3 +1,4 @@
+import { feed } from './../app/model/model';
 import { Injectable } from '@angular/core';
 import {HttpClient} from  '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -62,6 +63,10 @@ export class UserServicesService {
 
  public getperticulardetailsinsidedata(id:any, id1?:any):Observable<Getdata[]>{
    return this.http.get<Getdata[]>('https://localhost:7082/api/User/getinsindedatadetalils?id='+id+ '&id1='+id1);
+ }
+
+ public insertfeedback(data : any){
+  return this.http.post<feed[]> ('https://localhost:7082/api/User/feed',data);
  }
 }
 

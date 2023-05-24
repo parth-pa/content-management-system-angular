@@ -1,0 +1,69 @@
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row >
+    <h1 style=" font-size: larger;">{{ preferenceName }}</h1>
+    <button style=" font-size: larger;" class="btn btn-basic addbtn" (click)="openDialog2()">
+      Add Data
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br />
+<kendo-grid
+  [data]="DataList"
+  [kendoGridBinding]="DataList"
+  [sortable]="true"
+  [groupable]="true"
+  (remove)="removeHandler($event)"
+  (edit)="editHandler($event)"
+  style="color: black"
+>
+  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+
+  <kendo-grid-column field="isApprove" title="">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <span
+        *ngIf="dataItem.approved === true"
+        class="material-icons"
+        style="color: rgb(0, 128, 55)"
+        >task_alt</span
+      >
+
+      <span
+        *ngIf="dataItem.approved === false"
+        class="material-icons"
+        style="color: rgb(243, 156, 18)"
+        >pending_actions</span
+      >
+      <!-- {{ dataItem.approved }} -->
+    </ng-template>
+  </kendo-grid-column>
+
+  <!-- <span class="material-icons" style="color: rgb(243, 156, 18);">pending_actions</span> -->
+  <!-- <span class="material-icons" style="color: rgb(0, 128, 55)">task_alt</span> -->
+
+  <kendo-grid-column field="image" title="image">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <img [src]="dataItem.image" alt="img" />
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column class="cloumn" field="title" title="title">
+  </kendo-grid-column>
+  <kendo-grid-column field="description" title="description">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="delete" title="delete">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridRemoveCommand fillMode="outline" [themeColor]="'error'">
+        Remove
+      </button>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column field="Update" title="Update">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridEditCommand fillMode="outline" [themeColor]="'info'">
+        Edit
+      </button>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>

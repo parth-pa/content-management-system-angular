@@ -405,7 +405,7 @@ a {
 
 .right {
   overflow: hidden;
-  clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+  /* clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0% 100%); */
   /* object-fit: cover; */
 
 }
@@ -442,4 +442,21 @@ img{
   margin-left: 35%;
   margin-right: 35%;
   margin-bottom: 20%;
+}
+
+
+.feedbackform{
+  /* display: flex;
+  position: absolute;
+  margin-left: 85%; */
+  z-index: 1000;
+  /* position: -webkit-sticky; Safari */
+  position: fixed;
+  font-size: 18px;
+  color: #000000;
+  /* top: 0; */
+  /* bottom: 100; */
+  margin-left: 70%;
+  margin-top: 25%;
+
 }

@@ -1,53 +1,3 @@
-.mat-sidenav-container {
-  height: calc(205vh - 115vh);
-}
-
-mat-sidenav {
-  width: 200px;
-  background-color: whitesmoke;
-}
-
-mat-sidenav-content {
-  background-color: white;
-}
-
-mat-toolbar {
-  background-color: orange;
-}
-
-button {
-  background-color: orange;
-  color: black;
-}
-
-h2 {
-  color: black;
-}
-
-hr {
-  border-color: brown;
-  color: black;
-  background-color: black;
-}
-
-mat-menu {
-  background-color: coral;
-  color: aliceblue;
-}
-
-a {
-  text-decoration: none;
-  color: darkslategrey;
-}
-
-a:hover {
-  color: black;
-}
-
-a:active {
-  color: rgb(162, 129, 129);
-}
-
 /* ************** Admin header side nav  ******************** */
 
 .app-header {
@@ -68,22 +18,13 @@ main {
 .side-nav {
   position: fixed;
   left: 0rem;
-  width: 2.8%;
+  width: 3.5%;
+
   height: calc(100vh - 4rem);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
   white-space: nowrap;
   background-color: #00308b;
-
-  /* height:100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top:6rem;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px; */
 }
 
 .side-nav-open {
@@ -93,7 +34,6 @@ main {
 .display-area {
   position: absolute;
   left: 15%;
-  /* width: calc(100% - 250px); */
   width: auto;
   height: auto;
 }
@@ -116,15 +56,14 @@ nav {
   cursor: pointer;
 }
 
-.side-nav-button:hover {
+/* .side-nav-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 30%;
-}
+} */
 
 /* ************** side navbar ****************** */
 
 .side-nav-content {
-  /* color: white; */
   width: 230px;
   margin-left: 10px;
   margin-right: 10px;
@@ -140,25 +79,26 @@ nav {
   height: 100%;
   padding: 0%;
   margin-bottom: 0%;
+  margin-left: 5%;
 }
 
 .nav-list-item {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 55px;
 }
 
-.side-nav-open .nav-list-item:hover {
+/* .side-nav-open .nav-list-item:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-}
+} */
 
 .nav-list-item i {
   font-size: 20px;
   height: 25px;
   width: 25px;
-  margin-right: 15px;
-  margin-left: 10px;
+  margin-right: 40%;
+  /* margin-left: 10px; */
   text-align: center;
   line-height: 25px;
 }
@@ -172,7 +112,6 @@ a {
   text-decoration: none;
   /* color: white; */
 }
-
 
 .toolbar {
   position: fixed;
@@ -203,11 +142,11 @@ a {
   /*
 left: 10px; */
   margin-left: 1.5%;
-  color: white  ;
+  color: white;
   /* margin-right: 3%; */
 }
 
-.sidenavdata{
+.sidenavdata {
   border-radius: 10px;
   height: 50px;
   width: 135%;
@@ -221,8 +160,24 @@ left: 10px; */
 }
 
 .i {
-  /* padding-top: 2%; */
-  padding-right: 50%;
+  border-radius: 10px;
+  height: 50px;
+  width: 135%;
+  /* background-color: lightblue; */
+  color: white;
+  padding-right: 80%;
   display: flex;
+  padding-top: 10%;
+  font-size: larger;
+  margin-block: 10%;
 }
+
+.icon2 {
+  color: white;
+  margin-left: 5%;
+  font-size: larger;
+  margin-top: 20px;
+  margin-right: 10%;
+}
+
 

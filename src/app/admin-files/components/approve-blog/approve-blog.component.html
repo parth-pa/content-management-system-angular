@@ -1,0 +1,47 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h1 style="color: white">Approve Data</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br />
+
+<kendo-grid
+  [data]="ApprovedataList"
+  [kendoGridBinding]="ApprovedataList"
+  [sortable]="true"
+  [groupable]="true"
+  (remove)="approveHandler($event)"
+  (edit)="declineHandler($event)"
+  style="color: black"
+>
+  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+
+  <kendo-grid-column field="image" title="image">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <img [src]="dataItem.image" alt="img" />
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
+  <kendo-grid-column field="description" title="description">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="Approve" title="Approve">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button
+        kendoGridRemoveCommand
+        fillMode="outline"
+        [themeColor]="'success'"
+      >
+        Approve
+      </button>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column field="Decline" title="Decline">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoGridEditCommand fillMode="outline" [themeColor]="'error'">
+        Decline
+      </button>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
