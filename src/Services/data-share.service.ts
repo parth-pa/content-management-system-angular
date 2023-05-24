@@ -12,6 +12,7 @@ export class DataShareService {
   public preferenceName: any;
   public sidenavToggle: any;
   public buttonpress: boolean = false;
+  public deleted_data: any;
 
   private subject = new Subject<any>();
   constructor() {}

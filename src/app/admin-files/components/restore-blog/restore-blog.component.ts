@@ -18,6 +18,8 @@ export class RestoreBlogComponent {
   clickEventSubscription: Subscription;
 
   DataList: dataList[] = [];
+  add: dataList = new dataList();
+
   preferance: any[] = [];
 
   constructor(
@@ -36,12 +38,10 @@ export class RestoreBlogComponent {
     this.preferance_id = this.datashare.preference;
     this.preferenceName = this.datashare.preferenceName;
     this.deletedBlog();
-
-    console.warn(this.preferance);
   }
 
   deletedBlog(value?: any) {
-    this.obj.deletedblog(0).subscribe((data) => {
+    this.obj.deletedblog(this.datashare.deleted_data).subscribe((data) => {
       this.DataList = data;
     });
   }
@@ -53,5 +53,19 @@ export class RestoreBlogComponent {
       .subscribe((data) => {
         this.deletedBlog(this.preferance_id);
       });
+  }
+
+  editHandler(event: any) {
+    this.add.id = event.dataItem.id;
+    this.add.title = event.dataItem.title;
+    this.add.description = event.dataItem.description;
+    this.add.image = event.dataItem.image;
+    this.add.subPreferenceId = event.dataItem.prefId;
+    this.add.prefId = event.dataItem.subPreferenceId;
+
+    console.warn(this.add);
+    this.obj.updateCmsData(this.add).subscribe(() => {
+      this.deletedBlog(this.datashare.deleted_data);
+    });
   }
 }

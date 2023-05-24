@@ -24,14 +24,14 @@
         <span class="material-icons" style="color: rgb(0, 128, 55)"
           >task_alt</span
         >
-        Approved !
+        Approved
       </p>
 
       <p *ngIf="dataItem.approved === false">
         <span class="material-icons" style="color: rgb(243, 156, 18)"
           >pending_actions</span
         >
-        Pending !
+        Pending!
       </p>
     </ng-template>
   </kendo-grid-column>
@@ -47,7 +47,7 @@
 
   <kendo-grid-column class="cloumn" field="title" title="title">
   </kendo-grid-column>
-  <kendo-grid-column field="description" title="description">
+  <kendo-grid-column field="description" title="description" class="k">
   </kendo-grid-column>
 
   <kendo-grid-column field="delete" title="delete">

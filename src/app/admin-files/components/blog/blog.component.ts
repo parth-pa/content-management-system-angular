@@ -48,7 +48,6 @@ export class BlogComponent implements OnInit {
   getCmsDatas(value: any) {
     this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
-      console.log(data);
     });
   }
 

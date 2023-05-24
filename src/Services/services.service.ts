@@ -62,9 +62,9 @@ export class ServicesService {
     );
   }
 
-  getapprovedata() {
+  getapprovedata(data: any) {
     return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/Admin/getnotapproveddata?id=0'
+      'https://localhost:7082/api/Admin/getnotapproveddata?id=' + data
     );
   }
 

@@ -172,5 +172,8 @@ export class AdminComponent implements OnInit {
   //   this.datashare.preference = preferenceValue;
   // }
 
-  empty() {}
+  deleted_data(value: any) {
+    this.datashare.deleted_data = value;
+    this.refreshClick();
+  }
 }
