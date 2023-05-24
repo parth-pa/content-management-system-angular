@@ -1,3 +1,4 @@
+import { FeedbackblogComponent } from './components/feedbackblog/feedbackblog.component';
 import { AdminFilesComponent } from './admin-files.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'Blog', component: BlogComponent },
       { path: 'deletedblog', component: RestoreBlogComponent },
       { path: 'approveBlog', component: ApproveBlogComponent },
+      {path: 'feedbackblog',component:FeedbackblogComponent}
     ],
   },
 ];

@@ -39,6 +39,8 @@ import { AddBlogDataComponent } from './admin-files/components/add-blog-data/add
 import { BlogComponent } from './admin-files/components/blog/blog.component';
 import { ApproveBlogComponent } from './admin-files/components/approve-blog/approve-blog.component';
 import { RestoreBlogComponent } from './admin-files/components/restore-blog/restore-blog.component';
+import { FeedbackformComponent } from './user/components/feedbackform/feedbackform.component';
+import { FeedbackblogComponent } from './admin-files/components/feedbackblog/feedbackblog.component';
 // import { NotificationModule } from '@progress/kendo-angular-notification';
 
 @NgModule({
@@ -59,6 +61,8 @@ import { RestoreBlogComponent } from './admin-files/components/restore-blog/rest
     BlogComponent,
     ApproveBlogComponent,
     RestoreBlogComponent,
+    FeedbackformComponent,
+    FeedbackblogComponent,
   ],
   imports: [
     BrowserModule,

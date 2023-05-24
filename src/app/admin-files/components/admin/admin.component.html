@@ -46,7 +46,7 @@
         <span
           style="
             color: white;
-            margin-left: 9%;
+            margin-left: 8.5%;
             font-size: larger;
             margin-bottom: 5%;
           "
@@ -73,32 +73,37 @@
 
         <div routerLink="/admin/deletedblog" *ngIf="isLogin">
           <i class="fa-solid fa-trash icon2"></i>
-          <!-- <span style="color: white; margin-left: 9%; font-size: larger">
+          <span style="color: white; margin-left: 9%; font-size: larger">
             Deleted Data
-          </span> -->
-          <div class="dropdown" style="margin-left: 30%;">
-            <span style="color: white; font-size: 16px;"  data-bs-toggle="dropdown" >
+          </span>
+            <!-- <span style="color: white; font-size: 16px;">
               Deleted Data
-            </span>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item">Sports</a></li>
-              <li><a class="dropdown-item">Politics</a></li>
-              <li><a class="dropdown-item">Technology</a></li>
-            </ul>
-          </div>
+            </span> -->
         </div>
         <div routerLink="/admin/approveBlog" *ngIf="isLogin">
-          <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i>
+          <i class="fa-solid fa-thumbs-up icon2" style="font-size: 22px"></i>
+          <span
+            style="
+              color: white;
+              margin-left: 4.5%;
+              font-size: larger;
+              margin-top: 3%;
+            "
+          >
+            Approve Data</span
+          >
+        </div>
+
+        <div routerLink="/admin/feedbackblog" *ngIf="isLogin">
+          <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
+          <i class="fa-sharp fa-solid fa-message" style="font-size: large; color: white; margin-right: 12%;margin-left: 5%; margin-top: 11%;"></i>
           <span
             style="
               color: white;
               margin-left: 5%;
               font-size: larger;
-              margin-top: 2%;
-            "
-          >
-            Approve Data</span
-          >
+              margin-top: 2%;">
+            FeedBack</span>
         </div>
       </div>
     </div>

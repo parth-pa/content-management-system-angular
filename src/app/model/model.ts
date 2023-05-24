@@ -46,3 +46,12 @@ export class subdata {
   name?: string;
   pref_id?: number;
 }
+
+export class feed {
+
+  name?: any;
+  feedback?: string;
+  email?: string;
+  phonenumber?: any;
+
+}

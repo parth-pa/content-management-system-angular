@@ -20,9 +20,9 @@ export class BlogComponent implements OnInit {
   DataList: dataList[] = [];
   preferance: any[] = [];
 
-  addOpenDialog(value?: any) {
-    this.dialogRef.open(AddBlogDataComponent);
-  }
+  // addOpenDialog(value?: any) {
+  //   this.dialogRef.open(AddBlogDataComponent);
+  // }
 
   constructor(
     private obj: ServicesService,
