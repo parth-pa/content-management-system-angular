@@ -13,6 +13,8 @@ import { Getdata, subdata } from 'src/app/model/model';
 export class UserServicesService {
 
   isVisible:boolean = true;
+  isdropdownvisible: boolean =false;
+  istorf: boolean =false;
   getPrefence() {
     throw new Error('Method not implemented.');
   }

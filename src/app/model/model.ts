@@ -5,6 +5,7 @@ export class dataList {
   image?: string;
   prefId?: number;
   subPreferenceId?: any;
+  status?: any;
   approved?: boolean;
 }
 

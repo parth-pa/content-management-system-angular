@@ -30,11 +30,11 @@ export class ApproveBlogComponent implements OnInit {
   ngOnInit(): void {
     this.preferance_id = this.datashare.preference;
     this.preferenceName = this.datashare.preferenceName;
-    this.Approvedata();
+    this.Approvedata(this.datashare.deleted_data);
   }
 
-  Approvedata() {
-    this.obj.getapprovedata().subscribe((data) => {
+  Approvedata(value: any) {
+    this.obj.getapprovedata(value).subscribe((data) => {
       this.ApprovedataList = data;
     });
   }
@@ -43,7 +43,7 @@ export class ApproveBlogComponent implements OnInit {
     this.obj
       .approvedata(event.dataItem.prefId, event.dataItem.id)
       .subscribe((data) => {
-        this.Approvedata();
+        this.Approvedata(this.datashare.deleted_data);
         // this.deletedBlog(this.preferance_id);
       });
   }
@@ -58,7 +58,7 @@ export class ApproveBlogComponent implements OnInit {
     this.obj
       .deleteCmsData(value.dataItem.prefId, value.dataItem.id)
       .subscribe((data) => {
-        this.Approvedata();
+        this.Approvedata(this.datashare.deleted_data);
         // this.deletedBlog(this.preferance_id);
       });
   }

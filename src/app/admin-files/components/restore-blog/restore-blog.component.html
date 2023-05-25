@@ -11,6 +11,7 @@
   [sortable]="true"
   [groupable]="true"
   (remove)="restoreHandler($event)"
+  (edit)="editHandler($event)"
   style="color: black"
 >
   <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
@@ -23,11 +24,28 @@
   <kendo-grid-column field="title" title="title"> </kendo-grid-column>
   <kendo-grid-column field="description" title="description">
   </kendo-grid-column>
+  <kendo-grid-column field="status" title="status">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <p class="deleted" *ngIf="dataItem.status == false">Deleted</p>
+      <p class="updated" *ngIf="dataItem.status == true">Updated</p>
+      <!-- <p [ngIf]="dataItem.true">Updated</p> -->
+    </ng-template>
+  </kendo-grid-column>
 
   <kendo-grid-column field="Restore" title="Restore">
     <ng-template kendoGridCellTemplate let-dataItem>
       <button
+        *ngIf="dataItem.status == false"
         kendoGridRemoveCommand
+        fillMode="outline"
+        [themeColor]="'success'"
+      >
+        Restore
+      </button>
+
+      <button
+        *ngIf="dataItem.status == true"
+        kendoGridEditCommand
         fillMode="outline"
         [themeColor]="'success'"
       >

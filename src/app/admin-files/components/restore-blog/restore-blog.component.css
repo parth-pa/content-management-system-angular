@@ -11,3 +11,13 @@ mat-toolbar {
   background-color: dodgerblue;
   border-radius: 10px;
 }
+
+.deleted {
+  color: rgb(236, 47, 47);
+  font-size: large;
+}
+
+.updated {
+  color: rgb(57, 57, 224);
+  font-size: large;
+}

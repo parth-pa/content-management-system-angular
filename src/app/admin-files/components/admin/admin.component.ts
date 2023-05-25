@@ -9,6 +9,7 @@ import {
 } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -27,16 +28,31 @@ export class AdminComponent implements OnInit {
   UserName: any;
   sidenavToggle: any;
   visibility?: boolean = false;
-
+  isdropdownvisible?: any;
   selectedSubPrefrence: any = 0;
   selectedOption: any;
+  clickEventSubscription: Subscription;
+
+  torf:boolean = false
 
   constructor(
     public datashare: DataShareService,
     private _router: Router,
     private keycloakapiService: KeyCloakApiService,
     private userapiservices: UserServicesService
-  ) {}
+  ) {
+
+    this.clickEventSubscription = this.datashare
+    .getclickEvent()
+    .subscribe(() => {
+
+      this.ngOnInit();
+      // this.getCmsDatas(this.preferance_id);
+    });
+
+
+
+  }
   ngOnInit(): void {
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
@@ -45,6 +61,11 @@ export class AdminComponent implements OnInit {
     this.preferance_id = this.datashare.preference;
     this.getSubPref();
     this.getresponce();
+
+    console.log(this.isdropdownvisible);
+
+    this.isdropdownvisible = this.userapiservices.isdropdownvisible;
+
     // this.getresponseforadmin();
     // this.onclick();
 
@@ -113,6 +134,7 @@ export class AdminComponent implements OnInit {
     this.selectedSubPrefrence = e.target.value;
     this.userapiservices.savesubuserPreferencefordetails(
       this.selectedSubPrefrence
+
     );
 
     // this.senddataforadmin.emit(this.selectedSubPrefrence);
@@ -157,6 +179,7 @@ export class AdminComponent implements OnInit {
         this.senddata.emit(this.getdeatils);
         // console.log(this.getdeatils);
       });
+
   }
 
   getSubPref() {
@@ -172,5 +195,13 @@ export class AdminComponent implements OnInit {
   //   this.datashare.preference = preferenceValue;
   // }
 
-  empty() {}
+  deleted_data(value: any) {
+    this.datashare.deleted_data = value;
+    this.refreshClick();
+  }
+
+
+  change(){
+    this.refreshClick();
+  }
 }

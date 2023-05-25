@@ -8,12 +8,12 @@
       (click)="clearForm()"
     >
     </i>
-    <h1>Form</h1>
+    <h1>Add Data</h1>
     <kendo-formfield>
       <kendo-label text="Heading"></kendo-label>
       <kendo-textbox
         formControlName="title"
-        [(ngModel)]="updateData.title"
+        [ngModel]="updateData.title"
         [clearButton]="true"
         #title
         required
@@ -50,7 +50,7 @@
       </kendo-upload>
     </kendo-formfield> -->
     <div class="file_upload">
-      <label>File</label>
+      <label>Image</label>
       <input
         class="form-control inputFile"
         formControlName="image"
@@ -73,8 +73,8 @@
       >
     </kendo-formfield> -->
 
-    <div class="dropdown">
-      <Label>Select Topic : </Label>
+    <div class="dropdown" >
+      <Label>Category : </Label>
       <select
         [(ngModel)]="updateData.subPreferenceId"
         style="color: black"

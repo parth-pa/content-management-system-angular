@@ -15,11 +15,11 @@
   <span style="margin-right: 1%">{{ UserName }}</span>
 
   <div class="spacer"></div>
-  <div class="dropdown" style="margin-right: 1%">
+  <div class="dropdown" style="margin-right: 1%" *ngIf="isdropdownvisible == true">
     <span>Filter by Name : </span>
     <select style="color: black" (change)="onChangeSubPrefrence($event)">
       <option [value]="0">View all</option>
-      <option *ngFor="let item of subPrefDeatils" [value]="item.id">
+      <option *ngFor="let item of subPrefDeatils" [value]="item.id" (click)="change()">
         {{ item.name }}
       </option>
     </select>
@@ -71,27 +71,34 @@
           </li>
         </ul>
 
-        <div routerLink="/admin/deletedblog" *ngIf="isLogin">
+        <div routerLink="/admin/deletedblog" class="dropdown" *ngIf="isLogin">
           <i class="fa-solid fa-trash icon2"></i>
-          <span style="color: white; margin-left: 9%; font-size: larger">
-            Deleted Data
-          </span>
-            <!-- <span style="color: white; font-size: 16px;">
-              Deleted Data
-            </span> -->
-        </div>
-        <div routerLink="/admin/approveBlog" *ngIf="isLogin">
-          <i class="fa-solid fa-thumbs-up icon2" style="font-size: 22px"></i>
           <span
-            style="
-              color: white;
-              margin-left: 4.5%;
-              font-size: larger;
-              margin-top: 3%;
-            "
+            class="dropbtn"
+            style="color: white; margin-left: 9%; font-size: larger"
+            >Deleted Data</span
+          >
+          <div class="dropdown-content">
+            <p (click)="deleted_data(1)">Sport</p>
+            <p (click)="deleted_data(2)">Politics</p>
+            <p (click)="deleted_data(3)">Technology</p>
+          </div>
+        </div>
+        <br />
+
+        <div routerLink="/admin/approveBlog" class="dropdown" *ngIf="isLogin">
+          <i class="fa-solid fa-thumbs-up icon2"></i>
+          <span
+            class="dropbtn"
+            style="color: white; margin-left: 9%; font-size: larger"
           >
             Approve Data</span
           >
+          <div class="dropdown-content">
+            <p (click)="deleted_data(1)">Sport</p>
+            <p (click)="deleted_data(2)">Politics</p>
+            <p (click)="deleted_data(3)">Technology</p>
+          </div>
         </div>
 
         <div routerLink="/admin/feedbackblog" *ngIf="isLogin">
@@ -105,6 +112,7 @@
               margin-top: 2%;">
             FeedBack</span>
         </div>
+
       </div>
     </div>
   </div>
@@ -116,4 +124,18 @@
   </div>
 </main>
 
+<!-- <div routerLink="/admin/deletedblog" *ngIf="isLogin">
+          <i class="fa-solid fa-trash icon2"></i>
+          <span style="color: white; margin-left: 9%; font-size: larger"
+            >Deleted Data</span
+          >
+        </div> -->
 
+<!-- <div routerLink="/admin/approveBlog" *ngIf="isLogin">
+  <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i>
+  <span
+    style="color: white; margin-left: 5%; font-size: larger; margin-top: 2%"
+  >
+    Approve Data</span
+  >
+</div> -->

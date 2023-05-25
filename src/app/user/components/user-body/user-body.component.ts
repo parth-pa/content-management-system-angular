@@ -13,12 +13,15 @@ import { FeedbackformComponent } from '../feedbackform/feedbackform.component';
   styleUrls: ['./user-body.component.css'],
 })
 export class UserBodyComponent implements OnInit {
-  clickEventSubscription: Subscription;
+  // clickEventSubscription: Subscription;
   getdetails: Getdata[] = [];
   // prefrences: firstdata[] = [];
   subPrefDeatils: subdata[] = [];
 
   sidenavtoggle: any;
+  isdropdownvisible?:boolean;
+
+  torf:boolean = true
 
   ngOnInit(): void {
     this.sidenavtoggle = this.datashare.sidenavToggle;
@@ -26,6 +29,10 @@ export class UserBodyComponent implements OnInit {
     // console.warn(this.datashare.sidenavToggle);
     this.storesubpref();
     this.getSubPref();
+
+
+    this.apiservices.isdropdownvisible=this.torf;
+    this.isdropdownvisible=this.apiservices.isdropdownvisible ;
   }
 
   constructor(
@@ -34,11 +41,11 @@ export class UserBodyComponent implements OnInit {
     public datashare: DataShareService,
     private dialogRef: MatDialog,
   ) {
-    this.clickEventSubscription = this.datashare
-      .getclickEvent()
-      .subscribe(() => {
-        this.ngOnInit();
-      });
+    // this.clickEventSubscription = this.datashare
+    //   .getclickEvent()
+    //   .subscribe(() => {
+    //     this.ngOnInit();
+    //   });
   }
 
   isNull: boolean = false;
