@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h1 style="color: white">FeedBack</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br />
+
+<kendo-grid
+  [data]="feedbackList"
+  [kendoGridBinding]="feedbackList"
+  [sortable]="true"
+  [groupable]="true"
+  style="color: black"
+>
+  <kendo-grid-column field="name" title="Name"> </kendo-grid-column>
+
+  <kendo-grid-column field="email" title="Email-id"> </kendo-grid-column>
+  <kendo-grid-column field="phoneno" title="Phone Number"></kendo-grid-column>
+  <kendo-grid-column field="feedback" title="FeedBack"></kendo-grid-column>
+</kendo-grid>

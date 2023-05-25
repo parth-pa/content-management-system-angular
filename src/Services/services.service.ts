@@ -1,3 +1,4 @@
+import { feed } from './../app/model/model';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { dataList, dataList2 } from 'src/app/model/model';
@@ -78,6 +79,10 @@ export class ServicesService {
         data2,
       data2
     );
+  }
+
+  feedbackdata(){
+    return this.obj.get<feed[]>('https://localhost:7082/api/Admin/getfeedback')
   }
 }
 

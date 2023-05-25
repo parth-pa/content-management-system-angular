@@ -14,25 +14,31 @@
   (edit)="editHandler($event)"
   style="color: black"
 >
-  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+  <kendo-grid-column field="id" title="ID" [width]="80"> </kendo-grid-column>
 
-  <kendo-grid-column field="image" title="image">
+  <kendo-grid-column field="image" title="image" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="title" title="title"> </kendo-grid-column>
-  <kendo-grid-column field="description" title="description">
+
+  <kendo-grid-column field="title" title="title" [width]="200">
   </kendo-grid-column>
-  <kendo-grid-column field="status" title="status">
+
+  <kendo-grid-column field="description" title="description">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-      <p class="deleted" *ngIf="dataItem.status == false">Deleted</p>
-      <p class="updated" *ngIf="dataItem.status == true">Updated</p>
-      <!-- <p [ngIf]="dataItem.true">Updated</p> -->
+      <p [innerHTML]="dataItem.description">{{ dataItem.description }}</p>
     </ng-template>
   </kendo-grid-column>
 
-  <kendo-grid-column field="Restore" title="Restore">
+  <kendo-grid-column field="status" title="status" [width]="150">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <p class="deleted" *ngIf="dataItem.status == false">Deleted</p>
+      <p class="updated" *ngIf="dataItem.status == true">Updated</p>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column field="Restore" title="Restore" [width]="150">
     <ng-template kendoGridCellTemplate let-dataItem>
       <button
         *ngIf="dataItem.status == false"

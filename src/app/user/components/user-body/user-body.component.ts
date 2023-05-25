@@ -4,6 +4,8 @@ import { Getdata, subdata } from 'src/app/model/model';
 import { UserServicesService } from 'src/Services/user-services.service';
 import { DataShareService } from 'src/Services/data-share.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { FeedbackformComponent } from '../feedbackform/feedbackform.component';
 
 @Component({
   selector: 'app-user-body',
@@ -29,7 +31,8 @@ export class UserBodyComponent implements OnInit {
   constructor(
     private apiservices: UserServicesService,
     private keyclockapiservice: KeyCloakApiService,
-    public datashare: DataShareService
+    public datashare: DataShareService,
+    private dialogRef: MatDialog,
   ) {
     this.clickEventSubscription = this.datashare
       .getclickEvent()
@@ -109,5 +112,11 @@ export class UserBodyComponent implements OnInit {
     } else {
       this.isNull = false;
     }
+  }
+
+
+
+  openDialog() {
+    this.dialogRef.open(FeedbackformComponent);
   }
 }

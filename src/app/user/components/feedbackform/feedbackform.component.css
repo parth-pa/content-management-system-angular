@@ -1,0 +1,74 @@
+.card {
+  width: 800px;
+  height: 650px;
+  background-color: white;
+  border-color: dodgerblue;
+  border-width: 2px;
+}
+
+form {
+  padding: 2%;
+  /* margin: 3%; */
+}
+
+button {
+  margin: 1%;
+}
+
+label,
+option {
+  color: black;
+}
+
+mat-toolbar {
+  background-color: whitesmoke;
+}
+
+.inputFile {
+  width: 600px;
+}
+
+.imgshow {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.file_upload {
+  padding-top: 2%;
+  display: flex;
+  width: 100%;
+}
+
+.inputFile {
+  display: flex;
+  width: 50%;
+}
+
+.imgshow {
+  display: flex;
+  margin-left: 10%;
+  width: 70px;
+  height: 70px;
+}
+
+/* hide-btn {
+  visibility: hidden;
+} */
+
+.updateBtn {
+  display: flex;
+  margin-left: 95%;
+  /* visibility: hidden; */
+}
+
+
+.close-btn {
+  display: flex;
+  margin-left: 95%;
+  border-width: 3px;
+  /* width: 30px;
+  height: 30px; */
+  border-radius: 3px;
+  font-size: xx-large;
+  color: black;
+}

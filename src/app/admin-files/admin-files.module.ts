@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { AdminFilesRoutingModule } from './admin-files-routing.module';
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [CommonModule, AdminFilesRoutingModule],
 })
 export class AdminFilesModule {}

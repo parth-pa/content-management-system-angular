@@ -29,6 +29,7 @@ export class preferenceList {
   preferenceId?: number;
   preferenceName?: string;
   icon?: any;
+  routerlink?: any;
 }
 
 // userbodyapi
@@ -46,4 +47,11 @@ export class subdata {
   id?: number;
   name?: string;
   pref_id?: number;
+}
+
+export class feed {
+  name?: any;
+  feedback?: string;
+  email?: string;
+  phonenumber?: any;
 }

@@ -59,17 +59,21 @@ export class AdminComponent implements OnInit {
       preferenceId: 1,
       preferenceName: 'Sports',
       icon: 'fa-solid fa-person-biking',
+      routerlink: '/admin/Blog',
     },
     {
       preferenceId: 2,
       preferenceName: 'Politics',
       icon: 'fa-solid fa-landmark-dome',
+      routerlink: '/admin/Blog',
     },
     {
       preferenceId: 3,
       preferenceName: 'Technology',
       icon: ' fa-solid fa-microchip',
+      routerlink: '/admin/Blog',
     },
+
     // {
     //   preferenceId: 5,
     //   preferenceName: 'Blog',
