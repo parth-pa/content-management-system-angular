@@ -81,8 +81,8 @@ export class ServicesService {
     );
   }
 
-  feedbackdata(){
-    return this.obj.get<feed[]>('https://localhost:7082/api/Admin/getfeedback')
+  feedbackdata() {
+    return this.obj.get<feed[]>('https://localhost:7082/api/Admin/getfeedback');
   }
 }
 

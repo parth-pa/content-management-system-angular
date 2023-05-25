@@ -11,13 +11,21 @@
     <h1>Add Data</h1>
     <kendo-formfield>
       <kendo-label text="Heading"></kendo-label>
-      <kendo-textbox
+      <!-- <kendo-textbox
         formControlName="title"
         [ngModel]="updateData.title"
         [clearButton]="true"
         #title
         required
-      ></kendo-textbox>
+      ></kendo-textbox> -->
+
+      <input
+        type="text"
+        formControlName="title"
+        #title
+        required
+        [ngModel]="updateData.title"
+      />
 
       <kendo-formerror *ngIf="blogForm.controls.title.errors?.['required']"
         >Error: Heading is required</kendo-formerror
