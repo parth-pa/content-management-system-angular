@@ -19,6 +19,9 @@ export class UserBodyComponent implements OnInit {
   subPrefDeatils: subdata[] = [];
 
   sidenavtoggle: any;
+  isdropdownvisible:boolean = true;
+
+  // torf:boolean = true
 
   ngOnInit(): void {
     this.sidenavtoggle = this.datashare.sidenavToggle;
@@ -26,6 +29,10 @@ export class UserBodyComponent implements OnInit {
     // console.warn(this.datashare.sidenavToggle);
     this.storesubpref();
     this.getSubPref();
+
+
+    // this.apiservices.isdropdownvisible=this.torf;
+    // this.isdropdownvisible=this.apiservices.isdropdownvisible ;
   }
 
   constructor(

@@ -9,6 +9,7 @@ import {
 } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -27,24 +28,43 @@ export class AdminComponent implements OnInit {
   UserName: any;
   sidenavToggle: any;
   visibility?: boolean = false;
-
+  isdropdownvisible: boolean = false;
+  submenu?: boolean = true;
+  submenu_approve?: boolean = true;
   selectedSubPrefrence: any = 0;
   selectedOption: any;
+  clickEventSubscription: Subscription;
+
+  // torf:boolean = false
 
   constructor(
     public datashare: DataShareService,
     private _router: Router,
     private keycloakapiService: KeyCloakApiService,
     private userapiservices: UserServicesService
-  ) {}
+  ) {
+    this.clickEventSubscription = this.userapiservices
+      .getclickEvent()
+      .subscribe(() => {
+        this.ngOnInit();
+        // this.getCmsDatas(this.preferance_id);
+      });
+  }
   ngOnInit(): void {
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
     this.UserName = this.keycloakapiService.getName();
     this.sidenavToggle = this.datashare.sidenavToggle;
     this.preferance_id = this.datashare.preference;
+    this.isdropdownvisible = true;
+    this.homeclick();
     this.getSubPref();
     this.getresponce();
+
+    console.log(this.isdropdownvisible);
+
+    // this.isdropdownvisible = this.userapiservices.isdropdownvisible;
+
     // this.getresponseforadmin();
     // this.onclick();
 
@@ -59,22 +79,20 @@ export class AdminComponent implements OnInit {
       preferenceId: 1,
       preferenceName: 'Sports',
       icon: 'fa-solid fa-person-biking',
+      routerlink: '/admin/Blog',
     },
     {
       preferenceId: 2,
       preferenceName: 'Politics',
       icon: 'fa-solid fa-landmark-dome',
+      routerlink: '/admin/Blog',
     },
     {
       preferenceId: 3,
       preferenceName: 'Technology',
       icon: ' fa-solid fa-microchip',
+      routerlink: '/admin/Blog',
     },
-    // {
-    //   preferenceId: 5,
-    //   preferenceName: 'Blog',
-    //   icon: ' fa-solid fa-person-biking',
-    // },
   ];
 
   preferenceChange(preferenceId: any, preferenceName: any) {
@@ -82,8 +100,10 @@ export class AdminComponent implements OnInit {
     this.datashare.preferenceName = preferenceName;
 
     // console.warn(preferenceId)
+    this.homeclick();
+    this.submenu_approve = true;
+    this.submenu = true;
     this.refreshClick();
-    // console.warn(preferenceId);
   }
 
   // ******** side nav data *******************
@@ -91,6 +111,8 @@ export class AdminComponent implements OnInit {
   onclickmenu() {
     if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
+      this.submenu = true;
+      this.submenu_approve = true;
       this.datashare.sidenavToggle = false;
       this.refreshClick();
     } else {
@@ -115,32 +137,8 @@ export class AdminComponent implements OnInit {
       this.selectedSubPrefrence
     );
 
-    // this.senddataforadmin.emit(this.selectedSubPrefrence);
-    // console.log(this.selectedSubPrefrence);
-
-    // var pref=this.keycloakapiservice.getPrefence();
-
-    // this._apiService.getperticulardetailsinsidedata(pref,this.selectedSubPrefrence).subscribe((respones) => {
-    //   this.getdeatils = respones;
-    //   this.senddata.emit(this.getdeatils);
-    // });
     this.getresponce();
-    // this.getresponseforadmin();
   }
-
-  // getresponseforadmin() {
-  //   console.log(this.preferance_id);
-  //   var subpref = this.userapiservices.readsubuserPreferencefordetails();
-  //   console.log(subpref);
-
-  // this.userapiservices
-  //   .getperticulardetailsinsidedata(this.preferance_id, subpref)
-  //   .subscribe((respones) => {
-  //     this.DataList = respones;
-  //     this.senddataforadmin.emit(this.DataList);
-  //     console.log(this.DataList);
-  //   });
-  // }
 
   getresponce() {
     var pref = this.keycloakapiService.getPrefence();
@@ -155,22 +153,56 @@ export class AdminComponent implements OnInit {
         console.log(respones);
 
         this.senddata.emit(this.getdeatils);
-        // console.log(this.getdeatils);
       });
   }
 
   getSubPref() {
     var pref = this.keycloakapiService.getPrefence();
-    // console.log(pref);
     this.userapiservices.getSubdatadeatails(pref).subscribe((response) => {
       this.subPrefDeatils = response;
-      // console.log(this.subPrefDeatils);
     });
   }
 
-  // preferenceChange(preferenceValue?: number) {
-  //   this.datashare.preference = preferenceValue;
-  // }
+  deleted_data(value: any) {
+    this.datashare.deleted_data = value;
+    this.refreshClick();
+  }
 
-  empty() {}
+  change() {
+    this.refreshClick();
+  }
+
+  homeclick() {
+    this.isdropdownvisible = true;
+  }
+  deleteclick() {
+    this.isdropdownvisible = false;
+    this.sidenavToggle = true;
+  }
+
+  // -- drop down --
+  sub_menu() {
+    if (this.submenu == true) {
+      this.submenu = false;
+      this.submenu_approve = true;
+    } else {
+      this.submenu = true;
+    }
+  }
+
+  // -- drop down --
+  sub_menu_approvedata() {
+    if (this.submenu_approve == true) {
+      this.submenu_approve = false;
+      this.submenu = true;
+    } else {
+      this.submenu_approve = true;
+    }
+  }
+
+  feedback() {
+    this.submenu_approve = true;
+    this.submenu = true;
+  }
 }
+

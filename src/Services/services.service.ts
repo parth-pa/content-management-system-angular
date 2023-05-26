@@ -6,6 +6,7 @@ import { dataList, dataList2 } from 'src/app/model/model';
 @Injectable({ providedIn: 'root' })
 export class ServicesService {
   constructor(private obj: HttpClient, private http: HttpClient) {}
+  isdropdownvisible: boolean =false;
 
   baseURL: string = 'https://localhost:7106/api/Cms';
 
@@ -63,9 +64,9 @@ export class ServicesService {
     );
   }
 
-  getapprovedata() {
+  getapprovedata(data: any) {
     return this.obj.get<dataList[]>(
-      'https://localhost:7082/api/Admin/getnotapproveddata?id=0'
+      'https://localhost:7082/api/Admin/getnotapproveddata?id=' + data
     );
   }
 
@@ -81,8 +82,8 @@ export class ServicesService {
     );
   }
 
-  feedbackdata(){
-    return this.obj.get<feed[]>('https://localhost:7082/api/Admin/getfeedback')
+  feedbackdata() {
+    return this.obj.get<feed[]>('https://localhost:7082/api/Admin/getfeedback');
   }
 }
 

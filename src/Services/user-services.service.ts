@@ -1,7 +1,7 @@
 import { feed } from './../app/model/model';
 import { Injectable } from '@angular/core';
 import {HttpClient} from  '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Getdata, subdata } from 'src/app/model/model';
 
 
@@ -13,6 +13,8 @@ import { Getdata, subdata } from 'src/app/model/model';
 export class UserServicesService {
 
   isVisible:boolean = true;
+  // isdropdownvisible: boolean =false;
+  istorf: boolean =false;
   getPrefence() {
     throw new Error('Method not implemented.');
   }
@@ -68,6 +70,19 @@ export class UserServicesService {
  public insertfeedback(data : any){
   return this.http.post<feed[]> ('https://localhost:7082/api/User/feed',data);
  }
+
+ private subject = new Subject<any>();
+
+ sendClickEvent() {
+  this.subject.next(null);
+}
+
+getclickEvent(): Observable<any> {
+  return this.subject.asObservable();
+}
+
+
+
 }
 
 

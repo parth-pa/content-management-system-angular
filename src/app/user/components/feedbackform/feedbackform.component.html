@@ -7,7 +7,7 @@
       mat-dialog-close
     >
     </i>
-    <h1>Form</h1>
+    <h1>FeedBack Form</h1>
     <kendo-formfield>
       <kendo-label text="Name"></kendo-label>
       <kendo-textbox
@@ -43,12 +43,26 @@
 
     <kendo-formfield>
       <kendo-label text="Phone Number"></kendo-label>
-      <kendo-textbox
+      <kendo-numerictextbox
+        type=" number"
         formControlName="phoneno"
-        [clearButton]="true"
+        data-role="numerictextbox"
+        format="\#"
+
         #title
         required
-      ></kendo-textbox>
+      ></kendo-numerictextbox>
+
+      <!-- <input type="number"> -->
+
+      <!-- <kendo-textbox
+      formControlName="phoneno"
+      type="number"
+      [clearButton]="true"
+      #title
+      required
+    ></kendo-textbox> -->
+
 
       <kendo-formerror>
        <div *ngIf="blogForm.controls.phoneno.errors?.['required']">
