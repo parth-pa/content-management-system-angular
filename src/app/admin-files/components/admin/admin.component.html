@@ -65,7 +65,7 @@
               (click)="deleted_data(0)"
               (click)="sub_menu()"
             >
-              Deleted Containt
+              Deleted Content
             </p>
             <ul class="sub-menu" [ngClass]="{ submenu: submenu }">
               <li>
@@ -92,7 +92,7 @@
               (click)="deleted_data(0)"
               (click)="sub_menu_approvedata()"
             >
-              Approve Containt
+              Approve Content
             </p>
             <ul
               class="sub-menu"
@@ -113,7 +113,11 @@
 
         <!-- -- Feedback -- -->
 
-        <div routerLink="/admin/feedbackblog" *ngIf="isLogin">
+        <div
+          routerLink="/admin/feedbackblog"
+          *ngIf="isLogin"
+          (click)="feedback()"
+        >
           <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
           <i class="fa-sharp fa-solid fa-message icon3"></i>
           <span class="sidenav-label">FeedBack</span>
