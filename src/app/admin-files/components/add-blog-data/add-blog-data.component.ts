@@ -59,8 +59,8 @@ export class AddBlogDataComponent implements OnInit {
   // { id: 1, name: 'ankur', pref_id: 1 }
 
   blogForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(),
+    title: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
     image: new FormControl(),
     prefId: new FormControl(),
     subPreferenceId: new FormControl('', [Validators.required]),
@@ -88,6 +88,7 @@ export class AddBlogDataComponent implements OnInit {
     }
 
     if (this.editmode == false) {
+      console.warn(this.add);
       this.obj.postCmsData(this.add).subscribe(() => {
         this.refreshClick();
         this.clearForm();

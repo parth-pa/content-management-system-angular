@@ -46,11 +46,6 @@ export class AdminComponent implements OnInit {
     this.preferance_id = this.datashare.preference;
     this.getSubPref();
     this.getresponce();
-    // this.getresponseforadmin();
-    // this.onclick();
-
-    // this.visibility = this.userapiservices.isVisible;
-    // this.visibility = !this.visibility
   }
   getdeatils: Getdata[] = [];
   subPrefDeatils: subdata[] = [];
@@ -74,21 +69,14 @@ export class AdminComponent implements OnInit {
       icon: ' fa-solid fa-microchip',
       routerlink: '/admin/Blog',
     },
-
-    // {
-    //   preferenceId: 5,
-    //   preferenceName: 'Blog',
-    //   icon: ' fa-solid fa-person-biking',
-    // },
   ];
 
   preferenceChange(preferenceId: any, preferenceName: any) {
     this.datashare.preference = preferenceId;
     this.datashare.preferenceName = preferenceName;
-
-    // console.warn(preferenceId)
+    this.submenu_approve = true;
+    this.submenu = true;
     this.refreshClick();
-    // console.warn(preferenceId);
   }
 
   // ******** side nav data *******************
@@ -122,32 +110,8 @@ export class AdminComponent implements OnInit {
       this.selectedSubPrefrence
     );
 
-    // this.senddataforadmin.emit(this.selectedSubPrefrence);
-    // console.log(this.selectedSubPrefrence);
-
-    // var pref=this.keycloakapiservice.getPrefence();
-
-    // this._apiService.getperticulardetailsinsidedata(pref,this.selectedSubPrefrence).subscribe((respones) => {
-    //   this.getdeatils = respones;
-    //   this.senddata.emit(this.getdeatils);
-    // });
     this.getresponce();
-    // this.getresponseforadmin();
   }
-
-  // getresponseforadmin() {
-  //   console.log(this.preferance_id);
-  //   var subpref = this.userapiservices.readsubuserPreferencefordetails();
-  //   console.log(subpref);
-
-  // this.userapiservices
-  //   .getperticulardetailsinsidedata(this.preferance_id, subpref)
-  //   .subscribe((respones) => {
-  //     this.DataList = respones;
-  //     this.senddataforadmin.emit(this.DataList);
-  //     console.log(this.DataList);
-  //   });
-  // }
 
   getresponce() {
     var pref = this.keycloakapiService.getPrefence();
@@ -162,28 +126,22 @@ export class AdminComponent implements OnInit {
         console.log(respones);
 
         this.senddata.emit(this.getdeatils);
-        // console.log(this.getdeatils);
       });
   }
 
   getSubPref() {
     var pref = this.keycloakapiService.getPrefence();
-    // console.log(pref);
     this.userapiservices.getSubdatadeatails(pref).subscribe((response) => {
       this.subPrefDeatils = response;
-      // console.log(this.subPrefDeatils);
     });
   }
-
-  // preferenceChange(preferenceValue?: number) {
-  //   this.datashare.preference = preferenceValue;
-  // }
 
   deleted_data(value: any) {
     this.datashare.deleted_data = value;
     this.refreshClick();
   }
 
+  // -- drop down --
   sub_menu() {
     if (this.submenu == true) {
       this.submenu = false;
@@ -193,6 +151,7 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  // -- drop down --
   sub_menu_approvedata() {
     if (this.submenu_approve == true) {
       this.submenu_approve = false;
@@ -200,5 +159,10 @@ export class AdminComponent implements OnInit {
     } else {
       this.submenu_approve = true;
     }
+  }
+
+  feedback() {
+    this.submenu_approve = true;
+    this.submenu = true;
   }
 }

@@ -9,15 +9,10 @@
     >
     </i>
     <h1>Add Data</h1>
+
+    <!-- -- heading -- -->
     <kendo-formfield>
       <kendo-label text="Heading"></kendo-label>
-      <!-- <kendo-textbox
-        formControlName="title"
-        [ngModel]="updateData.title"
-        [clearButton]="true"
-        #title
-        required
-      ></kendo-textbox> -->
 
       <input
         type="text"
@@ -32,6 +27,7 @@
       >
     </kendo-formfield>
 
+    <!-- -- description -- -->
     <kendo-formfield>
       <kendo-label text="Description"></kendo-label>
       <kendo-editor
@@ -47,18 +43,9 @@
       >
     </kendo-formfield>
 
-    <!-- <kendo-formfield>
-      <kendo-label text="Image"></kendo-label>
-
-      <kendo-upload
-        formControlName="image"
-        (change)="onchange($event)"
-        [(ngModel)]="updateData.image"
-      >
-      </kendo-upload>
-    </kendo-formfield> -->
+    <!-- -- Image -- -->
     <div class="file_upload">
-      <label>Image</label>
+      <label>Image :</label>
       <input
         class="form-control inputFile"
         formControlName="image"
@@ -68,19 +55,7 @@
       <img class="imgshow" [src]="img" alt="" />
     </div>
 
-    <!-- <kendo-formfield>
-      <kendo-label text="preference"></kendo-label>
-      <kendo-dropdownlist [data]="topic" #preference required>
-        <ng-template>
-          {{ name }}
-        </ng-template>
-      </kendo-dropdownlist>
-      <kendo-formerror
-        *ngIf="blogForm.controls.subPreferenceId.errors?.['required']"
-        >Error: preference is required</kendo-formerror
-      >
-    </kendo-formfield> -->
-
+    <!-- -- sub category  -- -->
     <div class="dropdown">
       <Label>Category : </Label>
       <select
@@ -101,6 +76,7 @@
     </div>
     <br />
 
+    <!-- -- submit -- -->
     <div class="k-form-buttons">
       <button
         class="submitBtn"
@@ -115,6 +91,7 @@
         Submit
       </button>
 
+      <!-- -- update  -- -->
       <button
         class="btn btn-primary updateBtn"
         mat-dialog-close
