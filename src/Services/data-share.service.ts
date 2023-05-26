@@ -13,7 +13,7 @@ export class DataShareService {
   public sidenavToggle: any;
   public buttonpress: boolean = false;
   public deleted_data: any;
-  isdropdownvisible: any =false;
+  // isdropdownvisible: any =false;
 
   private subject = new Subject<any>();
   constructor() {}

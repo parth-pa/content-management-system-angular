@@ -51,16 +51,16 @@
     <i class="fa-solid fa-comment" style="margin-right: 5px; margin-top: 2px; color: black;"></i>
     <i class="fa-solid fa-message-lines">
     <p (click)="openDialog()">FeedBack</p></i></div>
-  <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%;">
+  <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%; margin-top: 1%;">
     <div class="content-splitter" *ngIf="i.approved == true">
       <div class="nav"></div>
       <div class="left">
         <div class="block">
           <div class="header">{{ i.title }}</div>
 
-          <div class="content">
+          <div class="content" >
             <p [innerHTML]="i.description">{{ i.description }}</p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+            <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
             reprehenderit possimus accusantium, quis, amet similique odio qui
             reprehenderit possimus accusantium, quis, amet similique odio qui
             nam sequi pariatur modi aperiam. Et, sed adipisci sit consequatur
@@ -73,7 +73,7 @@
             nulla expedita tempora iusto nesciunt eos tenetur nobis quisquam
             aut? I am a Freelance Designer and Photographer, each experience is
             for me a unique mean of growing as a person and delivering great
-            content. (And this is some dummy text to fill more space.)
+            content. (And this is some dummy text to fill more space.) -->
           </div>
         </div>
       </div>

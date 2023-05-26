@@ -375,7 +375,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 4em;
-  padding: 0 3em;
+  padding: 0 4em;
   width: minmax(80px, 80%);
 }
 .block {
@@ -456,7 +456,7 @@ img{
   color: #000000;
   /* top: 0; */
   /* bottom: 100; */
-  margin-left: 70%;
+  margin-left: 72%;
   margin-top: 25%;
-
+  margin-right: 70% ;
 }

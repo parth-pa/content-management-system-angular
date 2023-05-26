@@ -31,30 +31,12 @@
   <!-- *************** side navbar **************** -->
   <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
     <div class="side-nav-content">
-      <div class="nav-list" routerLink="/user">
-        <i
-          class="fa-sharp fa-solid fa-house"
-          style="
-            color: white;
-            margin-left: 2%;
-            font-size: larger;
-            margin-top: 20px;
-            margin-bottom: 3%;
-            margin-right: 10%;
-          "
-        ></i>
-        <span
-          style="
-            color: white;
-            margin-left: 8.5%;
-            font-size: larger;
-            margin-bottom: 5%;
-          "
-          >home</span
-        >
-      </div>
       <div>
-        <ul class="nav-list" *ngIf="isLogin">
+        <div routerLink="/user" style="margin-bottom: 10px" (click)="homeclick()">
+          <i class="fa-sharp fa-solid fa-house icon3"></i>
+          <span class="sidenav-label">home</span>
+        </div>
+        <ul class="nav-list" *ngIf="isLogin" (click)="deleteclick()">
           <li class="nav-list-item" *ngFor="let item of PreList">
             <span>
               <p
@@ -62,7 +44,7 @@
                 (click)="
                   preferenceChange(item.preferenceId, item.preferenceName)
                 "
-                routerLink="/admin/Blog"
+                routerLink="{{ item.routerlink }}"
               >
                 <i class="{{ item.icon }}"></i>
                 {{ item.preferenceName }}
@@ -71,46 +53,70 @@
           </li>
         </ul>
 
-        <div routerLink="/admin/deletedblog" class="dropdown" *ngIf="isLogin">
-          <i class="fa-solid fa-trash icon2"></i>
-          <span
-            class="dropbtn"
-            style="color: white; margin-left: 9%; font-size: larger"
-            >Deleted Data</span
-          >
-          <div class="dropdown-content">
-            <p (click)="deleted_data(1)">Sport</p>
-            <p (click)="deleted_data(2)">Politics</p>
-            <p (click)="deleted_data(3)">Technology</p>
-          </div>
-        </div>
-        <br />
+        <!-- -- Deleted item -- -->
 
-        <div routerLink="/admin/approveBlog" class="dropdown" *ngIf="isLogin">
-          <i class="fa-solid fa-thumbs-up icon2"></i>
-          <span
-            class="dropbtn"
-            style="color: white; margin-left: 9%; font-size: larger"
-          >
-            Approve Data</span
-          >
-          <div class="dropdown-content">
-            <p (click)="deleted_data(1)">Sport</p>
-            <p (click)="deleted_data(2)">Politics</p>
-            <p (click)="deleted_data(3)">Technology</p>
+        <div class="cont-2" *ngIf="isLogin" (click)="deleteclick()">
+          <div class="dropdown">
+            <i class="fa-solid fa-trash icon3"></i>
+            <p
+              class="sidenav-label"
+              routerLink="/admin/deletedblog"
+              data-toggle="dropdown"
+              *ngIf="isLogin"
+              (click)="deleted_data(0)"
+            >
+              Deleted Containt
+            </p>
+            <ul class="dropdown-menu">
+              <li>
+                <a (click)="deleted_data(1)">Sport</a>
+              </li>
+              <li>
+                <a (click)="deleted_data(2)">Politics</a>
+              </li>
+              <li>
+                <a (click)="deleted_data(3)">Technology</a>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <div routerLink="/admin/feedbackblog" *ngIf="isLogin">
-          <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
-          <i class="fa-sharp fa-solid fa-message" style="font-size: large; color: white; margin-right: 12%;margin-left: 5%; margin-top: 11%;"></i>
-          <span
-            style="
-              color: white;
-              margin-left: 5%;
-              font-size: larger;
-              margin-top: 2%;">
-            FeedBack</span>
+          <!-- -- Approve -- -->
+          <div class="dropdown" *ngIf="isLogin" (click)="deleteclick()" >
+
+            <i
+              class="fa-solid fa-thumbs-up icon4"
+              (click)="deleted_data(0)"
+
+            ></i>
+            <p
+              class="sidenav-label"
+              routerLink="/admin/approveBlog"
+              data-toggle="dropdown"
+              (click)="deleted_data(0)"
+            >
+              Approve Containt
+            </p>
+            <ul class="dropdown-menu">
+              <li>
+                <a (click)="deleted_data(1)">Sport</a>
+              </li>
+              <li>
+                <a (click)="deleted_data(2)">Politics</a>
+              </li>
+              <li>
+                <a (click)="deleted_data(3)">Technology</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- -- Feedback -- -->
+
+          <div routerLink="/admin/feedbackblog" *ngIf="isLogin" (click)="deleteclick()">
+            <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
+            <i class="fa-sharp fa-solid fa-message icon3" ></i>
+            <span class="sidenav-label">FeedBack</span>
+          </div>
+
         </div>
 
       </div>

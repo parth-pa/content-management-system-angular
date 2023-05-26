@@ -28,12 +28,12 @@ export class AdminComponent implements OnInit {
   UserName: any;
   sidenavToggle: any;
   visibility?: boolean = false;
-  isdropdownvisible?: any;
+  isdropdownvisible: boolean = false;
   selectedSubPrefrence: any = 0;
   selectedOption: any;
   clickEventSubscription: Subscription;
 
-  torf:boolean = false
+  // torf:boolean = false
 
   constructor(
     public datashare: DataShareService,
@@ -42,7 +42,7 @@ export class AdminComponent implements OnInit {
     private userapiservices: UserServicesService
   ) {
 
-    this.clickEventSubscription = this.datashare
+    this.clickEventSubscription = this.userapiservices
     .getclickEvent()
     .subscribe(() => {
 
@@ -59,12 +59,14 @@ export class AdminComponent implements OnInit {
     this.UserName = this.keycloakapiService.getName();
     this.sidenavToggle = this.datashare.sidenavToggle;
     this.preferance_id = this.datashare.preference;
+    this.isdropdownvisible  = true;
+    this.homeclick();
     this.getSubPref();
     this.getresponce();
 
     console.log(this.isdropdownvisible);
 
-    this.isdropdownvisible = this.userapiservices.isdropdownvisible;
+    // this.isdropdownvisible = this.userapiservices.isdropdownvisible;
 
     // this.getresponseforadmin();
     // this.onclick();
@@ -80,17 +82,21 @@ export class AdminComponent implements OnInit {
       preferenceId: 1,
       preferenceName: 'Sports',
       icon: 'fa-solid fa-person-biking',
+      routerlink: '/admin/Blog',
     },
     {
       preferenceId: 2,
       preferenceName: 'Politics',
       icon: 'fa-solid fa-landmark-dome',
+      routerlink: '/admin/Blog',
     },
     {
       preferenceId: 3,
       preferenceName: 'Technology',
       icon: ' fa-solid fa-microchip',
+      routerlink: '/admin/Blog',
     },
+
     // {
     //   preferenceId: 5,
     //   preferenceName: 'Blog',
@@ -103,6 +109,7 @@ export class AdminComponent implements OnInit {
     this.datashare.preferenceName = preferenceName;
 
     // console.warn(preferenceId)
+    this.homeclick();
     this.refreshClick();
     // console.warn(preferenceId);
   }
@@ -203,5 +210,12 @@ export class AdminComponent implements OnInit {
 
   change(){
     this.refreshClick();
+  }
+
+  homeclick(){
+    this.isdropdownvisible = true;
+  }
+  deleteclick(){
+    this.isdropdownvisible = false;
   }
 }

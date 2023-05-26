@@ -49,8 +49,8 @@ export class BlogComponent implements OnInit {
     this.getCmsDatas(this.preferance_id);
 
 
-    this.user.isdropdownvisible=this.torf;
-    this.isdropdownvisible=this.user.isdropdownvisible ;
+    // this.user.isdropdownvisible=this.torf;
+    // this.isdropdownvisible=this.user.isdropdownvisible ;
     // this.preferance = this.datashare._preference;
     // console.warn(this.preferance);
   }
