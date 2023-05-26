@@ -28,7 +28,8 @@ export class AdminComponent implements OnInit {
   UserName: any;
   sidenavToggle: any;
   visibility?: boolean = false;
-  isdropdownvisible: boolean = false;  submenu?: boolean = true;
+  isdropdownvisible: boolean = false;
+  submenu?: boolean = true;
   submenu_approve?: boolean = true;
   selectedSubPrefrence: any = 0;
   selectedOption: any;
@@ -42,17 +43,12 @@ export class AdminComponent implements OnInit {
     private keycloakapiService: KeyCloakApiService,
     private userapiservices: UserServicesService
   ) {
-
     this.clickEventSubscription = this.userapiservices
-    .getclickEvent()
-    .subscribe(() => {
-
-      this.ngOnInit();
-      // this.getCmsDatas(this.preferance_id);
-    });
-
-
-
+      .getclickEvent()
+      .subscribe(() => {
+        this.ngOnInit();
+        // this.getCmsDatas(this.preferance_id);
+      });
   }
   ngOnInit(): void {
     this.isLogin = this.keycloakapiService.isLogin;
@@ -60,7 +56,7 @@ export class AdminComponent implements OnInit {
     this.UserName = this.keycloakapiService.getName();
     this.sidenavToggle = this.datashare.sidenavToggle;
     this.preferance_id = this.datashare.preference;
-    this.isdropdownvisible  = true;
+    this.isdropdownvisible = true;
     this.homeclick();
     this.getSubPref();
     this.getresponce();
@@ -102,11 +98,11 @@ export class AdminComponent implements OnInit {
   preferenceChange(preferenceId: any, preferenceName: any) {
     this.datashare.preference = preferenceId;
     this.datashare.preferenceName = preferenceName;
-    this.submenu_approve = true;
-    this.submenu = true;
 
     // console.warn(preferenceId)
     this.homeclick();
+    this.submenu_approve = true;
+    this.submenu = true;
     this.refreshClick();
   }
 
@@ -139,7 +135,6 @@ export class AdminComponent implements OnInit {
     this.selectedSubPrefrence = e.target.value;
     this.userapiservices.savesubuserPreferencefordetails(
       this.selectedSubPrefrence
-
     );
 
     this.getresponce();
@@ -159,7 +154,6 @@ export class AdminComponent implements OnInit {
 
         this.senddata.emit(this.getdeatils);
       });
-
   }
 
   getSubPref() {
@@ -172,6 +166,18 @@ export class AdminComponent implements OnInit {
   deleted_data(value: any) {
     this.datashare.deleted_data = value;
     this.refreshClick();
+  }
+
+  change() {
+    this.refreshClick();
+  }
+
+  homeclick() {
+    this.isdropdownvisible = true;
+  }
+  deleteclick() {
+    this.isdropdownvisible = false;
+    this.sidenavToggle = true;
   }
 
   // -- drop down --
@@ -198,16 +204,5 @@ export class AdminComponent implements OnInit {
     this.submenu_approve = true;
     this.submenu = true;
   }
-
-
-  change(){
-    this.refreshClick();
-  }
-
-  homeclick(){
-    this.isdropdownvisible = true;
-  }
-  deleteclick(){
-    this.isdropdownvisible = false;
-  }
 }
+

@@ -8,8 +8,8 @@ import { preferenceList } from 'src/app/model/model';
 export class DataShareService {
   blogData: any[] = [];
 
-  public preference: any;
-  public preferenceName: any;
+  public preference: any = 1;
+  public preferenceName: any = 'Sport';
   public sidenavToggle: any;
   public buttonpress: boolean = false;
   public deleted_data: any;
