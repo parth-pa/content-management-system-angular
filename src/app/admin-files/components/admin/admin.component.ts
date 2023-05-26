@@ -27,7 +27,8 @@ export class AdminComponent implements OnInit {
   UserName: any;
   sidenavToggle: any;
   visibility?: boolean = false;
-
+  submenu?: boolean = true;
+  submenu_approve?: boolean = true;
   selectedSubPrefrence: any = 0;
   selectedOption: any;
 
@@ -95,6 +96,8 @@ export class AdminComponent implements OnInit {
   onclickmenu() {
     if (this.sidenavToggle == true) {
       this.sidenavToggle = false;
+      this.submenu = true;
+      this.submenu_approve = true;
       this.datashare.sidenavToggle = false;
       this.refreshClick();
     } else {
@@ -179,5 +182,23 @@ export class AdminComponent implements OnInit {
   deleted_data(value: any) {
     this.datashare.deleted_data = value;
     this.refreshClick();
+  }
+
+  sub_menu() {
+    if (this.submenu == true) {
+      this.submenu = false;
+      this.submenu_approve = true;
+    } else {
+      this.submenu = true;
+    }
+  }
+
+  sub_menu_approvedata() {
+    if (this.submenu_approve == true) {
+      this.submenu_approve = false;
+      this.submenu = true;
+    } else {
+      this.submenu_approve = true;
+    }
   }
 }

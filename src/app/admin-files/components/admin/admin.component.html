@@ -55,19 +55,19 @@
 
         <!-- -- Deleted item -- -->
 
+        <!-- -- rough -- -->
         <div class="cont-2">
           <div class="dropdown">
             <i class="fa-solid fa-trash icon3"></i>
             <p
               class="sidenav-label"
               routerLink="/admin/deletedblog"
-              data-toggle="dropdown"
-              *ngIf="isLogin"
               (click)="deleted_data(0)"
+              (click)="sub_menu()"
             >
               Deleted Containt
             </p>
-            <ul class="dropdown-menu">
+            <ul class="sub-menu" [ngClass]="{ submenu: submenu }">
               <li>
                 <a (click)="deleted_data(1)">Sport</a>
               </li>
@@ -79,22 +79,25 @@
               </li>
             </ul>
           </div>
+        </div>
 
-          <!-- -- Approve -- -->
+        <!-- -- Approve -- -->
+
+        <div class="cont-2">
           <div class="dropdown">
-            <i
-              class="fa-solid fa-thumbs-up icon3"
-              (click)="deleted_data(0)"
-            ></i>
+            <i class="fa-solid fa-thumbs-up icon3"></i>
             <p
               class="sidenav-label"
               routerLink="/admin/approveBlog"
-              data-toggle="dropdown"
               (click)="deleted_data(0)"
+              (click)="sub_menu_approvedata()"
             >
               Approve Containt
             </p>
-            <ul class="dropdown-menu">
+            <ul
+              class="sub-menu"
+              [ngClass]="{ submenu_approve: submenu_approve }"
+            >
               <li>
                 <a (click)="deleted_data(1)">Sport</a>
               </li>
@@ -106,18 +109,19 @@
               </li>
             </ul>
           </div>
+        </div>
 
-          <!-- -- Feedback -- -->
+        <!-- -- Feedback -- -->
 
-          <div routerLink="/admin/feedbackblog" *ngIf="isLogin">
-            <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
-            <i class="fa-sharp fa-solid fa-message icon3"></i>
-            <span class="sidenav-label">FeedBack</span>
-          </div>
+        <div routerLink="/admin/feedbackblog" *ngIf="isLogin">
+          <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
+          <i class="fa-sharp fa-solid fa-message icon3"></i>
+          <span class="sidenav-label">FeedBack</span>
         </div>
       </div>
     </div>
   </div>
+
   <div
     class="display-area p-3"
     [ngClass]="{ 'display-toggle': !sidenavToggle }"

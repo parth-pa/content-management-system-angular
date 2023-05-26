@@ -246,4 +246,25 @@ left: 10px; */
   display: block;
 }
 
-/* *************** */
+/* *******  submenu  ******** */
+.sub-menu {
+  padding: 6px 6px 14px 80px;
+  background-color: #0049d1;
+}
+
+.submenu {
+  display: none;
+}
+
+.submenu_approve {
+  display: none;
+}
+
+.sub-menu a {
+  color: white;
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none;
+}
