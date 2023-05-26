@@ -44,12 +44,25 @@
     <kendo-formfield>
       <kendo-label text="Phone Number"></kendo-label>
       <kendo-numerictextbox
+        type=" number"
         formControlName="phoneno"
         data-role="numerictextbox"
+        format="\#"
 
         #title
         required
       ></kendo-numerictextbox>
+
+      <!-- <input type="number"> -->
+
+      <!-- <kendo-textbox
+      formControlName="phoneno"
+      type="number"
+      [clearButton]="true"
+      #title
+      required
+    ></kendo-textbox> -->
+
 
       <kendo-formerror>
        <div *ngIf="blogForm.controls.phoneno.errors?.['required']">

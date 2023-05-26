@@ -45,6 +45,6 @@ constructor(private user:UserServicesService){
   submit(){
     this.user.insertfeedback(this.blogForm.value).subscribe((data)=>{
 
-    })
+    });
   }
 }

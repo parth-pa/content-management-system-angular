@@ -1,7 +1,7 @@
 export class dataList {
   id?: number;
   title?: any;
-  description?: string;
+  description?: any;
   image?: string;
   prefId?: number;
   subPreferenceId?: any;
@@ -51,7 +51,7 @@ export class subdata {
 
 export class feed {
   name?: any;
-  feedback?: string;
   email?: string;
-  phonenumber?: any;
+  phonenumber?: number;
+  feedback?: string;
 }

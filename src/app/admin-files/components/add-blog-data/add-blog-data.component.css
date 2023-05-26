@@ -75,3 +75,10 @@ mat-toolbar {
   font-size: xx-large;
   color: black;
 }
+
+input {
+  width: 100%;
+  border-color: grey;
+  border-style: solid;
+  border-radius: 3px;
+}

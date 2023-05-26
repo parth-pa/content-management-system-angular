@@ -260,4 +260,31 @@ left: 10px; */
   display: block;
 }
 
-/* *************** */
+/* *******  submenu  ******** */
+.sub-menu {
+  /* padding: 6px 6px 14px 80px; */
+  padding-left: 33%;
+  background-color: #0049d1;
+}
+
+.sub-menu a:hover {
+  color: gray;
+  width: 100%;
+  height: 10%;
+}
+.submenu {
+  display: none;
+}
+
+.submenu_approve {
+  display: none;
+}
+
+.sub-menu a {
+  color: white;
+  font-size: large;
+}
+
+ul {
+  list-style-type: none;
+}

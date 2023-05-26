@@ -46,41 +46,32 @@
   style="padding-left: 10%; margin-top: 3%"
   [ngClass]="{ 'display-toggle': !sidenavtoggle }"
 >
-<div>
-  <div class="feedbackform">
-    <i class="fa-solid fa-comment" style="margin-right: 5px; margin-top: 2px; color: black;"></i>
-    <i class="fa-solid fa-message-lines">
-    <p (click)="openDialog()">FeedBack</p></i></div>
-  <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%; margin-top: 1%;">
-    <div class="content-splitter" *ngIf="i.approved == true">
-      <div class="nav"></div>
-      <div class="left">
-        <div class="block">
-          <div class="header">{{ i.title }}</div>
+  <div>
+    <div class="feedbackform">
+      <i
+        class="fa-solid fa-comment"
+        style="margin-right: 5px; margin-top: 2px; color: black"
+      ></i>
+      <i class="fa-solid fa-message-lines">
+        <p (click)="openDialog()">FeedBack</p></i
+      >
+    </div>
+    <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%">
+      <div class="content-splitter" *ngIf="i.approved == true">
+        <div class="nav"></div>
+        <div class="left">
+          <div class="block">
+            <div class="header">{{ i.title }}</div>
 
-          <div class="content" >
-            <p [innerHTML]="i.description">{{ i.description }}</p>
-            <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
-            reprehenderit possimus accusantium, quis, amet similique odio qui
-            reprehenderit possimus accusantium, quis, amet similique odio qui
-            nam sequi pariatur modi aperiam. Et, sed adipisci sit consequatur
-            provident a quo. Lorem ipsum dolor sit, amet consectetur adipisicing
-            elit. Libero reprehenderit quam, velit at reiciendis esse in
-            provident necessitatibus ipsa dolorum magni exercitationem
-            voluptatem numquam illum amet. Facilis commodi veniam facere. Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Inventore quo
-            blanditiis cupiditate cum sequi qui debitis magnam at, aliquam quas
-            nulla expedita tempora iusto nesciunt eos tenetur nobis quisquam
-            aut? I am a Freelance Designer and Photographer, each experience is
-            for me a unique mean of growing as a person and delivering great
-            content. (And this is some dummy text to fill more space.) -->
+            <div class="content">
+              <p [innerHTML]="i.description">{{ i.description }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="right" *ngIf="i.approved == true">
-      <img [src]="i.image" alt="" />
+      <div class="right" *ngIf="i.approved == true">
+        <img [src]="i.image" alt="" />
+      </div>
     </div>
   </div>
-</div>
 </div>
