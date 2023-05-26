@@ -15,11 +15,19 @@
   <span style="margin-right: 1%">{{ UserName }}</span>
 
   <div class="spacer"></div>
-  <div class="dropdown" style="margin-right: 1%">
+  <div
+    class="dropdown"
+    style="margin-right: 1%"
+    *ngIf="isdropdownvisible == true"
+  >
     <span>Filter by Name : </span>
     <select style="color: black" (change)="onChangeSubPrefrence($event)">
       <option [value]="0">View all</option>
-      <option *ngFor="let item of subPrefDeatils" [value]="item.id">
+      <option
+        *ngFor="let item of subPrefDeatils"
+        [value]="item.id"
+        (click)="change()"
+      >
         {{ item.name }}
       </option>
     </select>
@@ -32,11 +40,15 @@
   <div class="side-nav" [ngClass]="{ 'side-nav-open': sidenavToggle }">
     <div class="side-nav-content">
       <div>
-        <div routerLink="/user" style="margin-bottom: 10px">
+        <div
+          routerLink="/user"
+          style="margin-bottom: 10px"
+          (click)="homeclick()"
+        >
           <i class="fa-sharp fa-solid fa-house icon3"></i>
           <span class="sidenav-label">home</span>
         </div>
-        <ul class="nav-list" *ngIf="isLogin">
+        <ul class="nav-list" *ngIf="isLogin" (click)="deleteclick()">
           <li class="nav-list-item" *ngFor="let item of PreList">
             <span>
               <p
@@ -55,10 +67,13 @@
 
         <!-- -- Deleted item -- -->
 
-        <!-- -- rough -- -->
-        <div class="cont-2">
+        <div class="cont-2" *ngIf="isLogin" (click)="deleteclick()">
           <div class="dropdown">
-            <i class="fa-solid fa-trash icon3"></i>
+            <i
+              class="fa-solid fa-trash icon3"
+              routerLink="/admin/deletedblog"
+              (click)="deleted_data(0)"
+            ></i>
             <p
               class="sidenav-label"
               routerLink="/admin/deletedblog"
@@ -82,46 +97,44 @@
         </div>
 
         <!-- -- Approve -- -->
-
-        <div class="cont-2">
-          <div class="dropdown">
-            <i class="fa-solid fa-thumbs-up icon3"></i>
-            <p
-              class="sidenav-label"
-              routerLink="/admin/approveBlog"
-              (click)="deleted_data(0)"
-              (click)="sub_menu_approvedata()"
-            >
-              Approve Content
-            </p>
-            <ul
-              class="sub-menu"
-              [ngClass]="{ submenu_approve: submenu_approve }"
-            >
-              <li>
-                <a (click)="deleted_data(1)">Sport</a>
-              </li>
-              <li>
-                <a (click)="deleted_data(2)">Politics</a>
-              </li>
-              <li>
-                <a (click)="deleted_data(3)">Technology</a>
-              </li>
-            </ul>
-          </div>
+        <div class="dropdown" *ngIf="isLogin" (click)="deleteclick()">
+          <i
+            class="fa-solid fa-thumbs-up icon4"
+            (click)="deleted_data(0)"
+            routerLink="/admin/approveBlog"
+          ></i>
+          <p
+            class="sidenav-label"
+            routerLink="/admin/approveBlog"
+            (click)="deleted_data(0)"
+            (click)="sub_menu_approvedata()"
+          >
+            Approve Content
+          </p>
+          <ul class="sub-menu" [ngClass]="{ submenu_approve: submenu_approve }">
+            <li>
+              <a (click)="deleted_data(1)">Sport</a>
+            </li>
+            <li>
+              <a (click)="deleted_data(2)">Politics</a>
+            </li>
+            <li>
+              <a (click)="deleted_data(3)">Technology</a>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <!-- -- Feedback -- -->
+      <!-- -- Feedback -- -->
 
-        <div
-          routerLink="/admin/feedbackblog"
-          *ngIf="isLogin"
-          (click)="feedback()"
-        >
-          <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
-          <i class="fa-sharp fa-solid fa-message icon3"></i>
-          <span class="sidenav-label">FeedBack</span>
-        </div>
+      <div
+        routerLink="/admin/feedbackblog"
+        *ngIf="isLogin"
+        (click)="feedback()"
+      >
+        <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
+        <i class="fa-sharp fa-solid fa-message icon3"></i>
+        <span class="sidenav-label">FeedBack</span>
       </div>
     </div>
   </div>

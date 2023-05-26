@@ -14,13 +14,17 @@ import { LabelModule } from '@progress/kendo-angular-label';
   styleUrls: ['./feedbackform.component.css']
 })
 export class FeedbackformComponent implements OnInit {
+  isdropdownvisible?:boolean;
+  // torf:boolean = false;
+
 
 constructor(private user:UserServicesService){
 
 }
 
   ngOnInit(): void {
-
+    // this.user.isdropdownvisible=this.torf;
+    this.isdropdownvisible=this.user.istorf;
 
   }
   blogForm = new FormGroup({

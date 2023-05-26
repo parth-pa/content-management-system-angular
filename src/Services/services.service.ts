@@ -6,6 +6,7 @@ import { dataList, dataList2 } from 'src/app/model/model';
 @Injectable({ providedIn: 'root' })
 export class ServicesService {
   constructor(private obj: HttpClient, private http: HttpClient) {}
+  isdropdownvisible: boolean =false;
 
   baseURL: string = 'https://localhost:7106/api/Cms';
 

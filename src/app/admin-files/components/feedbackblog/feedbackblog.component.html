@@ -1,6 +1,7 @@
+
 <mat-toolbar>
   <mat-toolbar-row>
-    <h1 style="color: white">FeedBack</h1>
+    <h1 textContent="Feedback" >FeedBack</h1>
   </mat-toolbar-row>
 </mat-toolbar>
 <br />
@@ -16,5 +17,9 @@
 
   <kendo-grid-column field="email" title="Email-id"> </kendo-grid-column>
   <kendo-grid-column field="phoneno" title="Phone Number"></kendo-grid-column>
-  <kendo-grid-column field="feedback" title="FeedBack"></kendo-grid-column>
+  <kendo-grid-column field="feedback" title="FeedBack">
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <p [innerHTML]="dataItem.feedback">{{ dataItem.feedback }}</p>
+    </ng-template>
+  </kendo-grid-column>
 </kendo-grid>

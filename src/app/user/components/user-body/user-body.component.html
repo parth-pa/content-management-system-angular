@@ -56,7 +56,11 @@
         <p (click)="openDialog()">FeedBack</p></i
       >
     </div>
-    <div class="wrapper" *ngFor="let i of getdetails" style="margin-bottom: 2%">
+    <div
+      class="wrapper"
+      *ngFor="let i of getdetails"
+      style="margin-bottom: 2%; margin-top: 1%"
+    >
       <div class="content-splitter" *ngIf="i.approved == true">
         <div class="nav"></div>
         <div class="left">

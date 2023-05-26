@@ -9,6 +9,7 @@ import {
 } from 'src/app/model/model';
 import { DataShareService } from 'src/Services/data-share.service';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -27,25 +28,48 @@ export class AdminComponent implements OnInit {
   UserName: any;
   sidenavToggle: any;
   visibility?: boolean = false;
+  isdropdownvisible: boolean = false;
   submenu?: boolean = true;
   submenu_approve?: boolean = true;
   selectedSubPrefrence: any = 0;
   selectedOption: any;
+  clickEventSubscription: Subscription;
+
+  // torf:boolean = false
 
   constructor(
     public datashare: DataShareService,
     private _router: Router,
     private keycloakapiService: KeyCloakApiService,
     private userapiservices: UserServicesService
-  ) {}
+  ) {
+    this.clickEventSubscription = this.userapiservices
+      .getclickEvent()
+      .subscribe(() => {
+        this.ngOnInit();
+        // this.getCmsDatas(this.preferance_id);
+      });
+  }
   ngOnInit(): void {
     this.isLogin = this.keycloakapiService.isLogin;
     this.userType = this.keycloakapiService.userType;
     this.UserName = this.keycloakapiService.getName();
     this.sidenavToggle = this.datashare.sidenavToggle;
     this.preferance_id = this.datashare.preference;
+    this.isdropdownvisible = true;
+    this.homeclick();
     this.getSubPref();
     this.getresponce();
+
+    console.log(this.isdropdownvisible);
+
+    // this.isdropdownvisible = this.userapiservices.isdropdownvisible;
+
+    // this.getresponseforadmin();
+    // this.onclick();
+
+    // this.visibility = this.userapiservices.isVisible;
+    // this.visibility = !this.visibility
   }
   getdeatils: Getdata[] = [];
   subPrefDeatils: subdata[] = [];
@@ -74,6 +98,9 @@ export class AdminComponent implements OnInit {
   preferenceChange(preferenceId: any, preferenceName: any) {
     this.datashare.preference = preferenceId;
     this.datashare.preferenceName = preferenceName;
+
+    // console.warn(preferenceId)
+    this.homeclick();
     this.submenu_approve = true;
     this.submenu = true;
     this.refreshClick();
@@ -139,6 +166,18 @@ export class AdminComponent implements OnInit {
   deleted_data(value: any) {
     this.datashare.deleted_data = value;
     this.refreshClick();
+  }
+
+  change() {
+    this.refreshClick();
+  }
+
+  homeclick() {
+    this.isdropdownvisible = true;
+  }
+  deleteclick() {
+    this.isdropdownvisible = false;
+    this.sidenavToggle = true;
   }
 
   // -- drop down --

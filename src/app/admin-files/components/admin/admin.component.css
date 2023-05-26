@@ -199,7 +199,21 @@ left: 10px; */
   margin-left: 6%;
   display: flex;
   padding-top: 18%;
-  font-size: larger;
+  font-size: large;
+  margin-block: -2%;
+}
+
+.icon4{
+  border-radius: 10px;
+  height: 15px;
+  width: 135%;
+  /* background-color: lightblue; */
+  color: white;
+  padding-right: 80%;
+  margin-left: 6%;
+  display: flex;
+  padding-top: 18%;
+  font-size: 22px;
   margin-block: -2%;
 }
 

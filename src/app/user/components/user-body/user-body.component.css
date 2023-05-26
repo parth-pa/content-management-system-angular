@@ -352,7 +352,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 4em;
-  padding: 0 3em;
+  padding: 0 4em;
   width: minmax(80px, 80%);
 }
 .block {
@@ -432,4 +432,5 @@ img {
   /* bottom: 100; */
   margin-left: 79%;
   margin-top: 25%;
+  margin-right: 70%;
 }

@@ -1,3 +1,4 @@
+import { UserServicesService } from 'src/Services/user-services.service';
 import { Component, OnInit } from '@angular/core';
 import { dataList } from 'src/app/model/model';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,6 +21,9 @@ export class BlogComponent implements OnInit {
   DataList: dataList[] = [];
   preferance: any[] = [];
 
+  isdropdownvisible?:boolean;
+  torf:boolean = false
+
   // addOpenDialog(value?: any) {
   //   this.dialogRef.open(AddBlogDataComponent);
   // }
@@ -27,12 +31,15 @@ export class BlogComponent implements OnInit {
   constructor(
     private obj: ServicesService,
     private dialogRef: MatDialog,
-    public datashare: DataShareService
+    public datashare: DataShareService,
+    private user:UserServicesService
   ) {
     this.clickEventSubscription = this.datashare
       .getclickEvent()
       .subscribe(() => {
+
         this.ngOnInit();
+        // this.getCmsDatas(this.preferance_id);
       });
   }
 
@@ -41,11 +48,17 @@ export class BlogComponent implements OnInit {
     this.preferenceName = this.datashare.preferenceName;
     this.getCmsDatas(this.preferance_id);
 
+
+    // this.user.isdropdownvisible=this.torf;
+    // this.isdropdownvisible=this.user.isdropdownvisible ;
     // this.preferance = this.datashare._preference;
     // console.warn(this.preferance);
   }
 
   getCmsDatas(value: any) {
+    // value1= this.user.readsubuserPreferencefordetails()
+    // console.log(value1);
+
     this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
     });

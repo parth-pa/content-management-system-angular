@@ -50,6 +50,7 @@ export class AddBlogDataComponent implements OnInit {
     this.img = this.updateData.image;
     this.preferance_id = this.datashare.preference;
     this.getSubPreference(this.preferance_id);
+
   }
 
   blogdata: Array<dataList> = [];
