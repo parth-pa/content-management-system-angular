@@ -28,14 +28,13 @@
         <span class="material-icons" style="color: rgb(0, 128, 55)"
           >task_alt</span
         >
-        Approved
       </p>
 
       <p *ngIf="dataItem.approved === false" style="font-size: smaller">
         <span class="material-icons" style="color: rgb(243, 156, 18)"
           >pending_actions</span
         >
-        Pending!
+
       </p>
     </ng-template>
   </kendo-grid-column>
@@ -43,16 +42,16 @@
   <!-- <span class="material-icons" style="color: rgb(243, 156, 18);">pending_actions</span> -->
   <!-- <span class="material-icons" style="color: rgb(0, 128, 55)">task_alt</span> -->
 
-  <kendo-grid-column field="image" title="image" [width]="100">
+  <kendo-grid-column field="image" title="Image" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
 
-  <kendo-grid-column class="cloumn" field="title" title="title" [width]="200">
+  <kendo-grid-column class="cloumn" field="title" title="Title" [width]="200">
   </kendo-grid-column>
 
-  <kendo-grid-column field="description" title="description">
+  <kendo-grid-column field="description" title="Description">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <p [innerHTML]="dataItem.description">{{ dataItem.description }}</p>
     </ng-template>
@@ -63,7 +62,7 @@
 
   <!-- [innerHTML]="i.description" -->
 
-  <kendo-grid-column field="delete" title="delete" [width]="130">
+  <kendo-grid-column field="delete" title="Delete" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem>
       <button
         kendoGridRemoveCommand

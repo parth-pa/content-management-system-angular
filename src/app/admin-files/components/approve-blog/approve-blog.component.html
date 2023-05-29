@@ -16,14 +16,14 @@
 >
   <kendo-grid-column field="id" title="ID" [width]="80"> </kendo-grid-column>
 
-  <kendo-grid-column field="image" title="image" [width]="100">
+  <kendo-grid-column field="image" title="Image" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="title" title="title" [width]="200">
+  <kendo-grid-column field="title" title="Title" [width]="200">
   </kendo-grid-column>
-  <kendo-grid-column field="description" title="description">
+  <kendo-grid-column field="description" title="Description">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <p [innerHTML]="dataItem.description">{{ dataItem.description }}</p>
     </ng-template>
@@ -50,7 +50,7 @@
         [themeColor]="'error'"
         style="width: 85%"
       >
-        Decline
+        Reject
       </button>
     </ng-template>
   </kendo-grid-column>

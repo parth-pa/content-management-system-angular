@@ -6,6 +6,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { MatDialog } from '@angular/material/dialog';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
+import { KendoInput } from '@progress/kendo-angular-common';
 
 
 @Component({
@@ -44,7 +45,8 @@ constructor(private user:UserServicesService){
 
   submit(){
     this.user.insertfeedback(this.blogForm.value).subscribe((data)=>{
-
+      confirm('Your data is submitted')
     });
   }
+
 }
