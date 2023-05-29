@@ -33,6 +33,7 @@
       <kendo-editor
         formControlName="description"
         [(ngModel)]="updateData.description"
+        (change)="onchange2($event)"
         #description
         required
       >
@@ -67,8 +68,8 @@
       >
         <option
           [(ngModel)]="updateData.prefId"
-          value="{{ i.id }}"
           *ngFor="let i of topic"
+          [value]="i.id"
         >
           {{ i.name }}
         </option>

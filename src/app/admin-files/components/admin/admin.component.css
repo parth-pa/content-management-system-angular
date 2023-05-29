@@ -203,7 +203,7 @@ left: 10px; */
   margin-block: -2%;
 }
 
-.icon4{
+.icon4 {
   border-radius: 10px;
   height: 15px;
   width: 135%;
@@ -264,7 +264,7 @@ left: 10px; */
 .sub-menu {
   /* padding: 6px 6px 14px 80px; */
   padding-left: 33%;
-  background-color: #0049d1;
+  /* background-color: #0049d1; */
 }
 
 .sub-menu a:hover {
