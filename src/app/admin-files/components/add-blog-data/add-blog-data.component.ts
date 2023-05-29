@@ -50,7 +50,6 @@ export class AddBlogDataComponent implements OnInit {
     this.img = this.updateData.image;
     this.preferance_id = this.datashare.preference;
     this.getSubPreference(this.preferance_id);
-
   }
 
   blogdata: Array<dataList> = [];
@@ -64,7 +63,7 @@ export class AddBlogDataComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
     image: new FormControl(),
     prefId: new FormControl(),
-    subPreferenceId: new FormControl('', [Validators.required]),
+    subPreferenceId: new FormControl([Validators.required]),
   });
 
   onclick() {
@@ -103,7 +102,6 @@ export class AddBlogDataComponent implements OnInit {
 
   sendCmsData() {
     this.editmode = false;
-    console.warn('Hello');
   }
 
   updateCmsData() {
@@ -131,7 +129,7 @@ export class AddBlogDataComponent implements OnInit {
     const target = $event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
 
-    console.log(file);
+    // console.log(file);
 
     this.converBase64(file);
   };
@@ -142,9 +140,9 @@ export class AddBlogDataComponent implements OnInit {
     });
 
     observable.subscribe((d) => {
-      console.log(d);
+      // console.log(d);
       this.img = d;
-      console.log(this.img);
+      // console.log(this.img);
       // this.showimage =this.showimage2(d)
     });
   }
@@ -178,4 +176,8 @@ export class AddBlogDataComponent implements OnInit {
   //      })
 
   // }
+
+  onchange2(event: any) {
+    console.warn(event);
+  }
 }
