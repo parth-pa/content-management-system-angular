@@ -21,8 +21,8 @@ export class BlogComponent implements OnInit {
   DataList: dataList[] = [];
   preferance: any[] = [];
 
-  isdropdownvisible?:boolean;
-  torf:boolean = false
+  isdropdownvisible?: boolean;
+  torf: boolean = false;
 
   // addOpenDialog(value?: any) {
   //   this.dialogRef.open(AddBlogDataComponent);
@@ -32,12 +32,11 @@ export class BlogComponent implements OnInit {
     private obj: ServicesService,
     private dialogRef: MatDialog,
     public datashare: DataShareService,
-    private user:UserServicesService
+    private user: UserServicesService
   ) {
     this.clickEventSubscription = this.datashare
       .getclickEvent()
       .subscribe(() => {
-
         this.ngOnInit();
         // this.getCmsDatas(this.preferance_id);
       });
@@ -47,7 +46,6 @@ export class BlogComponent implements OnInit {
     this.preferance_id = this.datashare.preference;
     this.preferenceName = this.datashare.preferenceName;
     this.getCmsDatas(this.preferance_id);
-
 
     // this.user.isdropdownvisible=this.torf;
     // this.isdropdownvisible=this.user.isdropdownvisible ;
