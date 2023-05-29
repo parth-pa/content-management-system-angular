@@ -133,8 +133,8 @@
         (click)="feedback()"
       >
         <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
-        <i class="fa-sharp fa-solid fa-message icon3"></i>
-        <span class="sidenav-label">FeedBack</span>
+        <i class="fa-sharp fa-solid fa-message icon3" (click)="deleteclick()"></i>
+        <span class="sidenav-label" (click)="deleteclick()">FeedBack</span>
       </div>
     </div>
   </div>
