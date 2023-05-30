@@ -78,19 +78,19 @@ export class AddBlogDataComponent implements OnInit {
     this.add.prefId = this.preferance_id;
     this.add.subPreferenceId = this.blogForm.value.subPreferenceId;
 
-    console.warn(this.blogForm);
+    // console.warn(this.blogForm);
 
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         this.getSubPreference(this.preferance_id);
-        console.warn(this.add);
+        // console.warn(this.add);
         this.refreshClick();
         this.clearForm();
       });
     }
 
     if (this.editmode == false) {
-      console.warn(this.add);
+      // console.warn(this.add);
       this.obj.postCmsData(this.add).subscribe(() => {
         this.refreshClick();
         this.clearForm();
@@ -108,7 +108,7 @@ export class AddBlogDataComponent implements OnInit {
 
   updateCmsData() {
     this.editmode = true;
-    console.warn(this.updateData.image);
+    // console.warn(this.updateData.image);
     this.datashare.buttonpress = false;
   }
 
@@ -188,6 +188,6 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   onchange2(event: any) {
-    console.warn(event);
+    // console.warn(event);
   }
 }

@@ -69,7 +69,7 @@ export class BlogComponent implements OnInit {
   }
 
   deletedata(value: any) {
-    console.warn(value);
+    // console.warn(value);
     this.obj
       .deleteCmsData(this.preferance_id, value.dataItem.id)
       .subscribe((data) => {
@@ -84,7 +84,7 @@ export class BlogComponent implements OnInit {
 
   editHandler(event: any) {
     this.datashare.buttonpress = true;
-    console.log(this.datashare.buttonpress);
+    // console.log(this.datashare.buttonpress);
     this.openDialog(event.dataItem);
   }
 

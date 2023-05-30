@@ -71,7 +71,7 @@ export class KeyclockRegisterComponent {
         (error) => {
           this.isError = true;
           this.errorText = error.error.message;
-          console.warn(this.errorText);
+          // console.warn(this.errorText);
         }
       );
     } else {
@@ -81,7 +81,7 @@ export class KeyclockRegisterComponent {
 
   changeDepartment(e: any) {
     this.selectedDepartment = e.target.value;
-    console.log(this.selectedDepartment);
+    // console.log(this.selectedDepartment);
   }
 
   getPreference() {

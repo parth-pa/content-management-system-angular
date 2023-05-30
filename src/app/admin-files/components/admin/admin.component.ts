@@ -62,7 +62,7 @@ export class AdminComponent implements OnInit {
     this.getSubPref();
     this.getresponce();
 
-    console.log(this.isdropdownvisible);
+    // console.log(this.isdropdownvisible);
 
     // this.isdropdownvisible = this.userapiservices.isdropdownvisible;
 
@@ -151,7 +151,7 @@ export class AdminComponent implements OnInit {
       .getperticulardetailsinsidedatauser(pref, subpref)
       .subscribe((respones) => {
         this.getdeatils = respones;
-        console.log(respones);
+        // console.log(respones);
 
         this.senddata.emit(this.getdeatils);
       });

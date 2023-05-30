@@ -47,7 +47,7 @@ export class RestoreBlogComponent {
   }
 
   restoreHandler(event: any) {
-    console.warn(event);
+    // console.warn(event);
     this.obj
       .restoreblog(event.dataItem.prefId, event.dataItem.id)
       .subscribe((data) => {
@@ -63,7 +63,7 @@ export class RestoreBlogComponent {
     this.add.subPreferenceId = event.dataItem.prefId;
     this.add.prefId = event.dataItem.subPreferenceId;
 
-    console.warn(this.add);
+    // console.warn(this.add);
     this.obj.updateCmsData(this.add).subscribe(() => {
       this.deletedBlog(this.datashare.deleted_data);
     });

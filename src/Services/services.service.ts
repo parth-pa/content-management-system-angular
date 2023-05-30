@@ -39,7 +39,7 @@ export class ServicesService {
   }
   // https://localhost:7082/api/User?id=1&id1=12
   updateCmsData(data: any) {
-    console.warn(data);
+    // console.warn(data);
     return this.obj.put('https://localhost:7082/api/Admin', data);
   }
 
@@ -71,8 +71,8 @@ export class ServicesService {
   }
 
   approvedata(data1: any, data2: any) {
-    console.warn(data1);
-    console.warn(data2);
+    // console.warn(data1);
+    // console.warn(data2);
     return this.obj.put(
       'https://localhost:7082/api/Admin/approvedata?id=' +
         data1 +
