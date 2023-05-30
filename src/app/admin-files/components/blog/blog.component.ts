@@ -89,6 +89,8 @@ export class BlogComponent implements OnInit {
   }
 
   openDialog2(value?: any) {
-    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
+    this.dialogRef.open(AddBlogDataComponent, {
+      disableClose: true,
+    });
   }
 }

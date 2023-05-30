@@ -1,12 +1,12 @@
 /* ************** Admin header side nav  ******************** */
 
-.app-header {
+/* .app-header {
   position: fixed;
   width: 100%;
   top: 0%;
   height: 4rem;
   z-index: 2;
-}
+} */
 
 main {
   position: absolute;
@@ -164,6 +164,11 @@ left: 10px; */
   margin-block: 10%;
 }
 
+.sidenavdata:hover {
+  color: rgba(98, 156, 195, 0.785);
+  width: 100%;
+}
+
 .i {
   border-radius: 10px;
   height: 50px;
@@ -204,6 +209,11 @@ left: 10px; */
   margin-block: -2%;
 }
 
+.icon3:hover {
+  color: rgba(98, 156, 195, 0.785);
+  width: 100%;
+}
+
 .icon4 {
   border-radius: 10px;
   height: 15px;
@@ -224,6 +234,11 @@ left: 10px; */
   font-size: larger;
   display: flex;
   padding-left: 31%;
+}
+
+.sidenav-label:hover {
+  color: rgba(98, 156, 195, 0.785);
+  width: 100%;
 }
 
 .cont-2 {

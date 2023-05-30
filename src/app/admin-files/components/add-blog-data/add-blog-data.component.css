@@ -1,6 +1,6 @@
 .card {
   width: 800px;
-  height: 650px;
+  height: 680px;
   background-color: white;
   border-color: dodgerblue;
   border-width: 2px;
@@ -58,19 +58,17 @@ mat-toolbar {
 .updateBtn {
   display: flex;
   margin-left: 95%;
-  visibility: hidden;
+  display: none;
 }
 
 .submitBtn {
-  visibility: hidden;
+  display: none;
 }
 
 .close-btn {
   display: flex;
   margin-left: 95%;
   border-width: 3px;
-  /* width: 30px;
-  height: 30px; */
   border-radius: 3px;
   font-size: xx-large;
   color: black;
