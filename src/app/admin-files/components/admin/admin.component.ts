@@ -147,7 +147,7 @@ export class AdminComponent implements OnInit {
     console.log(pref);
 
     this.userapiservices
-      .getperticulardetailsinsidedata(pref, subpref)
+      .getperticulardetailsinsidedatauser(pref, subpref)
       .subscribe((respones) => {
         this.getdeatils = respones;
         console.log(respones);

@@ -67,6 +67,10 @@ export class UserServicesService {
    return this.http.get<Getdata[]>('https://localhost:7082/api/User/getinsindedatadetalils?id='+id+ '&id1='+id1);
  }
 
+ public getperticulardetailsinsidedatauser(id:any, id1?:any):Observable<Getdata[]>{
+   return this.http.get<Getdata[]>('https://localhost:7082/api/User/getinsindedatadetalilsuser?id='+id+ '&id1='+id1);
+ }
+
  public insertfeedback(data : any){
   return this.http.post<feed[]> ('https://localhost:7082/api/User/feed',data);
  }
@@ -80,8 +84,6 @@ export class UserServicesService {
 getclickEvent(): Observable<any> {
   return this.subject.asObservable();
 }
-
-
 
 }
 
