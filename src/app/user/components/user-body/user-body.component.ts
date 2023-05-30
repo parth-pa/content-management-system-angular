@@ -57,7 +57,7 @@ export class UserBodyComponent implements OnInit {
 
   GetData() {
     var pref = this.keyclockapiservice.getPrefence();
-    this.apiservices.getperticulardetailsinsidedata(pref).subscribe((res) => {
+    this.apiservices.getperticulardetailsinsidedatauser(pref).subscribe((res) => {
       this.getdetails = res;
       console.log(this.getdetails);
     });
@@ -87,7 +87,7 @@ export class UserBodyComponent implements OnInit {
     var pref = this.keyclockapiservice.getPrefence();
     var subPrefDeatils = this.apiservices.readsubuserPreferencefordetails();
     this.apiservices
-      .getperticulardetailsinsidedata(pref, subPrefDeatils)
+      .getperticulardetailsinsidedatauser(pref, subPrefDeatils)
       .subscribe((respones) => {
         this.getdetails = respones;
       });

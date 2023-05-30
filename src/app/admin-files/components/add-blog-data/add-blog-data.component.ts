@@ -42,6 +42,7 @@ export class AddBlogDataComponent implements OnInit {
   updateImg?: any;
   img?: any = '';
   buttonpress?: any;
+  Formmode?:any = 'Add Data';
 
   ngOnInit(): void {
     this.buttonpress = this.datashare.buttonpress;
@@ -50,6 +51,7 @@ export class AddBlogDataComponent implements OnInit {
     this.img = this.updateData.image;
     this.preferance_id = this.datashare.preference;
     this.getSubPreference(this.preferance_id);
+    this.formMode();
   }
 
   blogdata: Array<dataList> = [];
@@ -176,6 +178,18 @@ export class AddBlogDataComponent implements OnInit {
   //      })
 
   // }
+
+  formMode(){
+
+    if(this.buttonpress == true){
+      this.Formmode = 'Edit data';
+    }
+    else{
+      this.Formmode = 'Add data';
+    }
+
+
+  }
 
   onchange2(event: any) {
     console.warn(event);
