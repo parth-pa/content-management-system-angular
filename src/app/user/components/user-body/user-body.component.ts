@@ -19,7 +19,7 @@ export class UserBodyComponent implements OnInit {
   subPrefDeatils: subdata[] = [];
 
   sidenavtoggle: any;
-  isdropdownvisible:boolean = true;
+  // isdropdownvisible:boolean = true;
 
   // torf:boolean = true
 

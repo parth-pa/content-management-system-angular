@@ -56,8 +56,9 @@ export class AdminComponent implements OnInit {
     this.UserName = this.keycloakapiService.getName();
     this.sidenavToggle = this.datashare.sidenavToggle;
     this.preferance_id = this.datashare.preference;
-    this.isdropdownvisible = true;
+    this.isdropdownvisible = false;
     this.homeclick();
+
     this.getSubPref();
     this.getresponce();
 
@@ -143,8 +144,8 @@ export class AdminComponent implements OnInit {
   getresponce() {
     var pref = this.keycloakapiService.getPrefence();
     var subpref = this.userapiservices.readsubuserPreferencefordetails();
-    console.log(subpref);
-    console.log(pref);
+    // console.log(subpref);
+    // console.log(pref);
 
     this.userapiservices
       .getperticulardetailsinsidedatauser(pref, subpref)

@@ -21,7 +21,7 @@ export class BlogComponent implements OnInit {
   DataList: dataList[] = [];
   preferance: any[] = [];
 
-  isdropdownvisible?: boolean;
+
   torf: boolean = false;
 
   // addOpenDialog(value?: any) {
