@@ -100,7 +100,7 @@
         <!-- -- Approve -- -->
         <div class="dropdown" *ngIf="isLogin" (click)="deleteclick()">
           <i
-            class="fa-solid fa-thumbs-up icon4"
+            class="fa-solid fa-thumbs-up icon3"
             (click)="deleted_data(0)"
             routerLink="/admin/approveBlog"
           ></i>
@@ -135,7 +135,10 @@
         (click)="feedback()"
       >
         <!-- <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i> -->
-        <i class="fa-sharp fa-solid fa-message icon3" (click)="deleteclick()"></i>
+        <i
+          class="fa-sharp fa-solid fa-message icon3"
+          (click)="deleteclick()"
+        ></i>
         <span class="sidenav-label" (click)="deleteclick()">FeedBack</span>
       </div>
     </div>
