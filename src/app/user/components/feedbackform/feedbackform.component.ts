@@ -36,7 +36,7 @@ constructor(private user:UserServicesService){
   });
 
   onclick(){
-    console.log(this.blogForm.value);
+    // console.log(this.blogForm.value);
 
     // this.user.insertfeedback(this.blogForm.value).subscribe((data)=>{
 

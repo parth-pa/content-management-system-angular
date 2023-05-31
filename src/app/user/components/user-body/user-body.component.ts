@@ -59,7 +59,7 @@ export class UserBodyComponent implements OnInit {
     var pref = this.keyclockapiservice.getPrefence();
     this.apiservices.getperticulardetailsinsidedatauser(pref).subscribe((res) => {
       this.getdetails = res;
-      console.log(this.getdetails);
+      // console.log(this.getdetails);
     });
   }
 
