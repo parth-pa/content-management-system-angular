@@ -12,15 +12,15 @@
 </mat-toolbar>
 <br />
 <kendo-grid
-  [data]="DataList"
-  [kendoGridBinding]="DataList"
+  [data]="DataList.myTodos"
+  [kendoGridBinding]="DataList.myTodos"
   [sortable]="true"
   [groupable]="true"
   (remove)="removeHandler($event)"
   (edit)="editHandler($event)"
   style="color: black"
 >
-  <kendo-grid-column field="id" title="ID" [width]="80"> </kendo-grid-column>
+  <!-- <kendo-grid-column field="id" title="ID" [width]="80"> </kendo-grid-column>
 
   <kendo-grid-column field="approved" title="Status" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
@@ -36,7 +36,7 @@
         >
       </p>
     </ng-template>
-  </kendo-grid-column>
+  </kendo-grid-column> -->
 
   <!-- <span class="material-icons" style="color: rgb(243, 156, 18);">pending_actions</span> -->
   <!-- <span class="material-icons" style="color: rgb(0, 128, 55)">task_alt</span> -->

@@ -72,7 +72,7 @@ export class AdminComponent implements OnInit {
     // this.visibility = this.userapiservices.isVisible;
     // this.visibility = !this.visibility
   }
-  getdeatils: Getdata[] = [];
+  getdeatils: any;
   subPrefDeatils: subdata[] = [];
   DataList: dataList[] = [];
   PreList: preferenceList[] = [
@@ -152,6 +152,9 @@ export class AdminComponent implements OnInit {
       .subscribe((respones) => {
         this.getdeatils = respones;
         // console.log(respones);
+        console.log(this.getdeatils.myTodos);
+        console.log(this.getdeatils.isCached);
+
 
         this.senddata.emit(this.getdeatils);
       });

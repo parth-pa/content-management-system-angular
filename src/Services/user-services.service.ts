@@ -44,7 +44,7 @@ export class UserServicesService {
   return localStorage.getItem('detail')
  }
 
- baseURL : string = 'https://localhost:7135/Cms';
+ //baseURL : string = 'https://localhost:7135/Cms';
 
 //  public getdata(id:any):Observable <Getdata[]>{
 //    return this.http.get<Getdata[]>('https://localhost:7082/api/User/getid?id='+ id);
@@ -68,7 +68,7 @@ export class UserServicesService {
  }
 
  public getperticulardetailsinsidedatauser(id:any, id1?:any):Observable<Getdata[]>{
-   return this.http.get<Getdata[]>('https://localhost:7082/api/User/getinsindedatadetalilsuser?id='+id+ '&id1='+id1);
+   return this.http.get<Getdata[]>('https://localhost:7082/api/User/getinsindedatadetalils?id='+id+ '&id1='+id1);
  }
 
  public insertfeedback(data : any){

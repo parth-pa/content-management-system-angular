@@ -14,7 +14,7 @@ import { FeedbackformComponent } from '../feedbackform/feedbackform.component';
 })
 export class UserBodyComponent implements OnInit {
   clickEventSubscription: Subscription;
-  getdetails: Getdata[] = [];
+  getdetails: any;
   // prefrences: firstdata[] = [];
   subPrefDeatils: subdata[] = [];
 
@@ -28,7 +28,7 @@ export class UserBodyComponent implements OnInit {
 
     // console.warn(this.datashare.sidenavToggle);
     this.storesubpref();
-    this.getSubPref();
+    // this.getSubPref();
 
 
     // this.apiservices.isdropdownvisible=this.torf;
@@ -59,7 +59,10 @@ export class UserBodyComponent implements OnInit {
     var pref = this.keyclockapiservice.getPrefence();
     this.apiservices.getperticulardetailsinsidedatauser(pref).subscribe((res) => {
       this.getdetails = res;
-      // console.log(this.getdetails);
+      console.log(this.getdetails.isCached);
+      console.log(this.getdetails.myTodos);
+
+
     });
   }
 
@@ -80,18 +83,19 @@ export class UserBodyComponent implements OnInit {
     this.apiservices.savesubuserPreferencefordetails();
   }
 
-  onChangeSubPrefrence(e: any) {
-    this.selectedSubPrefrence = e.target.value;
-    this.apiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence);
+  // onChangeSubPrefrence(e: any) {
+  //   this.selectedSubPrefrence = e.target.value;
+  //   this.apiservices.savesubuserPreferencefordetails(this.selectedSubPrefrence);
 
-    var pref = this.keyclockapiservice.getPrefence();
-    var subPrefDeatils = this.apiservices.readsubuserPreferencefordetails();
-    this.apiservices
-      .getperticulardetailsinsidedatauser(pref, subPrefDeatils)
-      .subscribe((respones) => {
-        this.getdetails = respones;
-      });
-  }
+  //   var pref = this.keyclockapiservice.getPrefence();
+  //   var subPrefDeatils = this.apiservices.readsubuserPreferencefordetails();
+  //   this.apiservices
+  //     .getperticulardetailsinsidedatauser(pref, subPrefDeatils)
+  //     .subscribe((respones) => {
+  //       this.getdetails = respones;
+
+  //     });
+  // }
 
   // getsubData() {
   //   var pref=this.keyclockapiservice.getPrefence();
@@ -103,15 +107,17 @@ export class UserBodyComponent implements OnInit {
   //   });
   // }
 
-  getSubPref() {
-    var pref = this.keyclockapiservice.getPrefence();
-    this.apiservices.getSubdatadeatails(pref).subscribe((response) => {
-      this.subPrefDeatils = response;
-    });
-  }
+    // getSubPref() {
+    //   var pref = this.keyclockapiservice.getPrefence();
+    //   this.apiservices.getSubdatadeatails(pref).subscribe((response) => {
+    //     this.subPrefDeatils = response;
+    //   });
+    // }
 
   headerdata(event: any) {
     this.getdetails = event;
+    // console.log("Sent By Parent");
+    // console.log(this.getdetails.myTodos);
     // console.log(event);
 
     if (this.getdetails.length === 0) {

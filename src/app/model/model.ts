@@ -48,6 +48,20 @@ export class subdata {
   name?: string;
   pref_id?: number;
 }
+export class Root {
+  isCached?: boolean
+  myTodos?: MyTodo[]
+}
+
+export class MyTodo {
+  id?: number
+  title?: string
+  description?: string
+  image?: string
+  subPreferenceId?: number
+  approved?: boolean
+}
+
 
 export class feed {
   name?: any;

@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
   myimage?: any;
   clickEventSubscription: Subscription;
 
-  DataList: dataList[] = [];
+  DataList: any;
   preferance: any[] = [];
 
 
@@ -59,6 +59,10 @@ export class BlogComponent implements OnInit {
 
     this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
+
+      //console.log(this.DataList.myTodos);
+      console.log(data);
+
     });
   }
 

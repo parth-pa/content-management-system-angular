@@ -58,10 +58,10 @@
     </div>
     <div
       class="wrapper"
-      *ngFor="let i of getdetails"
+      *ngFor="let i of getdetails.myTodos"
       style="margin-bottom: 2%; margin-top: 1%"
     >
-      <div class="content-splitter" *ngIf="i.approved == true">
+      <div class="content-splitter">
         <div class="nav"></div>
         <div class="left">
           <div class="block">
@@ -73,7 +73,7 @@
           </div>
         </div>
       </div>
-      <div class="right" *ngIf="i.approved == true">
+      <div class="right">
         <img [src]="i.image" alt="" />
       </div>
     </div>

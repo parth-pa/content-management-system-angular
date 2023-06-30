@@ -20,11 +20,13 @@ export class ServicesService {
   getCmsData(data: any, data2 = 0) {
     // console.warn(data);
     return this.http.get<dataList[]>(
-      'https://localhost:7082/api/User/getinsindedatadetalils?id=' +
+      'https://localhost:7082/api/Admin/getinsindedatadetalilsFORADMIN?id=' +
         data +
         '&id1=' +
         data2
     );
+
+
   }
 
   postCmsData(data: any) {
