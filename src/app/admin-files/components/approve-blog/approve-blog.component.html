@@ -13,21 +13,29 @@
   (edit)="declineHandler($event)"
   style="color: black"
 >
+  <!-- -- Id -- -->
   <kendo-grid-column field="id" title="ID" [width]="80"> </kendo-grid-column>
 
+  <!-- -- Image -- -->
   <kendo-grid-column field="image" title="Image" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
+
+  <!-- -- title -- -->
+
   <kendo-grid-column field="title" title="Title" [width]="200">
   </kendo-grid-column>
+
+  <!-- -- Description -- -->
   <kendo-grid-column field="description" title="Description">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <p [innerHTML]="dataItem.description">{{ dataItem.description }}</p>
     </ng-template>
   </kendo-grid-column>
 
+  <!-- -- Approve -- -->
   <kendo-grid-column field="Approve" title="Approve" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem>
       <button
@@ -41,6 +49,7 @@
     </ng-template>
   </kendo-grid-column>
 
+  <!-- -- Reject -- -->
   <kendo-grid-column field="Reject" title="Reject" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem>
       <button
