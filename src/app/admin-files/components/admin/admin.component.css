@@ -166,7 +166,7 @@ left: 10px; */
 
 .sidenavdata:hover {
   color: rgba(98, 156, 195, 0.785);
-  width: 100%;
+  /* width: 100%; */
 }
 
 .i {
@@ -238,7 +238,7 @@ left: 10px; */
 
 .sidenav-label:hover {
   color: rgba(98, 156, 195, 0.785);
-  width: 100%;
+  /* width: 100%; */
 }
 
 .cont-2 {

@@ -2,26 +2,18 @@ import { Injectable, OnInit } from '@angular/core';
 import { dataList, dataList2 } from './model/model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class DataShareService implements OnInit{
+export class DataShareService implements OnInit {
+  blogData: any[] = [];
 
+  public preference: any;
 
-  blogData:any[] = [];
-
-   public preference :any
-
-
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.preference
-   console.warn(this.preference)
+    this.preference;
+    console.warn(this.preference);
+    console.warn('hello');
   }
-
-
-
-
-
 }

@@ -6,7 +6,7 @@ import { dataList, dataList2 } from 'src/app/model/model';
 @Injectable({ providedIn: 'root' })
 export class ServicesService {
   constructor(private obj: HttpClient, private http: HttpClient) {}
-  isdropdownvisible: boolean =false;
+  isdropdownvisible: boolean = false;
 
   baseURL: string = 'https://localhost:7106/api/Cms';
 
@@ -19,6 +19,7 @@ export class ServicesService {
 
   getCmsData(data: any, data2 = 0) {
     // console.warn(data);
+    console.warn('Hello');
     return this.http.get<dataList[]>(
       'https://localhost:7082/api/User/getinsindedatadetalils?id=' +
         data +

@@ -32,10 +32,9 @@
       <kendo-label text="Description"></kendo-label>
       <kendo-editor
         formControlName="description"
-        [(ngModel)]="updateData.description"
-        (change)="onchange2($event)"
         #description
         required
+        [ngModel]="updateData.description"
       >
       </kendo-editor>
       <kendo-formerror
@@ -53,7 +52,7 @@
         type="File"
         (change)="onchange($event)"
       />
-      <img class="imgshow" [src]="img" alt="img" />
+      <img class="imgshow" [src]="img" alt="" />
     </div>
 
     <!-- -- sub category  -- -->
@@ -70,6 +69,7 @@
       >
         <option
           [(ngModel)]="updateData.prefId"
+          [ngModelOptions]="{ standalone: true }"
           *ngFor="let i of topic"
           [value]="i.id"
         >

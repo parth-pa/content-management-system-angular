@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { KeyCloakApiService } from 'src/Services/key-cloak-api.service';
 import { preferenceList } from './model/model';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import * as signalR from '@microsoft/signalr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +13,48 @@ import { preferenceList } from './model/model';
 })
 export class AppComponent implements OnInit {
   title = 'CMS';
-
-  constructor(private _apiservice: KeyCloakApiService) {}
-  ngOnInit() {
-    this._apiservice.manageLogin()
+  private connection: HubConnection;
+  constructor(
+    private _apiservice: KeyCloakApiService,
+    private toastr: ToastrService
+  ) {
+    // -- SignalR --
+    this.connection = new HubConnectionBuilder()
+      .withUrl('https://localhost:7082/serverHub', {
+        skipNegotiation: true,
+        transport: signalR.HttpTransportType.WebSockets,
+      })
+      .build();
   }
 
-  PreList :preferenceList[] = [
+  async ngOnInit() {
+    this._apiservice.manageLogin();
 
-    {preferenceId:1 , preferenceName:'Sports' },
-    {preferenceId:2 , preferenceName:'Politics' },
-    {preferenceId:3 , preferenceName:'Technologies' }
+    // -- signalR --
+    this.connection.on('ReceiveMessage', (message) => {
+      console.warn(message);
+      this.toastr.success(message);
+    });
+
+    try {
+      await this.connection.start().then(() => {
+        console.log('Connected to SignalR server ');
+      });
+    } catch (error) {
+      console.warn('fail to connect signalR hub', error);
+    }
+
+    await this.connection.invoke('SendMessage');
+  }
+
+  // -- End of ngOninit --
+
+  PreList: preferenceList[] = [
+    { preferenceId: 1, preferenceName: 'Sports' },
+    { preferenceId: 2, preferenceName: 'Politics' },
+    { preferenceId: 3, preferenceName: 'Technologies' },
     // {preferenceId:1 , preferenceName:'Sports' },
     // {preferenceId:2 , preferenceName:'Sports' },
     // {preferenceId:3 , preferenceName:'Sports' }
-
-
   ];
-
 }

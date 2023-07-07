@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { UploadsModule } from '@progress/kendo-angular-upload';
@@ -90,6 +91,12 @@ import { FeedbackblogComponent } from './admin-files/components/feedbackblog/fee
     UploadsModule,
     DateInputsModule,
     LabelModule,
+    ToastrModule.forRoot({
+      enableHtml: true,
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+    }),
   ],
   providers: [
     {

@@ -21,7 +21,6 @@ export class BlogComponent implements OnInit {
   DataList: dataList[] = [];
   preferance: any[] = [];
 
-
   torf: boolean = false;
 
   // addOpenDialog(value?: any) {
@@ -77,15 +76,15 @@ export class BlogComponent implements OnInit {
       });
   }
 
-  openDialog(value?: any) {
-    this.datashare.blogData = value;
-    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
-  }
-
   editHandler(event: any) {
     this.datashare.buttonpress = true;
     // console.log(this.datashare.buttonpress);
     this.openDialog(event.dataItem);
+  }
+
+  openDialog(value?: any) {
+    this.datashare.blogData = value;
+    this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
   }
 
   openDialog2(value?: any) {
