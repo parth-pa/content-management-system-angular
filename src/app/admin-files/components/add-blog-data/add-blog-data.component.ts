@@ -24,7 +24,20 @@ export class AddBlogDataComponent implements OnInit {
     private user: UserServicesService
   ) {}
 
+  // -- Variables declared -- //
   updateData?: any;
+  preferance_id?: any;
+  editmode: boolean = false;
+  updateImg?: any;
+  img?: any = '';
+  buttonpress?: any;
+  Formmode?: any = 'Add Data';
+
+  // -- Arrays and List -- //
+
+  blogdata: Array<dataList> = [];
+  add: dataList = new dataList(); // temprarly add form data and send to api link
+  topic: topicList[] = []; // temp to add topic list
   addBlog: dataList[] = [];
   resetform: dataList[] = [
     {
@@ -37,29 +50,18 @@ export class AddBlogDataComponent implements OnInit {
       approved: false,
     },
   ];
-  preferance_id?: any;
-  editmode: boolean = false;
-  updateImg?: any;
-  img?: any = '';
-  buttonpress?: any;
-  Formmode?: any = 'Add Data';
 
   ngOnInit(): void {
     this.buttonpress = this.datashare.buttonpress;
-    this.blogdata = this.datashare.blogData;
-    this.updateData = this.blogdata;
-    this.img = this.updateData.image;
-    this.preferance_id = this.datashare.preference;
-    this.getSubPreference(this.datashare.preference);
-    this.formMode();
+    this.blogdata = this.datashare.blogData; // get data from other componet to fill in form to update
+    this.updateData = this.blogdata; // assigning data to varibale or array
+    this.img = this.updateData.image; //  to get image differently to overide if user insert diffrent img
+    this.preferance_id = this.datashare.preference; // get preference id from admin comp to auto fill in form
+    this.getSubPreference(this.datashare.preference); // same getting subprefernce
+    this.formMode(); // it will show form should show edit or insert button and many more like heading
   }
 
-  blogdata: Array<dataList> = [];
-
-  add: dataList = new dataList();
-  topic: topicList[] = [];
-  // { id: 1, name: 'ankur', pref_id: 1 }
-
+  // -- Form configure for two way binding -- //
   blogForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
@@ -68,18 +70,17 @@ export class AddBlogDataComponent implements OnInit {
     subPreferenceId: new FormControl('', [Validators.required]),
   });
 
-  onclick() {
-    // this.preferance_id = this.datashare.preference;
+  // -- It will add data in add(array) from form  -- //
 
-    this.add.id = this.updateData.id;
-    this.add.title = this.blogForm.value.title;
+  onclick() {
+    this.add.id = this.updateData.id; // no need when inserting used when there is update request
+    this.add.title = this.blogForm.value.title; // adding from form (ngmodel is used)
     this.add.description = this.blogForm.value.description;
-    this.add.image = this.img;
-    this.add.prefId = this.preferance_id;
+    this.add.image = this.img; // add after converting into base64
+    this.add.prefId = this.preferance_id; // comming from admin comp
     this.add.subPreferenceId = this.blogForm.value.subPreferenceId;
 
-    // console.warn(this.blogForm);
-
+    // -- Update  -- //
     if (this.editmode == true) {
       this.obj.updateCmsData(this.add).subscribe((res) => {
         this.getSubPreference(this.preferance_id);
@@ -89,6 +90,7 @@ export class AddBlogDataComponent implements OnInit {
       });
     }
 
+    // -- Insert -- //
     if (this.editmode == false) {
       // console.warn(this.add);
       this.obj.postCmsData(this.add).subscribe(() => {
@@ -98,19 +100,21 @@ export class AddBlogDataComponent implements OnInit {
     }
   }
 
+  sendCmsData() {
+    this.editmode = false; // Only change mode for insert and update
+  }
+
+  updateCmsData() {
+    this.editmode = true; // Only change mode for insert and update
+    this.datashare.buttonpress = false;
+  }
+
+  // -- used to refresh page -- //
   refreshClick() {
     this.datashare.sendClickEvent();
   }
 
-  sendCmsData() {
-    this.editmode = false;
-  }
-
-  updateCmsData() {
-    this.editmode = true;
-    // console.warn(this.updateData.image);
-    this.datashare.buttonpress = false;
-  }
+  // -- used for dropdown list subpreferance -- //
 
   getSubPreference(value: any) {
     this.user.getSubdatadeatails(value).subscribe((data) => {
@@ -119,7 +123,6 @@ export class AddBlogDataComponent implements OnInit {
   }
 
   clearForm() {
-    // this.blogForm.reset();
     this.refreshClick();
     this.datashare.blogData = this.resetform;
     this.datashare.buttonpress = false;
@@ -166,19 +169,7 @@ export class AddBlogDataComponent implements OnInit {
     };
   }
 
-  // showimage2(base64:any){
-  //      fetch(base64)
-  //      .then(res => {
-
-  //        return res.blob();
-  //      })
-  //      .then(blob =>{
-
-  //        console.log(blob)
-  //      })
-
-  // }
-
+  // -- used to show update or insert mode  -- //
   formMode() {
     if (this.buttonpress == true) {
       this.Formmode = 'Edit data';

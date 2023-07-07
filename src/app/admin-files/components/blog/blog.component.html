@@ -11,6 +11,9 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <br />
+
+<!-- Main page -->
+
 <kendo-grid
   [data]="DataList"
   [kendoGridBinding]="DataList"
@@ -20,8 +23,10 @@
   (edit)="editHandler($event)"
   style="color: black"
 >
+  <!-- Blog Id  -->
   <kendo-grid-column field="id" title="ID" [width]="80"> </kendo-grid-column>
 
+  <!-- Aprrove or not  -->
   <kendo-grid-column field="approved" title="Status" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <p *ngIf="dataItem.approved === true" style="font-size: smaller">
@@ -38,28 +43,25 @@
     </ng-template>
   </kendo-grid-column>
 
-  <!-- <span class="material-icons" style="color: rgb(243, 156, 18);">pending_actions</span> -->
-  <!-- <span class="material-icons" style="color: rgb(0, 128, 55)">task_alt</span> -->
-
+  <!-- Image  -->
   <kendo-grid-column field="image" title="Image" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <img [src]="dataItem.image" alt="img" />
     </ng-template>
   </kendo-grid-column>
 
+  <!-- Title -->
   <kendo-grid-column class="cloumn" field="title" title="Title" [width]="200">
   </kendo-grid-column>
 
+  <!-- Description -->
   <kendo-grid-column field="description" title="Description">
     <ng-template kendoGridCellTemplate let-dataItem="dataItem">
       <p [innerHTML]="dataItem.description">{{ dataItem.description }}</p>
     </ng-template>
   </kendo-grid-column>
 
-  <!-- <kendo-grid-column field="description" title="description">
-  </kendo-grid-column> -->
-
-  <!-- [innerHTML]="i.description" -->
+  <!-- Delete button -->
 
   <kendo-grid-column field="delete" title="Delete" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem>
@@ -74,6 +76,7 @@
     </ng-template>
   </kendo-grid-column>
 
+  <!-- Update Button -->
   <kendo-grid-column field="Update" title="Update" [width]="130">
     <ng-template kendoGridCellTemplate let-dataItem>
       <button

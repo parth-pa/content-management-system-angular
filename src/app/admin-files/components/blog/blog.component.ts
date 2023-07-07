@@ -33,11 +33,11 @@ export class BlogComponent implements OnInit {
     public datashare: DataShareService,
     private user: UserServicesService
   ) {
+    // it will refresh page
     this.clickEventSubscription = this.datashare
       .getclickEvent()
       .subscribe(() => {
         this.ngOnInit();
-        // this.getCmsDatas(this.preferance_id);
       });
   }
 
@@ -45,30 +45,24 @@ export class BlogComponent implements OnInit {
     this.preferance_id = this.datashare.preference;
     this.preferenceName = this.datashare.preferenceName;
     this.getCmsDatas(this.preferance_id);
-
-    // this.user.isdropdownvisible=this.torf;
-    // this.isdropdownvisible=this.user.isdropdownvisible ;
-    // this.preferance = this.datashare._preference;
-    // console.warn(this.preferance);
   }
 
+  // -- Get data from backend  --
   getCmsDatas(value: any) {
-    // value1= this.user.readsubuserPreferencefordetails()
-    // console.log(value1);
-
     this.obj.getCmsData(value).subscribe((data) => {
       this.DataList = data;
     });
   }
 
+  // -- Delete  --
   removeHandler(event: any) {
     if (confirm('Are you sure want to delete ')) {
       this.deletedata(event);
     }
   }
 
+  // -- Delete  --
   deletedata(value: any) {
-    // console.warn(value);
     this.obj
       .deleteCmsData(this.preferance_id, value.dataItem.id)
       .subscribe((data) => {
@@ -76,17 +70,19 @@ export class BlogComponent implements OnInit {
       });
   }
 
+  // -- Display Form for edit  --
   editHandler(event: any) {
     this.datashare.buttonpress = true;
-    // console.log(this.datashare.buttonpress);
     this.openDialog(event.dataItem);
   }
 
+  // -- Display Form  --
   openDialog(value?: any) {
     this.datashare.blogData = value;
     this.dialogRef.open(AddBlogDataComponent, { disableClose: true });
   }
 
+  // -- Display Form  --
   openDialog2(value?: any) {
     this.dialogRef.open(AddBlogDataComponent, {
       disableClose: true,

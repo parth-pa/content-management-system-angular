@@ -39,8 +39,6 @@ export class ApproveBlogComponent implements OnInit {
     });
   }
   approveHandler(event: any) {
-    console.warn(event);
-    console.warn(event.dataItem.prefId);
     this.obj
       .approvedata(event.dataItem.prefId, event.dataItem.id)
       .subscribe((data) => {

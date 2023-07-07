@@ -101,7 +101,7 @@
         <div class="dropdown" *ngIf="isLogin" (click)="deleteclick()">
           <i
             class="fa-solid fa-thumbs-up icon3"
-            style="font-size: 22px;"
+            style="font-size: 22px"
             (click)="deleted_data(0)"
             routerLink="/admin/approveBlog"
           ></i>
@@ -152,19 +152,3 @@
     <router-outlet></router-outlet>
   </div>
 </main>
-
-<!-- <div routerLink="/admin/deletedblog" *ngIf="isLogin">
-          <i class="fa-solid fa-trash icon2"></i>
-          <span style="color: white; margin-left: 9%; font-size: larger"
-            >Deleted Data</span
-          >
-        </div> -->
-
-<!-- <div routerLink="/admin/approveBlog" *ngIf="isLogin">
-  <i class="fa-solid fa-thumbs-up icon2" style="font-size: x-large"></i>
-  <span
-    style="color: white; margin-left: 5%; font-size: larger; margin-top: 2%"
-  >
-    Approve Data</span
-  >
-</div> -->

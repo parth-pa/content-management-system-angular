@@ -61,17 +61,8 @@ export class AdminComponent implements OnInit {
 
     this.getSubPref();
     this.getresponce();
-
-    // console.log(this.isdropdownvisible);
-
-    // this.isdropdownvisible = this.userapiservices.isdropdownvisible;
-
-    // this.getresponseforadmin();
-    // this.onclick();
-
-    // this.visibility = this.userapiservices.isVisible;
-    // this.visibility = !this.visibility
   }
+
   getdeatils: Getdata[] = [];
   subPrefDeatils: subdata[] = [];
   DataList: dataList[] = [];
@@ -99,8 +90,6 @@ export class AdminComponent implements OnInit {
   preferenceChange(preferenceId: any, preferenceName: any) {
     this.datashare.preference = preferenceId;
     this.datashare.preferenceName = preferenceName;
-
-    // console.warn(preferenceId)
     this.homeclick();
     this.submenu_approve = true;
     this.submenu = true;
@@ -206,4 +195,3 @@ export class AdminComponent implements OnInit {
     this.submenu = true;
   }
 }
-
