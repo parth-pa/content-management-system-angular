@@ -93,7 +93,7 @@ import { FeedbackblogComponent } from './admin-files/components/feedbackblog/fee
     LabelModule,
     ToastrModule.forRoot({
       enableHtml: true,
-      timeOut: 5000,
+      timeOut: 2000,
       positionClass: 'toast-top-right',
       preventDuplicates: false,
     }),
